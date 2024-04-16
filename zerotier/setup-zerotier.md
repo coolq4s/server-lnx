@@ -7,16 +7,49 @@ Route between ZeroTier Network and Physical Networks Armbian Server in any SBC l
 ```
 apt install net-tools
 ```
+- Have a ZeroTier account
+- Create a network node in ZeroTier dashboard in `Networks` menu.
 
 ### How to install :
-1. Enable IP Forwarding
-   - Edit file in directory `/etc/sysctl.conf` with nano or vim and find or add line `net.ipv4.ip_forward=1`
+
+1. Install the ZeroTier first.
+   Type :
+   ```
+   apt install zerotier-one
+   ```
+   or
+   ```
+   curl -s https://install.zerotier.com | sudo bash
+   ```
+2. Be sure ZeroTier has installed and running
+   Type :
+   ```
+   zerotier-cli status
+   ```
+   the output will be like this
+   > 200 info *2xxxxxx7* 1.10.X ONLINE
+   *2xxxxxx7* is a user-id
+3. Find and copy 'network-id' in ZeroTier dashboard
+   Example `network-id` : `88****************5`
+4. Join network node
+   Type :
+   ```
+   zerotier-cli join `network-id`
+   ```
+   Be sure you has join a network node, to checking join status you can type :
+   ```
+   zerotier-cli listnetworks
+   ```
+   you can see a `network-id`, `status`, `user-id`, etc
+
+5. Enable IP Forwarding
+   - Edit file in directory `/etc/sysctl.conf` with `nano` or `vim` and find or add line `net.ipv4.ip_forward=1`
    - For simple use, you can use this command :
      ```
      sysctl -w net.ipv4.ip_forward=1
      ```
 
-2. Configure `iptables`
+6. Configure `iptables`
    - Find ZeroTier interface name with command.
      ```
      ifconfig
@@ -32,7 +65,8 @@ apt install net-tools
      ```
      _press enter_
      
-   - Add rules to iptables.
+     > eth0 is internet source, if using wlan you can change `PHY_IFACE` value to your wlan interface, ex. `PHY_IFACE=wlan0`, you can find your internet source by typing command `ifconfig` and you can see all interface in your machine. For simple, find the what interface using netmask and remember that interface name.
+   - Add rules to `iptables`.
      Type this command :
      ```
      iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
@@ -46,12 +80,12 @@ apt install net-tools
      iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
      ```
 
-    - Save iptables rules for next boot
-      Type this command :
-      ```
-      apt install iptables-persistent
-      ```
-      _and_
-      ```
-      bash -c iptables-save > /etc/iptables/rules.v4
-      ```
+   - Save iptables rules for next boot
+     Type this command :
+     ```
+     apt install iptables-persistent
+     ```
+     _and_
+     ```
+     bash -c iptables-save > /etc/iptables/rules.v4
+     ```

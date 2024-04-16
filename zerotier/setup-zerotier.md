@@ -40,7 +40,7 @@ apt install net-tools
    ```
    you can see a `network-id`, `status`, `user-id`, etc
 
-- Enable IP Forwarding
+5. Enable IP Forwarding
    1. Edit file in directory `/etc/sysctl.conf` with `nano` or `vim` and find or add line `net.ipv4.ip_forward=1`
    - For simple use, you can use this command.
      ```

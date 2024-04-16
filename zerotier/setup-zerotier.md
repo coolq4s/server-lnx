@@ -10,24 +10,29 @@ apt install net-tools
 
 ### How to install :
 1. Enable IP Forwarding
-   - Edit file in directory `/etc/sysctl.conf` with nano or vim and find or add line `net.ipv4.ip_forward=1`.
-   - For simple use, you can use this command
+   - Edit file in directory `/etc/sysctl.conf` with nano or vim and find or add line `net.ipv4.ip_forward=1`
+   - For simple use, you can use this command :
      ```
      sysctl -w net.ipv4.ip_forward=1
      ```
 
 2. Configure `iptables`
-   - Find ZeroTier interface name with command
+   - Find ZeroTier interface name with command.
      ```
      ifconfig
+     ```
+     You can find name `ztxxxxxxxxxxxxxx`, initial interface is `zt`, its ZeroTier interface
    - Modify physical network interface name, ZeroTier interface name. Type this command to linux cli
      ```
      PHY_IFACE=eth0
-     ```press enter`
+     ```
+     _Press enter_
+     ```
      ZT_IFACE=zt44xaj2sx
      ```
-
-     b. [Add rules to iptables]
+     _Press enter_
+     
+   - Add rules to iptables
 
          iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 

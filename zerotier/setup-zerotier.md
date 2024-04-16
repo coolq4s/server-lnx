@@ -28,7 +28,7 @@ apt install net-tools
    > 200 info *2xxxxxx7* 1.10.X ONLINE
 
    *2xxxxxx7* is a user-id
-3. Find and copy `network-id` in ZeroTier dashboard
+3. Find and copy `network-id` in [ZeroTier dashboard](https://my.zerotier.com/)
    Example `network-id` : `88****************5`
 4. Join network node.
    ```

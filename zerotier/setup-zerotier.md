@@ -8,7 +8,7 @@ Route between ZeroTier Network and Physical Networks Armbian Server in any SBC l
 apt install net-tools
 ```
 - Have a ZeroTier account
-- Create a network node in ZeroTier dashboard in `Networks` menu.
+- Create a network node in [ZeroTier dashboard](https://my.zerotier.com/) in `Networks` menu.
 
 ### How to install :
 

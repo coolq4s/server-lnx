@@ -8,3 +8,4 @@
    ```
    sudo service apache2 status
    ```
+   > status must be Active (running)

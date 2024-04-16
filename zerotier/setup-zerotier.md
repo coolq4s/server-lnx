@@ -13,7 +13,6 @@ apt install net-tools
 ### How to install :
 
 1. Install the ZeroTier first.
-   Type :
    ```
    apt install zerotier-one
    ```
@@ -21,8 +20,7 @@ apt install net-tools
    ```
    curl -s https://install.zerotier.com | sudo bash
    ```
-2. Be sure ZeroTier has installed and running
-   Type :
+2. Be sure ZeroTier has installed and running.
    ```
    zerotier-cli status
    ```
@@ -31,12 +29,11 @@ apt install net-tools
    *2xxxxxx7* is a user-id
 3. Find and copy 'network-id' in ZeroTier dashboard
    Example `network-id` : `88****************5`
-4. Join network node
-   Type :
+4. Join network node.
    ```
    zerotier-cli join `network-id`
    ```
-   Be sure you has join a network node, to checking join status you can type :
+   Be sure you has join a network node, to checking join status.
    ```
    zerotier-cli listnetworks
    ```
@@ -44,7 +41,7 @@ apt install net-tools
 
 5. Enable IP Forwarding
    - Edit file in directory `/etc/sysctl.conf` with `nano` or `vim` and find or add line `net.ipv4.ip_forward=1`
-   - For simple use, you can use this command :
+   - For simple use, you can use this command.
      ```
      sysctl -w net.ipv4.ip_forward=1
      ```
@@ -67,7 +64,6 @@ apt install net-tools
      
      > eth0 is internet source, if using wlan you can change `PHY_IFACE` value to your wlan interface, ex. `PHY_IFACE=wlan0`, you can find your internet source by typing command `ifconfig` and you can see all interface in your machine. For simple, find the what interface using netmask and remember that interface name.
    - Add rules to `iptables`.
-     Type this command :
      ```
      iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
      ```
@@ -81,7 +77,6 @@ apt install net-tools
      ```
 
    - Save iptables rules for next boot
-     Type this command :
      ```
      apt install iptables-persistent
      ```

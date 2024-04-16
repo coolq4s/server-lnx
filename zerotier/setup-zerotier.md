@@ -63,7 +63,7 @@ apt install net-tools
      ```
      _press enter_
      
-     > eth0 is internet source, if using wlan you can change `PHY_IFACE` value to your wlan interface, ex. `PHY_IFACE=wlan0`, you can find your internet source by typing command `ifconfig` and you can see all interface in your machine. For simple, find the what interface using netmask and remember that interface name.
+     > `eth0` is internet source, if using wlan you can change `PHY_IFACE` value to your wlan interface, ex. `PHY_IFACE=wlan0`, you can find your internet source by typing command `ifconfig` and you can see all interface in your machine. For simple, find the what interface using netmask and remember that interface name.
    - Add rules to `iptables`.
      ```
      iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE

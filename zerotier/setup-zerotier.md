@@ -7,7 +7,7 @@ Route between ZeroTier Network and Physical Networks Armbian Server in any SBC l
 2. Configure `iptables`
    - Modify physical network interface name, ZeroTier interface name. Type this command to linux cli
      ```
-     PHY_IFACE=eth0 [press enter]
+     PHY_IFACE=eth0 [_press enter_]
      ZT_IFACE=zt44xaj2sx
      ```
 

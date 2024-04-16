@@ -10,4 +10,6 @@
    ```
    > status must be Active (running) in green text
 3. Copy your `index.html` to `/var/www/html/`
-   `mv your/directory/index.html /var/www/html/`
+   ```
+   mv your/directory/index.html /var/www/html/
+   ```

@@ -85,3 +85,6 @@ apt install net-tools
      ```
      bash -c iptables-save > /etc/iptables/rules.v4
      ```
+7. Done.
+   
+   You can test the network by reboot a machine if needed

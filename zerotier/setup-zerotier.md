@@ -3,12 +3,11 @@ Route between ZeroTier Network and Physical Networks Armbian Server in any SBC l
 1. Enable IP Forwarding
    - Edit file in directory `/etc/sysctl.conf` and find or add line `net.ipv4.ip_forward=1`.
    - For simple use, you can use this command `sysctl -w net.ipv4.ip_forward=1`
-2. Configure iptables
 
-     a. [Modify physical network interface name, ZeroTier interface name.]
-
-         PHY_IFACE=eth0
-         ZT_IFACE=zt44xaj2sx
+2. Configure `iptables`
+   - Modify physical network interface name, ZeroTier interface name. Type this command to linux cli
+     `PHY_IFACE=eth0`
+     `ZT_IFACE=zt44xaj2sx`
 
      b. [Add rules to iptables]
 

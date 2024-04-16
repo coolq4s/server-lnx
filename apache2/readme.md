@@ -15,7 +15,9 @@
    ```
 
 Apache2 command
-```sudo service apache2 reload```
-```sudo service apache2 status```
-```sudo service apache2 start```
-```sudo service apache2 stop```
+```
+sudo service apache2 reload
+sudo service apache2 status
+sudo service apache2 start
+sudo service apache2 stop
+```

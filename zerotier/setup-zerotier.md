@@ -26,21 +26,32 @@ apt install net-tools
      ```
      PHY_IFACE=eth0
      ```
-     _Press enter_
+     _press enter_
      ```
      ZT_IFACE=zt44xaj2sx
      ```
-     _Press enter_
+     _press enter_
      
-   - Add rules to iptables
+   - Add rules to iptables.
+     Type this command :
+     ```
+     iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
+     ```
+     _and_
+     ```
+     iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
+     ```
+     _and_
+     ```
+     iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
+     ```
 
-         iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
-
-         iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
-
-         iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
-
-      c. [Save iptables rules for next boot]
-
-          apt install iptables-persistent
-          bash -c iptables-save > /etc/iptables/rules.v4
+    - Save iptables rules for next boot
+      Type this command :
+      ```
+      apt install iptables-persistent
+      ```
+      _and_
+      ```
+      bash -c iptables-save > /etc/iptables/rules.v4
+      ```

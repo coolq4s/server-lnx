@@ -3,7 +3,7 @@
 Route between ZeroTier Network and Physical Networks Armbian Server in any SBC like OrangePi/STB B860H.
 
 ### Pre-Require :
-- Install `net-tools` tool
+- Install `net-tools` software
 ```
 apt install net-tools
 ```

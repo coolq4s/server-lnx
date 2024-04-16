@@ -26,6 +26,7 @@ apt install net-tools
    ```
    the output will be like this
    > 200 info *2xxxxxx7* 1.10.X ONLINE
+
    *2xxxxxx7* is a user-id
 3. Find and copy 'network-id' in ZeroTier dashboard
    Example `network-id` : `88****************5`

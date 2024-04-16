@@ -90,4 +90,4 @@ apt install net-tools
    - You can test the network by reboot a machine if needed.
    - Be sure you have allow `user-id` in ZeroTier network node by checklist the `user-id` section
    - Adding remote machine to network node.
-     > For Android, you can download ZeroTier via Play Store and add a `network-id` to your phone, be sure checklist a `user-id` in network node.
+     > For Android, you can download ZeroTier via Play Store and add a `network-id` to your phone, be sure checklist a `user-id` in network node in [ZeroTier dashboard](https://my.zerotier.com/).

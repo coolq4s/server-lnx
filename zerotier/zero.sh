@@ -41,10 +41,10 @@ else
 fi
 
 # Get ZeroTier interface and internet interface
-result=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
+zerotieriface=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
 
-# Menampilkan hasil
-echo " $result"
+PHY_IFACE=eth0
+ZT_IFACE=
 
 exit
 

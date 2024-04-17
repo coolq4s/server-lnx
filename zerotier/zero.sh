@@ -39,7 +39,8 @@ if echo -e "\e[92m $zerotierstatus" | grep -q "200 listnetworks $netID"; then
 else
     echo -e "\e[31m Not Connected"
 fi
-
+echo ""
+echo ""
 # Get ZeroTier interface and internet interface
 echo -e "\e[97m Input your interface using internet, \n you can find with command\e[35m ifconfig \e[97m"
 read -p " Type : " physical_iface

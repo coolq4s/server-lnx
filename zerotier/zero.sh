@@ -15,26 +15,25 @@ echo "\e[0m"
 if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then
     #Menampilkan nilai variabel dan menanyakan untuk mengubahnya
     current_value=$(grep '^net.ipv4.ip_forward' /etc/sysctl.conf)
-    echo "\e[97m Current active IP forward : \n\e[92m$current_value"
-    read -p "\e[97m Input value of net.ipv4.ip_forward \n 0 = Disable \n 1 = Active) \n\e[92m Type :" new_value
+    echo "Nilai variabel net.ipv4.ip_forward saat ini adalah: $current_value"
+    read -p "Masukkan nilai baru untuk variabel net.ipv4.ip_forward (0 atau 1): " new_value
 
     #Menghapus tanda pagar jika ada
     sudo sed -i '/^net.ipv4.ip_forward/s/^#//g' /etc/sysctl.conf
-    echo "\e[97m"
+
     #Jika variabel tidak ada di akhir file, tambahkan baris baru
     if [ -z "$current_value" ]; then
-        echo "net.ipv4.ip_forward=\e[92m$new_value\e[0m" | sudo tee -a /etc/sysctl.conf
+        echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf
     else
-        #Ubah nilai variabel sesuai dengan input pengguna
+        # Ubah nilai variabel sesuai dengan input pengguna
         sudo sed -i "s/^net.ipv4.ip_forward=.*/net.ipv4.ip_forward=$new_value/g" /etc/sysctl.conf
     fi
 
 else
     #Jika tidak ditemukan, tambahkan baris baru di akhir file
-    read -p "\e[31m net.ipv4.ip_forward Not Found \n\e[92m Input new value \n 0 = Disable \n 1 = Active) \n\e[92m Type : " new_value
-    echo "\e[97m net.ipv4.ip_forward=\e[92m$new_value" | sudo tee -a /etc/sysctl.conf
+    read -p "Variabel net.ipv4.ip_forward tidak ditemukan Masukkan nilai baru (0 atau 1): " new_value
+    echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf
 fi
-
 
 # Terapkan perubahan ke kernel
 # sudo sysctl -p

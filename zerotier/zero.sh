@@ -24,7 +24,7 @@ if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then
     read -p " Type : " new_value
 
     #Menghapus tanda pagar jika ada
-    sudo sed -i '/^net.ipv4.ip_forward/s/^#//g' /etc/sysctl.conf
+    sudo sed -i '/^#*net.ipv4.ip_forward/s/^#*//g' /etc/sysctl.conf
 
     #Jika variabel tidak ada di akhir file, tambahkan baris baru
     if [ -z "$current_value" ]; then

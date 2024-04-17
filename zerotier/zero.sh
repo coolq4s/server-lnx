@@ -16,7 +16,6 @@ $HEAD
 echo ""
 echo ""
 
-apt install zerotier
 
 
 #Mencari variabel net.ipv4.ip_forward dalam sysctl.conf

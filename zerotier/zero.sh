@@ -40,6 +40,12 @@ else
     echo -e "\e[31m Not Connected"
 fi
 
+# Get ZeroTier interface and internet interface
+result=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
+
+# Menampilkan hasil
+echo "$result"
+
 exit
 
 

@@ -49,7 +49,6 @@ zerotieriface=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
 PHY_IFACE=$physical_iface
 ZT_IFACE=$zerotierstatus
 
-exit
 
 clear
 cat header.txt

@@ -9,3 +9,6 @@ cat << "EOF" > header.txt
  \____/\____/\____/_/\___\_\__,_/____/
                       ZEROTIER INSTALLER
 EOF
+
+cat header.txt
+rm -rf header.txt

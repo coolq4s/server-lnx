@@ -19,6 +19,7 @@ echo ""
 
 apt install zerotier-one
 wait
+clear
 cat header.txt
 
 #Mencari variabel net.ipv4.ip_forward dalam sysctl.conf

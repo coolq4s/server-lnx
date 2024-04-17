@@ -41,19 +41,24 @@ else
 fi
 
 # Get ZeroTier interface and internet interface
+echo -e "\e[97m Input your interface using internet, \n you can find with command \e[35m ifconfig \e[97m"
+read -p " Type : " physical_iface
 zerotieriface=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
 
-PHY_IFACE=eth0
-ZT_IFACE=
+PHY_IFACE=$physical_iface
+ZT_IFACE=$zerotierstatus
 
 exit
 
-
+clear
+cat header.txt
+echo ""
+echo ""
 # Eksekusi perintah dan gunakan AWK untuk mengekstrak nilai machineid
 machineid=$(zerotier-cli status | awk '{print $3}')
 
 # Tampilkan nilai machineid
-echo -e "\e[92m Machine ID: \e[92m$machineid"
+echo -e "\e[92m Your machine ID: \e[92m$machineid"
 
 #Mencari variabel net.ipv4.ip_forward dalam sysctl.conf
 if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then

@@ -23,7 +23,7 @@ clear
 cat header.txt
 echo ""
 echo ""
-echo -e "\e[97m Input your Network ID \n See in\e[43m ZeroTier Dashboard"
+echo -e "\e[97m Input your Network ID \n See in\e[33m ZeroTier Dashboard"
 read -p " Type :"
 zerotier-cli join `network-id`
 

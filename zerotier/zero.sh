@@ -24,7 +24,14 @@ cat header.txt
 echo ""
 echo ""
 
+# Eksekusi perintah dan simpan outputnya ke dalam variabel
+output=$(zerotier-cli status)
 
+# Ambil nilai machineid dari output menggunakan ekspresi regular
+machineid=$(echo $output | grep -oP '(?<=200 info )\S+')
+
+# Tampilkan nilai machineid
+echo "Machine ID: $machineid"
 
 #Mencari variabel net.ipv4.ip_forward dalam sysctl.conf
 if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then

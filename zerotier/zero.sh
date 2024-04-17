@@ -33,7 +33,7 @@ if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then
         # Ubah nilai variabel sesuai dengan input pengguna
         sudo sed -i "s/^net.ipv4.ip_forward=.*/net.ipv4.ip_forward=$new_value/g" /etc/sysctl.conf
     fi
-
+    sleep 2s
 else
     #Jika tidak ditemukan, tambahkan baris baru di akhir file
     echo  -e "\e[31m"
@@ -42,7 +42,8 @@ else
     echo -e "\e[0m 0 = Disable"
     echo -e "\e[0m 1 = Active"
     read -p " Type : " new_value
-    echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf
+    echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null
+    echo " Done"
 fi
 
 # Terapkan perubahan ke kernel

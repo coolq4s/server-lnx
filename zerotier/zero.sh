@@ -93,10 +93,10 @@ else
     echo -e "\e[0m 1 = Active"
     read -p " Type : " new_value
     echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null
-    echo " Done"
 fi
 
 # Terapkan perubahan ke kernel
 # sudo sysctl -p
 
 rm -rf header.txt
+echo "DONE"

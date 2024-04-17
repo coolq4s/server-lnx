@@ -58,3 +58,5 @@ fi
 
 # Terapkan perubahan ke kernel
 # sudo sysctl -p
+
+rm -rf header.txt

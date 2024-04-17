@@ -30,7 +30,7 @@ if echo "$networkID" | grep -q "invalid"; then
     echo -e "\e[31m Invalid Network ID, force exit"
     exit
 else
-    echo -e "\e\97m $networkID is valid"
+    echo -e "\e\97m $netID is valid"
 fi 
 
 echo "$netID"

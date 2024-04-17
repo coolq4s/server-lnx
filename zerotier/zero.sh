@@ -28,6 +28,7 @@ read -p " Type :" netID
 networkID=$(zerotier-cli join $netID)
 if echo "$networkID" | grep -q "invalid"; then
     echo "Invalid"
+    exit
 else
     echo "$networkID is valid"
 fi 

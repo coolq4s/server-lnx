@@ -21,6 +21,10 @@ apt install zerotier-one
 wait
 clear
 cat header.txt
+echo ""
+echo ""
+
+
 
 #Mencari variabel net.ipv4.ip_forward dalam sysctl.conf
 if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then

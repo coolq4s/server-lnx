@@ -24,7 +24,7 @@ cat header.txt
 echo ""
 echo ""
 echo -e "\e[97m Input your Network ID \n See in\033[33m ZeroTier Dashboard\033[39m\033[49m"
-read -p " Type :" netID
+read -p " Type : " netID
 networkID=$(zerotier-cli join $netID)
 if echo "$networkID" | grep -q "invalid"; then
     echo -e "\e[31m Invalid Network ID, force exit"

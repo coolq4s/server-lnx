@@ -36,8 +36,12 @@ if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then
 
 else
     #Jika tidak ditemukan, tambahkan baris baru di akhir file
-    echo "\e[31m"
+    echo  -e "\e[31m"
     read -p "This line net.ipv4.ip_forward not found" new_value
+    echo -e "\e[97m Input new value for IPv4 Forwarding"
+    echo -e "\e[0m 0 = Disable"
+    echo -e "\e[0m 1 = Active"
+    read -p " Type : " new_value
     echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf
 fi
 

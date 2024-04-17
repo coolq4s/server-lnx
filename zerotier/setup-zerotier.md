@@ -52,14 +52,14 @@ apt install net-tools
      ```
      ifconfig
      ```
-     You can find name `ztxxxxxxxxxxxxxx`, initial interface is `zt`, its ZeroTier interface
+     You can find name `ztxxxxxxxxxxxxxx`, initial interface is `zt`, its ZeroTier interface. Then find where is interface get internet Ex. `eth0`
    - Modify physical network interface name, ZeroTier interface name. Type this command to linux cli
      ```
-     PHY_IFACE=eth0
+     PHY_IFACE=********
      ```
      _press enter_
      ```
-     ZT_IFACE=zt44xaj2sx
+     ZT_IFACE=zt********
      ```
      _press enter_
      

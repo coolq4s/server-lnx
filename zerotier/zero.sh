@@ -24,11 +24,8 @@ cat header.txt
 echo ""
 echo ""
 
-# Eksekusi perintah dan simpan outputnya ke dalam variabel
-output=$(zerotier-cli status)
-
-# Ambil nilai machineid dari output menggunakan ekspresi regular
-machineid=$(echo $output | grep -oP '(?<=200 info )\S+')
+# Eksekusi perintah dan gunakan AWK untuk mengekstrak nilai machineid
+machineid=$(zerotier-cli status | awk '{print $3}')
 
 # Tampilkan nilai machineid
 echo "Machine ID: $machineid"

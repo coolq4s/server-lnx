@@ -44,7 +44,7 @@ fi
 result=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
 
 # Menampilkan hasil
-echo "$result"
+echo " $result"
 
 exit
 

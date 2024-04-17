@@ -10,5 +10,13 @@ cat << "EOF" > header.txt
                       ZEROTIER INSTALLER
 EOF
 
-cat > header.txt
+sleep 1s
+
+cat header.txt
+
+sleep 1s
+
+cat header.txt
+
+
 rm -rf header.txt

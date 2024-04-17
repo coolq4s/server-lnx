@@ -28,7 +28,7 @@ if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then
 
     #Jika variabel tidak ada di akhir file, tambahkan baris baru
     if [ -z "$current_value" ]; then
-        echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf
+        echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null
     else
         # Ubah nilai variabel sesuai dengan input pengguna
         sudo sed -i "s/^net.ipv4.ip_forward=.*/net.ipv4.ip_forward=$new_value/g" /etc/sysctl.conf

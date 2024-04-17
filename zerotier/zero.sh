@@ -17,7 +17,7 @@ sleep 1s
 echo ""
 echo ""
 
-apt install zerotier-one
+#apt install zerotier-one
 wait
 clear
 cat header.txt

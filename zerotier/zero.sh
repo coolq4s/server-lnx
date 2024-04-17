@@ -1,5 +1,5 @@
 #!/bin/bash
-
+clear
 exec 3> >( 
     cat << "EOF"
     ______            ______

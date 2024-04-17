@@ -3,7 +3,7 @@
 clear
 
 echo -e "\e[31m"
-cat << "EOF"
+HEAD=cat << "EOF"
     ______            ______
    / ____/___  ____  / / __ \____ ______
   / /   / __ \/ __ \/ / / / / __ `/ ___/
@@ -11,8 +11,13 @@ cat << "EOF"
  \____/\____/\____/_/\___\_\__,_/____/
                       ZEROTIER INSTALLER
 EOF
+
+$HEAD
 echo ""
 echo ""
+
+apt install zerotier
+
 
 #Mencari variabel net.ipv4.ip_forward dalam sysctl.conf
 if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then

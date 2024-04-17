@@ -16,8 +16,11 @@ EOF
 if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then
     #Menampilkan nilai variabel dan menanyakan untuk mengubahnya
     current_value=$(grep '^net.ipv4.ip_forward' /etc/sysctl.conf)
-    echo -e "\e[0m Value of net.ipv4.ip_forward is : \n \e[97m$current_value"
-    read -p "Input value net.ipv4.ip_forward \n 0 = Disable \n 1 = Enable \n\e[92m Type : " new_val>
+    echo -e "\e[97m Value net.ipv4.ip_forward is: \e[92m$current_value"
+    echo -e "\e[97m Input new value for IPv4 Forwarding"
+    echo -e "\e[0m 0 = Disable"
+    echo -e "\e[0m 1 = Active"
+    read -p "Type : " new_val>
 
     #Menghapus tanda pagar jika ada
     sudo sed -i '/^net.ipv4.ip_forward/s/^#//g' /etc/sysctl.conf

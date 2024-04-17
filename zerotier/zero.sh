@@ -19,7 +19,7 @@ if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then
     current_value=$(grep '^#*net.ipv4.ip_forward' /etc/sysctl.conf)
     echo -e "\e[97m Value net.ipv4.ip_forward is: \e[92m \n $current_value\n"
     echo -e ""
-    echo -e "Note : If first character is #net.ipv4.ip_forward \n it is disabled, press 1 to actived"
+    echo -e " Note : If first character is #net.ipv4.ip_forward \n it is disabled, press 1 to actived"
     echo -e "\e[97m Input new value for IPv4 Forwarding"
     echo -e "\e[0m 0 = Disable"
     echo -e "\e[0m 1 = Active"

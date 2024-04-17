@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-exec 3 > ( 
+alias header=
     cat << "EOF"
     ______            ______
    / ____/___  ____  / / __ \____ ______
@@ -11,4 +11,5 @@ exec 3 > (
 EOF
     
     )
-echo "" > 3
+
+header

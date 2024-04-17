@@ -8,7 +8,5 @@ alias header=cat << "EOF"
  \____/\____/\____/_/\___\_\__,_/____/
                       ZEROTIER INSTALLER
 EOF
-    
-    )
 
 header

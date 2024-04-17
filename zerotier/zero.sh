@@ -24,8 +24,9 @@ cat header.txt
 echo ""
 echo ""
 echo -e "\e[97m Input your Network ID \n See in\033[33m ZeroTier Dashboard\033[39m\033[49m"
-read -p " Type :"
-zerotier-cli join `network-id`
+read -p " Type :" netID
+zerotier-cli join $netID
+echo "$netID"
 
 
 # Eksekusi perintah dan gunakan AWK untuk mengekstrak nilai machineid

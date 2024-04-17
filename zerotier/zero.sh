@@ -10,5 +10,5 @@ cat << "EOF" > header.txt
                       ZEROTIER INSTALLER
 EOF
 
-cat header.txt
+cat > header.txt
 rm -rf header.txt

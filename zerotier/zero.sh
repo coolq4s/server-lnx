@@ -18,5 +18,5 @@ sleep 1s
 
 cat header.txt
 
-
+read
 rm -rf header.txt

@@ -1,7 +1,6 @@
 #!/bin/bash
 clear
-alias header=
-    cat << "EOF"
+alias header=cat << "EOF"
     ______            ______
    / ____/___  ____  / / __ \____ ______
   / /   / __ \/ __ \/ / / / / __ `/ ___/

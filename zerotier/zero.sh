@@ -21,7 +21,7 @@ if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then
     echo -e "\e[97m Input new value for IPv4 Forwarding"
     echo -e "\e[0m 0 = Disable"
     echo -e "\e[0m 1 = Active"
-    read -p "Type : " new_value
+    read -p " Type : " new_value
 
     #Menghapus tanda pagar jika ada
     sudo sed -i '/^net.ipv4.ip_forward/s/^#//g' /etc/sysctl.conf

@@ -23,18 +23,16 @@ clear
 cat header.txt
 echo ""
 echo ""
+echo -e "\e[97m Input your Network ID \n See in\e[34m ZeroTier Dashboard"
+read -p " Type :"
+zerotier-cli join `network-id`
+
 
 # Eksekusi perintah dan gunakan AWK untuk mengekstrak nilai machineid
 machineid=$(zerotier-cli status | awk '{print $3}')
 
 # Tampilkan nilai machineid
 echo -e "\e[92m Machine ID: \e[92m$machineid"
-clear
-cat header.txt
-echo ""
-echo ""
-
-
 
 #Mencari variabel net.ipv4.ip_forward dalam sysctl.conf
 if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then

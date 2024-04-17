@@ -2,7 +2,7 @@
 
 clear
 
-echo -e "\e[31m"
+echo -e "\033[103m"
 cat << "EOF" > header.txt
     ______            ______
    / ____/___  ____  / / __ \____ ______
@@ -27,7 +27,7 @@ echo -e "\e[97m Input your Network ID \n See in\033[33m ZeroTier Dashboard\033[3
 read -p " Type :" netID
 networkID=$(zerotier-cli join $netID)
 if echo "$networkID" | grep -q "invalid"; then
-    echo "Invalid"
+    echo " \e[31m Invalid Network ID, force exit"
     exit
 else
     echo "$networkID is valid"

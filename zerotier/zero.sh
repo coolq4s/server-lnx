@@ -40,7 +40,6 @@ else
     echo -e "Not Connected"
 fi
 
-if 
 exit
 
 

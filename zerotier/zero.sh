@@ -41,7 +41,7 @@ else
 fi
 
 # Get ZeroTier interface and internet interface
-echo -e "\e[97m Input your interface using internet, \n you can find with command \e[35m ifconfig \e[97m"
+echo -e "\e[97m Input your interface using internet, \n you can find with command\e[35m ifconfig \e[97m"
 read -p " Type : " physical_iface
 zerotieriface=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
 

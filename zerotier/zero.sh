@@ -3,20 +3,18 @@
 clear
 
 echo -e "\e[31m"
-HEAD=cat << "EOF"
+HEAD="cat << EOF
     ______            ______
    / ____/___  ____  / / __ \____ ______
   / /   / __ \/ __ \/ / / / / __ `/ ___/
  / /___/ /_/ / /_/ / / /_/ / /_/ (__  )
  \____/\____/\____/_/\___\_\__,_/____/
                       ZEROTIER INSTALLER
-EOF
+EOF"
 
 $HEAD
 echo ""
 echo ""
-
-
 
 #Mencari variabel net.ipv4.ip_forward dalam sysctl.conf
 if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then

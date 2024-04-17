@@ -10,7 +10,8 @@ cat << "EOF"
  / /___/ /_/ / /_/ / / /_/ / /_/ (__  )
  \____/\____/\____/_/\___\_\__,_/____/
 EOF
-
+echo ""
+echo ""
 
 #Mencari variabel net.ipv4.ip_forward dalam sysctl.conf
 if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then

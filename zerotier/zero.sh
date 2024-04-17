@@ -29,6 +29,12 @@ machineid=$(zerotier-cli status | awk '{print $3}')
 
 # Tampilkan nilai machineid
 echo -e "\e[92m Machine ID: \e[92m$machineid"
+clear
+cat header.txt
+echo ""
+echo ""
+
+
 
 #Mencari variabel net.ipv4.ip_forward dalam sysctl.conf
 if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then

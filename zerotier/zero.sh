@@ -138,7 +138,7 @@ else
     echo "$PHY_IFACE not MASQUERADE, adding MASQUERADE interface"
     iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 fi
-ZT_check=$(grep "$ZT_IFACE -o $PHY_IFACE -j ACCEPT" /etc/iptables/rules.v4)
+ZT_check=$(grep "$PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT" /etc/iptables/rules.v4)
 if ! [ ! "$ZT_check" ]; then
     # Jalankan perintah yang Anda inginkan jika variabel tidak kosong
     echo "$ZT_IFACE and $PHY_IFACE has ACCEPT"
@@ -151,7 +151,7 @@ fi
 
 exit
 #iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
-#iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
+#iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
 #apt install iptables-persistent
 #bash -c iptables-save > /etc/iptables/rules.v4
 

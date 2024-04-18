@@ -103,7 +103,7 @@ echo ""
 echo ""
 
 iptable_check=$(grep "$PHY_IFACE -j MASQUERADE" /etc/iptables/rules.v4)
-if ! [ ! "$iptable_check"]; then
+if [ ! "$iptable_check"]; then
     echo "$iptable_check"
 else
     echo "$iptable_check"

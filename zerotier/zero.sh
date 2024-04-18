@@ -137,10 +137,8 @@ else
     iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 fi
 ZT_check=$(grep "$PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT" /etc/iptables/rules.v4)
-#if ! [ ! "$ZT_check" ]; then
-    # Jalankan perintah yang Anda inginkan jika variabel tidak kosong
-    #echo "$ZT_IFACE and $PHY_IFACE has ACCEPT"
-    # Tambahkan perintah yang ingin Anda jalankan di sini
+if ! [ ! "$ZT_check" ]; then
+    echo " $ZT_IFACE and $PHY_IFACE has ACCEPT"
 #else
     #echo "$ZT_IFACE and $PHY_IFACE not found,\n addig ACCEPT interface"
     #iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT

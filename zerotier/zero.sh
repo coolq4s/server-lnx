@@ -142,7 +142,7 @@ if ! [ ! "$ZT_check" ]; then
 #else
     #echo "$ZT_IFACE and $PHY_IFACE not found,\n addig ACCEPT interface"
     #iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
-#fi
+fi
 
 
 exit

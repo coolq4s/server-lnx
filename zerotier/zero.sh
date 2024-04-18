@@ -29,12 +29,12 @@ netID=""
 while [ -z "$netID" ]; do
     read -p " Type : " netID
     if [ -z "$netID" ]; then
-        echo -e "\e[0m\e[31m Error : Cannot blank \e[0m"
+        echo -e "\e[0m\033[1;90m Error : Cannot blank \e[0m"
     fi
 done
 networkID=$(zerotier-cli join $netID)
 if echo "$networkID" | grep -q "invalid"; then
-    echo -e "\e[31m Invalid Network ID, force exit"
+    echo -e "\033[1;90m Invalid Network ID, force exit"
     #exit
 else
     echo ""
@@ -44,7 +44,7 @@ zerotierstatus=$(zerotier-cli listnetworks)
 if echo "$zerotierstatus" | grep -o "200 listnetworks $netID" > /dev/null; then
     echo -e "\e[92m $netID has Connected"
 else
-    echo -e "\e[31m Not Connected"
+    echo -e "\033[1;90m Not Connected"
 fi
 echo ""
 echo ""
@@ -55,7 +55,7 @@ physical_iface=""
 while [ -z "$physical_iface" ]; do
     read -p " Type : " physical_iface
     if [ -z "$physical_iface" ]; then
-        echo -e "\e[0m\e[31m Error : Cannot blank \e[0m"
+        echo -e "\e[0m\033[1;90m Error : Cannot blank \e[0m"
     fi
 done
 
@@ -92,7 +92,7 @@ if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then
     while [ -z "$new_value" ]; do
         read -p " Type : " new_value
         if [ -z "$new_value" ]; then
-            echo -e "\e[0m\e[31m Error : Cannot blank \e[0m"
+            echo -e "\e[0m\033[1;90m Error : Cannot blank \e[0m"
         fi
     done
     #Menghapus tanda pagar jika ada
@@ -108,7 +108,7 @@ if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then
     sleep 2s
 else
     #Jika tidak ditemukan, tambahkan baris baru di akhir file
-    echo  -e "\e[31m"
+    echo  -e "\033[1;90m"
     echo -e " This line net.ipv4.ip_forward not found"
     echo -e "\e[97m Input new value for IPv4 Forwarding"
     echo -e "\e[0m 0 = Disable"
@@ -117,7 +117,7 @@ else
     while [ -z "$new_value" ]; do
         read -p " Type : " new_value
         if [ -z "$new_value" ]; then
-            echo -e "\e[0m\e[31m Error : Cannot blank \e[0m"
+            echo -e "\e[0m\033[1;90m Error : Cannot blank \e[0m"
         fi
     done
     echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null
@@ -131,16 +131,16 @@ echo ""
 echo -e "\e[0m"
 PHY_check=$(grep "$PHY_IFACE -j MASQUERADE" /etc/iptables/rules.v4)
 if ! [ ! "$PHY_check" ]; then
-    echo "$PHY_IFACE has MASQUERADE"
+    echo " $PHY_IFACE has MASQUERADE"
 else
-    echo "$PHY_IFACE not MASQUERADE, adding MASQUERADE interface"
+    echo " $PHY_IFACE not MASQUERADE, adding MASQUERADE interface"
     iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 fi
 ZT_check=$(grep "$PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT" /etc/iptables/rules.v4)
 if ! [ ! "$ZT_check" ]; then
     echo " $ZT_IFACE and $PHY_IFACE has ACCEPT"
 else
-    echo "$ZT_IFACE and $PHY_IFACE not found,\n adding ACCEPT interface"
+    echo " $ZT_IFACE and $PHY_IFACE not found,\n adding ACCEPT interface"
     iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
 fi
 

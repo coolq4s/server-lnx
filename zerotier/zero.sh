@@ -144,15 +144,9 @@ else
     iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
 fi
 
+apt install iptables-persistent
+bash -c iptables-save > /etc/iptables/rules.v4
 
-exit
-#iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
-#iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
-#apt install iptables-persistent
-#bash -c iptables-save > /etc/iptables/rules.v4
-
-# Terapkan perubahan ke kernel
-# sudo sysctl -p
 
 rm -rf header.txt
 echo "DONE, Reboot please"

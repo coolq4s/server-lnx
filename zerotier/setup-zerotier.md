@@ -106,5 +106,5 @@ git clone https://github.com/coolq4s/server-lnx.git && mv server-lnx/zerotier/ze
 
 
 > [!TIP]
-> Report bug to me, if `Pre-Require` has been fulfilled
+> Report bug to me, if `Pre-Require` has been fulfilled.
 > Tested in OrPiZero2, B860H (SSD), Android, Windows, Linux

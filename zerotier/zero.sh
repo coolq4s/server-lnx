@@ -131,16 +131,16 @@ echo ""
 echo -e "\e[0m"
 PHY_check=$(grep "$PHY_IFACE -j MASQUERADE" /etc/iptables/rules.v4)
 if ! [ ! "$PHY_check" ]; then
-    echo -e " $PHY_IFACE has MASQUERADE"
+    echo -e "\e[92m $PHY_IFACE has MASQUERADE"
 else
-    echo -e " $PHY_IFACE not MASQUERADE, adding MASQUERADE interface"
+    echo -e "\033[91m $PHY_IFACE not MASQUERADE, adding MASQUERADE interface"
     iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 fi
 ZT_check=$(grep "$PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT" /etc/iptables/rules.v4)
 if ! [ ! "$ZT_check" ]; then
-    echo -e " $ZT_IFACE and $PHY_IFACE has ACCEPT"
+    echo -e "\e[92m $ZT_IFACE and $PHY_IFACE has ACCEPT"
 else
-    echo -e " $ZT_IFACE and $PHY_IFACE not found,\n adding ACCEPT interface"
+    echo -e "\033[91m $ZT_IFACE and $PHY_IFACE not found,\n adding ACCEPT interface"
     iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
 fi
 

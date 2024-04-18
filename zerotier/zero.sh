@@ -24,7 +24,7 @@ echo -e "\033[1;94m"
 cat header.txt
 echo ""
 echo ""
-echo -e "\e[97m Input your Network ID \n See in\033[33m ZeroTier Dashboard\033[39m\033[49m"
+echo -e "\e[97m Input your Network ID \n See in\033[33m ZeroTier Dashboard\033[39m\033[49m\e[97m"
 netID=""
 while [ -z "$netID" ]; do
     read -p " Type : " netID

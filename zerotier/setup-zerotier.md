@@ -4,6 +4,9 @@ Route between ZeroTier Network and Physical Networks Armbian Server in any SBC l
 
 ### Pre-Require :
 - Install `net-tools` software
+- Linux Server
+> I'm using Armbian system (DEBIAN Based System) in OrangePi Zero2 and STB B860H, different os or machine maybe not working
+> You can use any OS to remote the machine if ZeroTier support
 ```
 apt install net-tools
 ```
@@ -100,3 +103,7 @@ git clone https://github.com/coolq4s/server-lnx.git && mv server-lnx/zerotier/ze
    - Be sure you have allow `user-id` in ZeroTier network node by checklist the `user-id` section
    - Adding remote machine to network node.
      > For Android, you can download ZeroTier via Play Store and add a `network-id` to your phone, be sure checklist a `user-id` in network node in [ZeroTier dashboard](https://my.zerotier.com/).
+
+
+> [!TIP]
+> Report bug to me, if `Pre-Require` has been fulfilled

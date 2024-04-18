@@ -53,7 +53,7 @@ echo -e "\e[97m Input your interface using internet, \n you can find with comman
 
 physical_iface=""
 while [ -z "$physical_iface" ]; do
-    read -p " Type : " input
+    read -p " Type : " physical_iface
     if [ -z "$physical_iface" ]; then
         echo -e "\e[0m\e[31m Error : Cannot blank \e[0m"
     fi
@@ -61,8 +61,6 @@ done
 
 echo "Anda memasukkan nilai: $input"
 
-
-read -p " Type : " physical_iface
 zerotieriface=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
 
 PHY_IFACE=$physical_iface
@@ -90,8 +88,13 @@ if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then
     echo -e "\e[97m Input new value for IPv4 Forwarding"
     echo -e "\e[0m 0 = Disable"
     echo -e "\e[0m 1 = Active"
-    read -p " Type : " new_value
-
+    $new_value=""
+    while [ -z "$new_value" ]; do
+        read -p " Type : " new_value
+        if [ -z "$new_value" ]; then
+            echo -e "\e[0m\e[31m Error : Cannot blank \e[0m"
+        fi
+    done
     #Menghapus tanda pagar jika ada
     sudo sed -i '/^#*net.ipv4.ip_forward/s/^#*//g' /etc/sysctl.conf
 
@@ -106,11 +109,16 @@ if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then
 else
     #Jika tidak ditemukan, tambahkan baris baru di akhir file
     echo  -e "\e[31m"
-    read -p " This line net.ipv4.ip_forward not found" new_value
     echo -e "\e[97m Input new value for IPv4 Forwarding"
     echo -e "\e[0m 0 = Disable"
     echo -e "\e[0m 1 = Active"
-    read -p " Type : " new_value
+    $new_value=""
+    while [ -z "$new_value" ]; do
+        read -p " Type : " new_value
+        if [ -z "$new_value" ]; then
+            echo -e "\e[0m\e[31m Error : Cannot blank \e[0m"
+        fi
+    done
     echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null
 fi
 

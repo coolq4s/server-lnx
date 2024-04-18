@@ -74,7 +74,7 @@ git clone https://github.com/coolq4s/server-lnx.git && mv server-lnx/zerotier/ze
      ```
      _press enter_
      
-     > `eth0` is internet source, if using wlan you can change `PHY_IFACE` value to your wlan interface, ex. `PHY_IFACE=wlan0`..
+     > `eth0` is internet source, if using wlan you can change `PHY_IFACE` value to your wlan interface, ex. `PHY_IFACE=wlan0`.
    - Add rules to `iptables`.
      ```
      iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE

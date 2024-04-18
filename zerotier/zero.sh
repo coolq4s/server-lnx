@@ -131,15 +131,13 @@ echo ""
 echo -e "\e[0m"
 PHY_check=$(grep "$PHY_IFACE -j MASQUERADE" /etc/iptables/rules.v4)
 if ! [ ! "$PHY_check" ]; then
-    # Jalankan perintah yang Anda inginkan jika variabel tidak kosong
     echo "$PHY_IFACE has MASQUERADE"
-    # Tambahkan perintah yang ingin Anda jalankan di sini
 else
     echo "$PHY_IFACE not MASQUERADE, adding MASQUERADE interface"
     iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 fi
 ZT_check=$(grep "$PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT" /etc/iptables/rules.v4)
-if ! [ ! "$ZT_check" ]; then
+#if ! [ ! "$ZT_check" ]; then
     # Jalankan perintah yang Anda inginkan jika variabel tidak kosong
     echo "$ZT_IFACE and $PHY_IFACE has ACCEPT"
     # Tambahkan perintah yang ingin Anda jalankan di sini

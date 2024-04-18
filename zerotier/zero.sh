@@ -7,7 +7,7 @@ cleanup() {
     echo " Cleaning up temporary files"
     echo ""
     echo ""
-    echo -e " To try again this script,\n copy again command from github"
+    echo -e " To try again this script,\n you can copy the command from github"
     echo ""
     echo ""
 }

@@ -101,15 +101,15 @@ echo -e "\033[1;94m"
 cat header.txt
 echo ""
 echo ""
-
+echo -e "\e[0m"
 iptable_check=$(grep "$PHY_IFACE -j MASQUERADE" /etc/iptables/rules.v4)
-
 if ! [ ! "$iptable_check" ]; then
     # Jalankan perintah yang Anda inginkan jika variabel tidak kosong
-    echo "Variabel iptable_check tidak kosong, menjalankan perintah..."
+    echo "$PHY_IFACE has MASQUERADE"
     # Tambahkan perintah yang ingin Anda jalankan di sini
 else
-    echo "Variabel iptable_check kosong."
+    echo "$PHY_IFACE not MASQUERADE, adding MASQUERADE interface"
+    iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 fi
 
 

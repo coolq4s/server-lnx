@@ -4,7 +4,6 @@ clear
 
 echo -e "\033[1;94m"
 cat << "EOF" > header.txt
-\033[1;94m
     ______            ______
    / ____/___  ____  / / __ \____ ______
   / /   / __ \/ __ \/ / / / / __ `/ ___/
@@ -21,6 +20,7 @@ echo ""
 #apt install zerotier-one
 wait
 clear
+echo -e "\033[1;94m"
 cat header.txt
 echo ""
 echo ""
@@ -52,6 +52,7 @@ ZT_IFACE=$zerotierstatus
 
 
 clear
+echo -e "\033[1;94m"
 cat header.txt
 echo ""
 echo ""

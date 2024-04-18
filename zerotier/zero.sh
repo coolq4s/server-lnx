@@ -103,11 +103,15 @@ echo ""
 echo ""
 
 iptable_check=$(grep "$PHY_IFACE -j MASQUERADE" /etc/iptables/rules.v4)
-if [ -n "$iptable_check"]; then
-    echo "$iptable_check"
+
+if ! [ ! "$iptable_check" ]; then
+    # Jalankan perintah yang Anda inginkan jika variabel tidak kosong
+    echo "Variabel iptable_check tidak kosong, menjalankan perintah..."
+    # Tambahkan perintah yang ingin Anda jalankan di sini
 else
-    echo "$iptable_check"
+    echo "Variabel iptable_check kosong."
 fi
+
 
 exit
 #iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE

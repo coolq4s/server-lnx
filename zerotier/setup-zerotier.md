@@ -100,11 +100,11 @@ git clone https://github.com/coolq4s/server-lnx.git && mv server-lnx/zerotier/ze
 7. Done.
 
 
-> You can test the network by reboot a machine if needed.
-> Be sure you have allow `user-id` in ZeroTier network node by checklist the `user-id` section
-> Be sure IP's you want to manage has been added in [ZeroTier dashboard](https://my.zerotier.com/)
-> Adding remote machine to network node.
-> For Android, you can download ZeroTier via Play Store and add a `network-id` to your phone, be sure checklist a `user-id` in network node in [ZeroTier dashboard](https://my.zerotier.com/).
+> - You can test the network by reboot a machine if needed.
+> - Be sure you have allow `user-id` in ZeroTier network node by checklist the `user-id` section
+> - Be sure IP's you want to manage has been added in [ZeroTier dashboard](https://my.zerotier.com/)
+> - Adding remote machine to network node.
+> - For Android, you can download ZeroTier via Play Store and add a `network-id` to your phone, be sure checklist a `user-id` in network node in [ZeroTier dashboard](https://my.zerotier.com/).
 
 
 > [!TIP]

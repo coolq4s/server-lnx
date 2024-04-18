@@ -153,3 +153,4 @@ echo ""
 echo ""
 echo -e "\e[92m DONE, Reboot please"
 echo -e "\e[0m"
+rm -rf server-lnx

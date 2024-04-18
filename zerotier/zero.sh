@@ -8,6 +8,7 @@ cleanup() {
 }
 
 trap cleanup EXIT
+
 clear
 
 echo -e "\033[1;94m"

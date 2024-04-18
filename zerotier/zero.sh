@@ -103,7 +103,13 @@ echo ""
 echo ""
 
 iptable_check=$(grep "$PHY_IFACE -j MASQUERADE" /etc/iptables/rules.v4)
-echo -e "$iptable_check"
+if [ ! "$iptable_check"] then
+    echo "$iptable_check"
+else
+    echo "$iptable_check"
+fi
+
+exit
 #iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 #iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
 #apt install iptables-persistent

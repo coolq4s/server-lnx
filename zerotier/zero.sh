@@ -96,6 +96,12 @@ else
     echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null
 fi
 
+clear
+echo -e "\033[1;94m"
+cat header.txt
+echo ""
+echo ""
+
 iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
 apt install iptables-persistent

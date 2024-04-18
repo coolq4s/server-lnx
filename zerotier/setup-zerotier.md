@@ -15,6 +15,9 @@ apt install net-tools
 ```
 git clone https://github.com/coolq4s/server-lnx.git && mv server-lnx/zerotier/zero.sh zero.sh && chmod +x zero.sh && bash zero.sh
 ```
+> [!IMPORTANT]
+> See & follow the message
+> If you don't pay attention to the message displayed, there may be an error
 
 ### Manual installationl
 

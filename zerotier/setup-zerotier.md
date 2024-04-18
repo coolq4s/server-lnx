@@ -9,8 +9,13 @@ apt install net-tools
 ```
 - Have a ZeroTier account
 - Create a network node in [ZeroTier dashboard](https://my.zerotier.com/) in `Networks` menu.
+- 
+### Simple installation
+- Run this command to your terminal
+```
 
-### How to install :
+
+### Manual installationl
 
 1. Install the ZeroTier first.
    ```

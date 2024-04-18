@@ -22,7 +22,7 @@ git clone https://github.com/coolq4s/server-lnx.git && mv server-lnx/zerotier/ze
 > See & follow the message
 > If you don't pay attention to the message displayed, there may be an error
 
-### Manual installationl
+### Manual installation
 
 1. Install the ZeroTier first.
    ```

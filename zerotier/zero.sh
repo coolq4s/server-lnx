@@ -129,14 +129,23 @@ cat header.txt
 echo ""
 echo ""
 echo -e "\e[0m"
-iptable_check=$(grep "$PHY_IFACE -j MASQUERADE" /etc/iptables/rules.v4)
-if ! [ ! "$iptable_check" ]; then
+PHY_check=$(grep "$PHY_IFACE -j MASQUERADE" /etc/iptables/rules.v4)
+if ! [ ! "$PHY_check" ]; then
     # Jalankan perintah yang Anda inginkan jika variabel tidak kosong
     echo "$PHY_IFACE has MASQUERADE"
     # Tambahkan perintah yang ingin Anda jalankan di sini
 else
     echo "$PHY_IFACE not MASQUERADE, adding MASQUERADE interface"
     iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
+fi
+ZT_check=$(grep "$ZT_IFACE -o $PHY_IFACE -j ACCEPT" /etc/iptables/rules.v4)
+if ! [ ! "$ZT_check" ]; then
+    # Jalankan perintah yang Anda inginkan jika variabel tidak kosong
+    echo "$ZT_IFACE and $PHY_IFACE has ACCEPT"
+    # Tambahkan perintah yang ingin Anda jalankan di sini
+else
+    echo "$ZT_IFACE and $PHY_IFACE not found,\n addig ACCEPT interface"
+    iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
 fi
 
 
@@ -150,4 +159,4 @@ exit
 # sudo sysctl -p
 
 rm -rf header.txt
-echo "DONE"
+echo "DONE, Reboot please"

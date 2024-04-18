@@ -8,6 +8,8 @@ cleanup() {
     echo ""
     echo ""
     echo -e " To try again this script,\n copy again command from github"
+    echo ""
+    echo ""
 }
 
 trap cleanup EXIT

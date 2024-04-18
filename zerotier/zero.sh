@@ -150,3 +150,4 @@ bash -c iptables-save > /etc/iptables/rules.v4
 
 rm -rf header.txt
 echo "DONE, Reboot please"
+echo -e "\e[0m"

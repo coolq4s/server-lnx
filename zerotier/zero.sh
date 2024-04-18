@@ -139,8 +139,8 @@ fi
 ZT_check=$(grep "$PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT" /etc/iptables/rules.v4)
 if ! [ ! "$ZT_check" ]; then
     echo " $ZT_IFACE and $PHY_IFACE has ACCEPT"
-#else
-    #echo "$ZT_IFACE and $PHY_IFACE not found,\n addig ACCEPT interface"
+else
+    echo "$ZT_IFACE and $PHY_IFACE not found,\n adding ACCEPT interface"
     #iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
 fi
 

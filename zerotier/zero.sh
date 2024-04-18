@@ -1,5 +1,13 @@
 #!bin/bash
-rm -rf server-lnx
+
+cleanup() {
+    rm -rf header.txt
+    rm -rf server-lnx
+    rm -rf zero.sh
+    echo "Cleaning up temporary files..."
+}
+
+trap cleanup EXIT
 clear
 
 echo -e "\033[1;94m"
@@ -152,3 +160,5 @@ echo ""
 echo ""
 echo -e "\e[92m DONE, Reboot please"
 echo -e "\e[0m"
+sleep 5s
+exit

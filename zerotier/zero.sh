@@ -29,12 +29,12 @@ netID=""
 while [ -z "$netID" ]; do
     read -p " Type : " netID
     if [ -z "$netID" ]; then
-        echo -e "\e[0m\033[1;90m Error : Cannot blank \e[0m"
+        echo -e "\e[0m\033[91m Error : Cannot blank \e[0m"
     fi
 done
 networkID=$(zerotier-cli join $netID)
 if echo "$networkID" | grep -q "invalid"; then
-    echo -e "\033[1;90m Invalid Network ID, force exit"
+    echo -e "\033[91m Invalid Network ID, force exit"
     #exit
 else
     echo ""
@@ -44,7 +44,7 @@ zerotierstatus=$(zerotier-cli listnetworks)
 if echo "$zerotierstatus" | grep -o "200 listnetworks $netID" > /dev/null; then
     echo -e "\e[92m $netID has Connected"
 else
-    echo -e "\033[1;90m Not Connected"
+    echo -e "\033[91m Not Connected"
 fi
 echo ""
 echo ""
@@ -55,7 +55,7 @@ physical_iface=""
 while [ -z "$physical_iface" ]; do
     read -p " Type : " physical_iface
     if [ -z "$physical_iface" ]; then
-        echo -e "\e[0m\033[1;90m Error : Cannot blank \e[0m"
+        echo -e "\e[0m\033[91m Error : Cannot blank \e[0m"
     fi
 done
 
@@ -92,7 +92,7 @@ if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then
     while [ -z "$new_value" ]; do
         read -p " Type : " new_value
         if [ -z "$new_value" ]; then
-            echo -e "\e[0m\033[1;90m Error : Cannot blank \e[0m"
+            echo -e "\e[0m\033[91m Error : Cannot blank \e[0m"
         fi
     done
     #Menghapus tanda pagar jika ada
@@ -108,7 +108,7 @@ if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then
     sleep 2s
 else
     #Jika tidak ditemukan, tambahkan baris baru di akhir file
-    echo  -e "\033[1;90m"
+    echo  -e "\033[91m"
     echo -e " This line net.ipv4.ip_forward not found"
     echo -e "\e[97m Input new value for IPv4 Forwarding"
     echo -e "\e[0m 0 = Disable"
@@ -117,7 +117,7 @@ else
     while [ -z "$new_value" ]; do
         read -p " Type : " new_value
         if [ -z "$new_value" ]; then
-            echo -e "\e[0m\033[1;90m Error : Cannot blank \e[0m"
+            echo -e "\e[0m\033[91m Error : Cannot blank \e[0m"
         fi
     done
     echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null

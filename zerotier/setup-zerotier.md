@@ -4,6 +4,7 @@ Route between ZeroTier Network and Physical Networks Armbian Server in any SBC l
 
 ### Pre-Require :
 - Linux Server
+- Run the terminal with `root`/`sudo`/`administrator privilege` account 
 - Install `net-tools` software
 ```
 apt install net-tools

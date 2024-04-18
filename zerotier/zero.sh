@@ -35,7 +35,7 @@ done
 networkID=$(zerotier-cli join $netID)
 if echo "$networkID" | grep -q "invalid"; then
     echo -e "\033[91m Invalid Network ID, force exit"
-    #exit
+    exit
 else
     echo ""
     echo -e "\e[92m $netID is valid"

@@ -24,7 +24,7 @@ echo -e "\033[1;94m"
 cat header.txt
 echo ""
 echo ""
-echo -e "\e[97m Input your Network ID \n See in\033[33m ZeroTier Dashboard\033[39m\033[49m\e[97m"
+echo -e "\e[0m Input your Network ID \n See in\033[33m ZeroTier Dashboard\e[0m\033[49m\e[0m"
 netID=""
 while [ -z "$netID" ]; do
     read -p " Type : " netID
@@ -49,7 +49,7 @@ fi
 echo ""
 echo ""
 # Get ZeroTier interface and internet interface
-echo -e "\e[97m Input your interface using internet, \n you can find with command\e[35m ifconfig \e[97m"
+echo -e "\e[0m Input your interface using internet, \n you can find with command\e[35m ifconfig \e[0m"
 
 physical_iface=""
 while [ -z "$physical_iface" ]; do
@@ -82,10 +82,10 @@ echo -e "\e[92m Your machine ID: \e[92m$machineid"
 if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then
     #Menampilkan nilai variabel dan menanyakan untuk mengubahnya
     current_value=$(grep '^#*net.ipv4.ip_forward' /etc/sysctl.conf)
-    echo -e "\e[97m Value net.ipv4.ip_forward is: \e[92m \n $current_value\n"
+    echo -e "\e[0m Value net.ipv4.ip_forward is: \e[92m \n $current_value\n"
     echo -e ""
     echo -e " Note : If first character has # \n it is disabled, press 1 to actived"
-    echo -e "\e[97m Input new value for IPv4 Forwarding"
+    echo -e "\e[0m Input new value for IPv4 Forwarding"
     echo -e "\e[0m 0 = Disable"
     echo -e "\e[0m 1 = Active"
     new_value=""
@@ -110,7 +110,7 @@ else
     #Jika tidak ditemukan, tambahkan baris baru di akhir file
     echo  -e "\033[91m"
     echo -e " This line net.ipv4.ip_forward not found"
-    echo -e "\e[97m Input new value for IPv4 Forwarding"
+    echo -e "\e[0m Input new value for IPv4 Forwarding"
     echo -e "\e[0m 0 = Disable"
     echo -e "\e[0m 1 = Active"
     new_value=""

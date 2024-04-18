@@ -45,6 +45,7 @@ if echo "$zerotierstatus" | grep -o "200 listnetworks $netID" > /dev/null; then
     echo -e "\e[92m $netID has Connected"
 else
     echo -e "\033[91m Not Connected"
+    exit
 fi
 echo ""
 echo ""

@@ -88,7 +88,7 @@ if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then
     echo -e "\e[97m Input new value for IPv4 Forwarding"
     echo -e "\e[0m 0 = Disable"
     echo -e "\e[0m 1 = Active"
-    $new_value=""
+    new_value=""
     while [ -z "$new_value" ]; do
         read -p " Type : " new_value
         if [ -z "$new_value" ]; then

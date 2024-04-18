@@ -63,7 +63,7 @@ git clone https://github.com/coolq4s/server-lnx.git && mv server-lnx/zerotier/ze
      ```
      ifconfig
      ```
-     You can find name `ztxxxxxxxxxxxxxx`, initial interface is `zt`, its ZeroTier interface. Then find where is interface get internet Ex. `eth0`
+     You can find name `ztxxxxxxxxxxxxxx`, initial interface is `zt`, its ZeroTier interface. Then find where is interface get internet Ex. `eth0`. Copy or remember _interface & ZeroTier id_
    - Modify physical network interface name, ZeroTier interface identity. Type this command to linux cli
      ```
      PHY_IFACE=*your-internet-source*

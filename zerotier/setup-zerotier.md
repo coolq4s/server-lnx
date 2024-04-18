@@ -10,7 +10,6 @@ apt install net-tools
 ```
 > I'm using Armbian system (DEBIAN Based System) in OrangePi Zero2 and STB B860H, different os or machine maybe not working
 > You can use any OS to remote the machine if ZeroTier supported
-
 - Have a ZeroTier account
 - Create a network node in [ZeroTier dashboard](https://my.zerotier.com/) in `Networks` menu.
 - 

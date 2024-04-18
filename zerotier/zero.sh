@@ -5,6 +5,8 @@ cleanup() {
     rm -rf server-lnx
     rm -rf zero.sh
     echo " Cleaning up temporary files"
+    echo ""
+    echo ""
     echo -e " To try again this script,\n copy again command from github"
 }
 

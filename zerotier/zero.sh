@@ -36,7 +36,7 @@ else
 fi 
 zerotierstatus=$(zerotier-cli listnetworks)
 if echo "$zerotierstatus" | grep -q "200 listnetworks $netID"; then
-    echo -e "$networkID has Connected"
+    echo -e "\e[92m $networkID has Connected"
 else
     echo -e "\e[31m Not Connected"
 fi

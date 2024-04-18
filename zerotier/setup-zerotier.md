@@ -6,7 +6,7 @@ Route between ZeroTier Network and Physical Networks Armbian Server in any SBC l
 - Install `net-tools` software
 - Linux Server
 > I'm using Armbian system (DEBIAN Based System) in OrangePi Zero2 and STB B860H, different os or machine maybe not working
-> You can use any OS to remote the machine if ZeroTier support
+> You can use any OS to remote the machine if ZeroTier supported
 ```
 apt install net-tools
 ```

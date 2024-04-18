@@ -44,6 +44,18 @@ echo ""
 echo ""
 # Get ZeroTier interface and internet interface
 echo -e "\e[97m Input your interface using internet, \n you can find with command\e[35m ifconfig \e[97m"
+
+physical_iface=""
+while [ -z "$physical_iface" ]; do
+    read -p " Type : " input
+    if [ -z "$physical_iface" ]; then
+        echo "\e[31m Error : Cannot blank \e[0m"
+    fi
+done
+
+echo "Anda memasukkan nilai: $input"
+
+
 read -p " Type : " physical_iface
 zerotieriface=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
 

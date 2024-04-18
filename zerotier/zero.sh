@@ -49,7 +49,7 @@ physical_iface=""
 while [ -z "$physical_iface" ]; do
     read -p " Type : " input
     if [ -z "$physical_iface" ]; then
-        echo -e "\e[31m Error : Cannot blank \e[0m"
+        echo -e "\e[0m\e[31m Error : Cannot blank \e[0m"
     fi
 done
 

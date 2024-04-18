@@ -60,8 +60,6 @@ while [ -z "$physical_iface" ]; do
     fi
 done
 
-echo "Anda memasukkan nilai: $input"
-
 zerotieriface=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
 
 PHY_IFACE=$physical_iface

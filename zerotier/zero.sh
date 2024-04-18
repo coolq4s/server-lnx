@@ -5,7 +5,7 @@ cleanup() {
     rm -rf server-lnx
     rm -rf zero.sh
     echo " Cleaning up temporary files"
-    echo " Run again the command from github"
+    echo "Try again by copy command from github"
 }
 
 trap cleanup EXIT

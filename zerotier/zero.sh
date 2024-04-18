@@ -35,7 +35,7 @@ else
     echo -e "\e[92m $netID is valid"
 fi 
 zerotierstatus=$(zerotier-cli listnetworks)
-if echo -e "\e[92m $zerotierstatus" | grep -q "200 listnetworks $netID"; then
+if echo "$zerotierstatus" | grep -q "200 listnetworks $netID"; then
     echo -e "$networkID has Connected"
 else
     echo -e "\e[31m Not Connected"
@@ -49,7 +49,7 @@ physical_iface=""
 while [ -z "$physical_iface" ]; do
     read -p " Type : " input
     if [ -z "$physical_iface" ]; then
-        echo "\e[31m Error : Cannot blank \e[0m"
+        echo -e "\e[31m Error : Cannot blank \e[0m"
     fi
 done
 

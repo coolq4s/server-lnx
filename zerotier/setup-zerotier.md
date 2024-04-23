@@ -5,14 +5,14 @@ Route between ZeroTier Network and Physical Networks Armbian Server in any SBC l
 ### Pre-Require :
 - Linux Server
 - Run the terminal with `root`/`sudo`/`administrator privilege` account 
-- Install `net-tools` software
+- Have `net-tools` software, if you don't have this tool, you can install it by run this command
 ```
 apt install net-tools
 ```
-> - I'm using Armbian system (DEBIAN Based System) in OrangePi Zero2 and STB B860H, different os or machine maybe not working
-> - You can use any OS to remote the machine if ZeroTier supported
 - Have a ZeroTier account
 - Create a network node in [ZeroTier dashboard](https://my.zerotier.com/) in `Networks` menu.
+> - I'm using Armbian system (DEBIAN Based System) in OrangePi Zero2 and STB B860H, different os or machine maybe not working
+> - You can use any OS to remote the machine if ZeroTier supported
 ### Simple installation
 - Run this command to your terminal
 ```

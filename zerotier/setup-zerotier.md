@@ -2,7 +2,7 @@
 ZeroTier is free limited secure VPN software, free user can manage 25 network node.
 This tool can access to remote any network like IP camera, Server, NAS, IoT.
 To route between ZeroTier Network and Physical Networks Armbian Server in any SBC like OrangePi/RasPi/STB B860H,
-you can follow this step
+you can follow this step.
 
 ### Pre-Require :
 - Linux Server

@@ -61,7 +61,7 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     esac
 
     echo " Logrotate interval now is\e[92m $logrotate_interval\e[0m"
-    sudo sed -i 's/$current_value/$logrotate_interval/g' /etc/logrotate.conf 
+#    sudo sed -i 's/$current_value/$logrotate_interval/g' /etc/logrotate.conf 
 #    echo -e "\e[0m Input new value "
 #    echo -e "\e[0m 0 = Disable"
 #    echo -e "\e[0m 1 = Active"

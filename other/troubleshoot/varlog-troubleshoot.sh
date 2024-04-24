@@ -1,5 +1,31 @@
 #!/bin/sh
+cleanup() {
+    rm -rf header.txt
+    rm -rf server-lnx
+    rm -rf varlog-troubleshoot.sh
+    echo " Cleaning up temporary files"
+    echo -e " To try again this script,\n you can copy the command from github"
+    echo ""
+}
 
+trap cleanup EXIT
+
+clear
+
+echo -e "\033[1;94m"
+cat << "EOF" > header.txt
+    ______            ______
+   / ____/___  ____  / / __ \____ ______
+  / /   / __ \/ __ \/ / / / / __ `/ ___/
+ / /___/ /_/ / /_/ / / /_/ / /_/ (__  )
+ \____/\____/\____/_/\___\_\__,_/____/
+                      ZEROTIER INSTALLER
+EOF
+cat header.txt
+sleep 1s
+
+echo ""
+echo ""
 
 clear
 if grep -E 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
@@ -45,3 +71,5 @@ else
 #    done
 #    echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null
 fi
+
+exit

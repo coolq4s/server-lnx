@@ -4,7 +4,7 @@ cleanup() {
     rm -rf ram.sh
     rm -rf server-lnx
     rm -rf header.txt
-    rm -rf ram
+    rm -rf ram_cleaner.sh
     echo " Cleaning up temporary files"
     echo -e " To use again this script,\n you can copy the command from github"
     echo ""

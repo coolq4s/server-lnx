@@ -16,7 +16,7 @@ trap cleanup EXIT
 
 clear
 
-echo -e "\033[1;97m"
+echo -e "\033[1;94m"
 cat << "EOF" > header.txt
     ______            ______
    / ____/___  ____  / / __ \____ ______
@@ -34,7 +34,7 @@ echo ""
 apt install zerotier-one
 wait
 clear
-echo -e "\033[1;97m"
+echo -e "\033[1;94m"
 cat header.txt
 echo ""
 echo ""
@@ -81,7 +81,7 @@ ZT_IFACE=$zerotieriface
 
 
 clear
-echo -e "\033[1;97m"
+echo -e "\033[1;94m"
 cat header.txt
 echo ""
 echo ""
@@ -137,7 +137,7 @@ else
 fi
 
 clear
-echo -e "\033[1;97m"
+echo -e "\033[1;94m"
 cat header.txt
 echo ""
 echo ""

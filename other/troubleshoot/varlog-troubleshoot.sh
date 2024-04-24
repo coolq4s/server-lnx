@@ -38,8 +38,9 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo "3. Monthly"
     echo "4. Yearly"
     read -p "Choose number (1-4): " choice
-    if ! [[ $choice =~ ^[1-4]$ ]]; then
-        echo "Only 1 - 4 can be input"
+    if ! [[ "$choice" =~ ^[1-4]$ ]]; then
+        echo "Masukkan hanya angka antara 1 dan 4."
+        exit 1
     fi
     case $choice in
         1) interval="weekly";;

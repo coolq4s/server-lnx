@@ -33,13 +33,13 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo "\e[0m Rotate log files found \e[33m$current_value\e[0m"
     echo ""
     echo "Choose rotate log duration:"
-    echo " 1. Weekly"
-    echo " 2. Daily"
-    echo " 3. Monthly"
-    echo " 4. Yearly"
-    read -p "Choose number (1-4): " option_logrotate_duration
+    echo "\e[92m 1. Weekly"
+    echo "\e[0m 2. Daily"
+    echo "\e[93m 3. Monthly"
+    echo "\e[91m 4. Yearly"
+    read -p "\e[0m Type number (1-4): " option_logrotate_duration
     if ! [ "$option_logrotate_duration" -ge 1 -a "$option_logrotate_duration" -le 4 ]; then
-        echo "Masukkan hanya angka antara 1 dan 4."
+        echo "Only number 1-4 can be allowed."
         exit 1
     fi
     case $option_logrotate_duration in
@@ -49,7 +49,7 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
         4) logrotate_interval="yearly";;
     esac
 
-    echo " Logrotate interval now is $logrotate_interval"
+    echo " Logrotate interval now is\e[92m $logrotate_interval"
     
 #    echo -e "\e[0m Input new value "
 #    echo -e "\e[0m 0 = Disable"

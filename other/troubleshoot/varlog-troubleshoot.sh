@@ -71,6 +71,19 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo ""
     var_log_size=$(df -BM /var/log | tail -n 1 | awk '{print $2}' | sed 's/[MG]//')
     echo "$var_log_size"
+    echo " Sizing log :"
+    read -p " Type number (1-5): " log_size
+    log_size="${log_size}M"
+    if [ -z "$log_size" ]; then
+        echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
+        sleep 5s
+        exit
+    fi
+    if [ "$log_size" -gt "$var_log_size" ]; then
+        echo "\e[101m\e[97m The number entered is greater than the size of /var/log partition. Exiting script.\e[0m"
+        sleep 5s
+        exit 1
+    fi
     sleep 5s
     exit
     

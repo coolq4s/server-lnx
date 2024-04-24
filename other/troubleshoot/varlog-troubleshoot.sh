@@ -69,14 +69,19 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     sleep 1s
     echo ""
     echo ""
+    var_log_size=$(df -BM /var/log | tail -n 1 | awk '{print $4}' | sed 's/M//')
+    echo "$var_log_size"
+    sleep 5s
+    exit
     echo " Sizing log :"
-    read -p " Type number (1-5): " option_logrotate_duration
-    if [ -z "$option_logrotate_duration" ]; then
+    read -p " Type number (1-5): " log_size
+    log_size="${log_size}M"
+    if [ -z "$log_size" ]; then
         echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
         sleep 5s
         exit
     fi
-    if ! [ "$option_logrotate_duration" -ge 1 -a "$option_logrotate_duration" -le 5 ] 2>/dev/null; then
+    if ! [ "$log_size" -ge 1 -a "$log_size" -le 5 ] 2>/dev/null; then
         echo "\e[101m\e[97m Only number (1-5) can be allowed. Kill script.\e[0m"
         sleep 5s
         exit
@@ -90,7 +95,7 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     esac
 
     echo " Logrotate interval now is\e[92m $logrotate_interval\e[0m"
-    echo "size 30M" | sudo tee -a /etc/logrotate.conf
+    sudo sed -i "\$a$log_size" /etc/logrotate.conf
     sleep 5s
 #    echo -e "\e[0m Input new value "
 #    echo -e "\e[0m 0 = Disable"

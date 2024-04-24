@@ -37,19 +37,19 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo "2. Daily"
     echo "3. Monthly"
     echo "4. Yearly"
-    read -p "Choose number (1-4): " choice
-    if ! [ "$choice" -ge 1 -a "$choice" -le 4 ]; then
+    read -p "Choose number (1-4): " option_logrotate_duration
+    if ! [ "$option_logrotate_duration" -ge 1 -a "$option_logrotate_duration" -le 4 ]; then
         echo "Masukkan hanya angka antara 1 dan 4."
         exit 1
     fi
-    case $choice in
-        1) interval="weekly";;
-        2) interval="daily";;
-        3) interval="monthly";;
-        4) interval="yearly";;
+    case $option_logrotate_duration in
+        1) logrotate_interval="weekly";;
+        2) logrotate_interval="daily";;
+        3) logrotate_interval="monthly";;
+        4) logrotate_interval="yearly";;
     esac
 
-    echo "Anda memilih interval rotasi log: $interval"
+    echo " Logrotate interval now is $logrotate_interval"
     
 #    echo -e "\e[0m Input new value "
 #    echo -e "\e[0m 0 = Disable"

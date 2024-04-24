@@ -31,7 +31,7 @@ echo ""
 
 if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     #Menampilkan nilai variabel dan menanyakan untuk mengubahnya
-    current_value=$(grep -A 1 -E '^[^#]*weekly|hourly|daily|monthly|yearly' /etc/logrotate.conf)
+    current_value=$(grep -A 1 -E '^[^]*weekly|hourly|daily|monthly|yearly' /etc/logrotate.conf)
     echo "\e[0m Rotate log files found \e[33m$current_value\e[0m"
     echo ""
     echo " Choose rotate log duration:"
@@ -73,30 +73,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo "$var_log_size"
     sleep 5s
     exit
-    echo " Sizing log :"
-    read -p " Type number (1-5): " log_size
-    log_size="${log_size}M"
-    if [ -z "$log_size" ]; then
-        echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
-        sleep 5s
-        exit
-    fi
-    if ! [ "$log_size" -ge 1 -a "$log_size" -le 5 ] 2>/dev/null; then
-        echo "\e[101m\e[97m Only number (1-5) can be allowed. Kill script.\e[0m"
-        sleep 5s
-        exit
-    fi
-    case $option_logrotate_duration in
-        1) logrotate_interval="hourly";;
-        2) logrotate_interval="daily";;
-        3) logrotate_interval="weekly";;
-        4) logrotate_interval="monthly";;
-        5) logrotate_interval="yearly";;
-    esac
-
-    echo " Logrotate interval now is\e[92m $logrotate_interval\e[0m"
-    sudo sed -i "\$a$log_size" /etc/logrotate.conf
-    sleep 5s
+    
 #    echo -e "\e[0m Input new value "
 #    echo -e "\e[0m 0 = Disable"
 #    echo -e "\e[0m 1 = Active"

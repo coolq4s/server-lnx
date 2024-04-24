@@ -32,7 +32,7 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     current_value=$(grep -A 1 -E '^[^#]*weekly|daily|monthly|yearly' /etc/logrotate.conf | tail -n 1)
     
     echo "\e[0m Rotate log files found"
-    echo " $current_value \n"
+    echo " $current_value"
     echo ""
 #    echo -e " Note : If first character has # \n it is disabled, press 1 to actived"
 #    echo -e "\e[0m Input new value for IPv4 Forwarding"

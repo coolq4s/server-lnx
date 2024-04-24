@@ -3,7 +3,7 @@
 
 ### Import page
 
-- 404 Page \
+- __404 Page__ \
   After installed apache2 to system, you can import this page to your local server using this command
   ```
   git clone https://github.com/coolq4s/server-lnx.git && mv server-lnx/html/404/index.html /var/www/html/ && rm -rf server-lnx

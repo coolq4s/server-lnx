@@ -32,8 +32,26 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     current_value=$(grep -A 1 -E '^[^#]*weekly|daily|monthly|yearly' /etc/logrotate.conf)
     echo "\e[0m Rotate log files found \e[33m$current_value\e[0m"
     echo ""
-#    echo -e " Note : If first character has # \n it is disabled, press 1 to actived"
-#    echo -e "\e[0m Input new value for IPv4 Forwarding"
+    echo "Choose rotate log duration:"
+    echo "1. Weekly"
+    echo "2. Daily"
+    echo "3. Monthly"
+    echo "4. Yearly"
+    read -p "Choose number (1-4): " choice
+    if ! [[ $choice =~ ^[1-4]$ ]]; then
+        echo "Only 1 - 4 can be input"
+        exit 1
+    fi
+    case $choice in
+        1) interval="weekly";;
+        2) interval="daily";;
+        3) interval="monthly";;
+        4) interval="yearly";;
+    esac
+
+    echo "Anda memilih interval rotasi log: $interval"
+    
+#    echo -e "\e[0m Input new value "
 #    echo -e "\e[0m 0 = Disable"
 #    echo -e "\e[0m 1 = Active"
 #    new_value=""

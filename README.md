@@ -1,4 +1,4 @@
-> [!WARNING]
+[!WARNING]
 - This `repo` is used for my local machine, if you used for other machine, run with carefully.
 - If you don't know about this you can skip this `repo`
 

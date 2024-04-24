@@ -44,7 +44,7 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     if ! [ "$option_logrotate_duration" -ge 1 -a "$option_logrotate_duration" -le 4 ]; then
         echo "\e[101m\e[97m Only number (1-4) can be allowed.\e[0m"
         read -p "Press enter to continue"
-        exit 1
+        exit
     fi
     case $option_logrotate_duration in
         1) logrotate_interval="weekly";;

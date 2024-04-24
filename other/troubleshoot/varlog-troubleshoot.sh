@@ -1,8 +1,10 @@
 #!/bin/sh
 cleanup() {
+    clear
     rm -rf header.txt
     rm -rf server-lnx
     rm -rf varlog-troubleshoot.sh
+    echo ""
     echo " Cleaning up temporary files"
     echo " To try again this script,\n you can copy the command from github"
     echo ""

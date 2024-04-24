@@ -12,7 +12,7 @@ trap cleanup EXIT
 
 clear
 
-echo "\033[1;94m"
+echo "\033[1;97m"
 cat << "EOF" > header.txt
     ______            ______
    / ____/___  ____  / / __ \____ ______

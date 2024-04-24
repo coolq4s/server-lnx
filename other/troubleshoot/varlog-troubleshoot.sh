@@ -43,6 +43,7 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     read -p " Type number (1-4): " option_logrotate_duration
     if [ -z "$option_logrotate_duration" ]; then
         echo " Input is blank."
+        sleep 5s
         exit
     fi
     if ! [ "$option_logrotate_duration" -ge 1 -a "$option_logrotate_duration" -le 4 ] 2>/dev/null; then

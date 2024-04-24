@@ -40,7 +40,7 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     read -p "Choose number (1-4): " choice
     if ! [[ $choice =~ ^[1-4]$ ]]; then
         echo "Only 1 - 4 can be input"
-        exit 1
+        exit
     fi
     case $choice in
         1) interval="weekly";;

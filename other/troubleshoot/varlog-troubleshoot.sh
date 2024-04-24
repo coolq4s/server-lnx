@@ -1,5 +1,7 @@
 #!/bin/sh
 
+
+clear
 if grep -E 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     #Menampilkan nilai variabel dan menanyakan untuk mengubahnya
     current_value=$(grep 'weekly|daily|monthly|yearly' /etc/sysctl.conf)

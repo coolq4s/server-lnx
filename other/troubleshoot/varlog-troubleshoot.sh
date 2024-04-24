@@ -47,6 +47,7 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
         exit
     else
         echo "error"
+        sleep 5s
     fi
     case $option_logrotate_duration in
         1) logrotate_interval="weekly";;

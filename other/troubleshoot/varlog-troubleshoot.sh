@@ -27,7 +27,6 @@ sleep 1s
 echo ""
 echo ""
 
-clear
 if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     #Menampilkan nilai variabel dan menanyakan untuk mengubahnya
     echo "\e[0m Rotate log files found"

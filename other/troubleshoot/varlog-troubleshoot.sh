@@ -30,7 +30,8 @@ echo ""
 clear
 if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     #Menampilkan nilai variabel dan menanyakan untuk mengubahnya
-    current_value=$(grep -q 'weekly|daily|monthly|yearly' /etc/sysctl.conf) > /dev/null
+    current_value=$(grep -q 'weekly|daily|monthly|yearly' /etc/sysctl.conf)
+    
     echo "\e[0m Value rotate log files: \e[92m \n $current_value\n"
     echo ""
 #    echo -e " Note : If first character has # \n it is disabled, press 1 to actived"

@@ -29,7 +29,7 @@ echo ""
 
 if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     #Menampilkan nilai variabel dan menanyakan untuk mengubahnya
-    current_value=$(grep -v '^#' /etc/logrotate.conf | awk '/weekly|daily|monthly|yearly/ { if ($0 !~ /#/) print $0; exit }' /etc/logrotate.conf)
+    current_value=$(grep -A 1 -E '^[^#]*weekly|daily|monthly|yearly' /etc/logrotate.conf | tail -n 1)
     
     echo "\e[0m Rotate log files found"
     echo " $current_value \n"

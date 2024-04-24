@@ -84,6 +84,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
         exit 1
     fi
     log_size="${log_size}M"
+    echo "$log_size"
     sleep 5s
     exit
     

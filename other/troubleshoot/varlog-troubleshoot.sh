@@ -35,27 +35,29 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo "\e[0m Rotate log files found \e[33m$current_value\e[0m"
     echo ""
     echo "Choose rotate log duration:"
-    echo "\e[92m 1. Weekly"
+    echo "\e[92m 1. Hourly"
     echo "\e[0m 2. Daily"
-    echo "\e[93m 3. Monthly"
-    echo "\e[91m 4. Yearly"
+    echo "\e[93m 3. Weekly"
+    echo "\e[93m 4. Monthly"
+    echo "\e[91m 5. Yearly"
     echo "\e[0m"
-    read -p " Type number (1-4): " option_logrotate_duration
+    read -p " Type number (1-5): " option_logrotate_duration
     if [ -z "$option_logrotate_duration" ]; then
         echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
         sleep 5s
         exit
     fi
-    if ! [ "$option_logrotate_duration" -ge 1 -a "$option_logrotate_duration" -le 4 ] 2>/dev/null; then
-        echo "\e[101m\e[97m Only number (1-4) can be allowed. Kill script.\e[0m"
+    if ! [ "$option_logrotate_duration" -ge 1 -a "$option_logrotate_duration" -le 5 ] 2>/dev/null; then
+        echo "\e[101m\e[97m Only number (1-5) can be allowed. Kill script.\e[0m"
         sleep 5s
         exit
     fi
     case $option_logrotate_duration in
-        1) logrotate_interval="weekly";;
+        1) logrotate_interval="hourly";;
         2) logrotate_interval="daily";;
-        3) logrotate_interval="monthly";;
-        4) logrotate_interval="yearly";;
+        3) logrotate_interval="weekly";;
+        4) logrotate_interval="monthly";;
+        5) logrotate_interval="yearly";;
     esac
 
     echo " Logrotate interval now is\e[92m $logrotate_interval\e[0m"

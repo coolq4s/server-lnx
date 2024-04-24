@@ -81,7 +81,7 @@ ZT_IFACE=$zerotieriface
 
 
 clear
-echo -e "\033[1;94m"
+echo -e "\033[1;97m"
 cat header.txt
 echo ""
 echo ""

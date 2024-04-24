@@ -69,7 +69,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     sleep 1s
     echo ""
     echo ""
-    var_log_size=$(df -BM /var/log | tail -n 1 | awk '{print $4}' | sed 's/M//')
+    var_log_size=$(df -BM /var/log | tail -n 1 | awk '{print $2}' | sed 's/M//')
     echo "$var_log_size"
     sleep 5s
     exit

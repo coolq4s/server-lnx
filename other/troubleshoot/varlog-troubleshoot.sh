@@ -12,7 +12,7 @@ trap cleanup EXIT
 
 clear
 
-echo "\033[1;97m"
+echo "\e[92m"
 cat << "EOF" > header.txt
     ______            ______
    / ____/___  ____  / / __ \____ ______
@@ -57,7 +57,7 @@ if grep -qE 'weekly|daily|monthly|yearly' /etc/logrotate.conf; then
 #    sleep 2s
 else
     #Jika tidak ditemukan, tambahkan baris baru di akhir file
-    echo "\033[91m"
+    echo "\e[91m"
     echo " Value log files not found"
 #    echo -e "\e[0m Input new value for IPv4 Forwarding"
 #    echo -e "\e[0m 0 = Disable"

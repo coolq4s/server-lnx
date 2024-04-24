@@ -19,7 +19,7 @@ cat << "EOF" > header.txt
   / /   / __ \/ __ \/ / / / / __ `/ ___/
  / /___/ /_/ / /_/ / / /_/ / /_/ (__  )
  \____/\____/\____/_/\___\_\__,_/____/
-                      ZEROTIER INSTALLER
+                           VAR/LOG FIXER
 EOF
 cat header.txt
 sleep 1s

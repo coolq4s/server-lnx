@@ -94,7 +94,9 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
                 sleep 5s
             fi
         else
-            echo "\e[101m\e[97m Only number you can enter\e[0m"
+            echo "\e[101m\e[97m Only number you can enter. Force EXIT\e[0m"
+            sleep 5s
+            exit
         fi
     fi
     echo " DONE"

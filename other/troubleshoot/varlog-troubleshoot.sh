@@ -80,17 +80,25 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
         echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
         sleep 5s
         exit
+    else
+        log_size="${log_size}M"
+        echo "$log_size"
+        sudo sed -i "\$asize $log_size" /etc/logrotate.conf
+        sudo sed -i "\$acompress" /etc/logrotate.conf
+        sleep 5s
     fi
     if [ "$log_size" -gt "$var_log_size" ]; then
         echo "\e[101m\e[97m The number entered is greater than\n the size of /var/log partition.\n Exiting script.\e[0m"
         sleep 5s
         exit 1
+    else
+        log_size="${log_size}M"
+        echo "$log_size"
+        sudo sed -i "\$asize $log_size" /etc/logrotate.conf
+        sudo sed -i "\$acompress" /etc/logrotate.conf
+        sleep 5s
     fi
-    log_size="${log_size}M"
-    echo "$log_size"
-    sudo sed -i "\$asize $log_size" /etc/logrotate.conf
-    sudo sed -i "\$acompress" /etc/logrotate.conf
-    sleep 5s
+    echo " \e[92mDone\e[0m"
     exit
     
 #    echo -e "\e[0m Input new value "

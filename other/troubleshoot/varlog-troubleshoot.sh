@@ -85,7 +85,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     fi
     log_size="${log_size}M"
     echo "$log_size"
-    sudo sed -i "\$a$log_size" /etc/logrotate.conf
+    sudo sed -i "\$a'size'$log_size" /etc/logrotate.conf
     sleep 5s
     exit
     

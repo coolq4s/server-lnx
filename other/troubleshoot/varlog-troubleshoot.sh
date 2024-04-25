@@ -73,7 +73,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     var_log_size_Human=$(df -BM /var/log | tail -n 1 | awk '{print $2}')
     echo "$var_log_size"
     echo "\e[0m Size log you want."
-    echo " I suggest, use half from your total partition /var/log"
+    echo " I suggest, use half from your\n total partition /var/log"
     echo " /var/log partition size : $var_log_size_Human"
     read -p " Size : " log_size
     if [ -z "$log_size" ]; then
@@ -82,7 +82,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
         exit
     fi
     if [ "$log_size" -gt "$var_log_size" ]; then
-        echo "\e[101m\e[97m The number entered is greater\n than the size of /var/log partition. Exiting script.\e[0m"
+        echo "\e[101m\e[97m The number entered is greater than\n the size of /var/log partition.\n Exiting script.\e[0m"
         sleep 5s
         exit 1
     fi

@@ -75,7 +75,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo "\e[33m I suggest, use half from your\n total partition /var/log \e[0m"
     echo ""
     echo " Your size partition /var/log is:\e[92m $var_log_size_Human\e[0m"
-    read -p " Size : " log_size
+    read -p " Size (in Mb): " log_size
     if [ -z "$log_size" ]; then
         echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
         sleep 5s

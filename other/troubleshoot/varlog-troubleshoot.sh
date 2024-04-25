@@ -65,16 +65,17 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     sleep 4s
     clear
     echo "\e[92m"
-    cat header.txt
-    sleep 1s
-    echo ""
-    echo ""
-    var_log_size=$(df -BM /var/log | tail -n 1 | awk '{print $2}' | sed 's/[MG]//')
-    var_log_size_Human=$(df -BM /var/log | tail -n 1 | awk '{print $2}')
-    echo "\e[0m Size log you want."
-    echo "\e[33m I suggest, use half from your\n total partition /var/log \e[0m"
-    echo ""
-    echo " Your size partition /var/log is:\e[92m $var_log_size_Human\e[0m"
+fi
+cat header.txt
+sleep 1s
+echo ""
+echo ""
+var_log_size=$(df -BM /var/log | tail -n 1 | awk '{print $2}' | sed 's/[MG]//')
+var_log_size_Human=$(df -BM /var/log | tail -n 1 | awk '{print $2}')
+echo "\e[0m Size log you want."
+echo "\e[33m I suggest, use half from your\n total partition /var/log \e[0m"
+echo ""
+echo " Your size partition /var/log is:\e[92m $var_log_size_Human\e[0m"
     read -p " Size (in Mb): " log_size
     if ! [[ "$log_size" =~ ^[0-9]+$ ]]; then
         echo "\e[101m\e[97m Only number you can enter. Force EXIT\e[0m"

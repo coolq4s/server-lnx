@@ -72,7 +72,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     var_log_size=$(df -BM /var/log | tail -n 1 | awk '{print $2}' | sed 's/[MG]//')
     var_log_size_Human=$(df -BM /var/log | tail -n 1 | awk '{print $2}')
     echo "$var_log_size"
-    echo " Size log you want."
+    echo "\e[0m Size log you want."
     echo " I suggest, use half from your total partition /var/log"
     echo " /var/log partition size : $var_log_size_Human"
     read -p " Size : " log_size

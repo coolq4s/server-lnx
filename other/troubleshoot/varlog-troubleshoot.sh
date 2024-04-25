@@ -81,7 +81,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
         sleep 5s
         exit
     else
-        if [[ "$log_size" =~ ^[0-9]+$ || "$log_size" =~ ^[-][0-9]+$  ]]; then
+        if [["$log_size" =~ ^[0-9]+$ ]] 2> /dev/null;  then
             if [ "$log_size" -gt "$var_log_size" ]; then
                 echo "\e[101m\e[97m The number entered is greater than\n the size of /var/log partition.\n Exiting script.\e[0m"
                 sleep 5s
@@ -94,14 +94,52 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
                 sleep 5s
             fi
         else
+            echo "$log_size"
+            echo "\e[101m\e[97m Only number you can enter. Force EXIT\e[0m"
+            sleep 5s
+            exit
         fi
     fi
     echo " DONE"
     sleep 5s
     exit
+    
+#    echo -e "\e[0m Input new value "
+#    echo -e "\e[0m 0 = Disable"
+#    echo -e "\e[0m 1 = Active"
+#    new_value=""
+#    while [ -z "$new_value" ]; do
+#        read -p " Type : " new_value
+#        if [ -z "$new_value" ]; then
+#            echo -e "\e[0m\033[91m Error : Cannot blank \e[0m"
+#        fi
+#    done
+#    #Menghapus tanda pagar jika ada
+#    sudo sed -i '/^#*net.ipv4.ip_forward/s/^#*//g' /etc/sysctl.conf
+
+#    #Jika variabel tidak ada di akhir file, tambahkan baris baru
+#    if [ -z "$current_value" ]; then
+#        echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null
+#    else
+#        # Ubah nilai variabel sesuai dengan input pengguna
+#        sudo sed -i "s/^net.ipv4.ip_forward=.*/net.ipv4.ip_forward=$new_value/g" /etc/sysctl.conf
+#    fi
+#    sleep 2s
 else
+    #Jika tidak ditemukan, tambahkan baris baru di akhir file
     echo "\e[91m"
     echo " Value log files not found"
+#    echo -e "\e[0m Input new value for IPv4 Forwarding"
+#    echo -e "\e[0m 0 = Disable"
+#    echo -e "\e[0m 1 = Active"
+#    new_value=""
+#    while [ -z "$new_value" ]; do
+#        read -p " Type : " new_value
+#        if [ -z "$new_value" ]; then
+#            echo -e "\e[0m\033[91m Error : Cannot blank \e[0m"
+#        fi
+#    done
+#    echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null
 fi
-sleep 5s
+
 exit

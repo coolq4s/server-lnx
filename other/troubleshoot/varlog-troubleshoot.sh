@@ -92,7 +92,6 @@ if grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 0 -E '^*weekly|hourly|
             exit 1
         else
             log_size="${log_size}M"
-            echo "$log_size"
             sudo sed -i "\$asize $log_size" /etc/logrotate.conf
             if grep -qE '^[[:space:]]*[^#]*compress' /etc/logrotate.conf; then
                 echo " Already compressed"

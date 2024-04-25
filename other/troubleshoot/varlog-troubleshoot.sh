@@ -77,7 +77,7 @@ echo "\e[33m I suggest, use half from your\n total partition /var/log \e[0m"
 echo ""
 echo " Your size partition /var/log is:\e[92m $var_log_size_Human\e[0m"
 read -p " Size (in Mb): " log_size
-if ! [ "$log_size" =~ ^[0-9]+$ ]; then
+if [[ "$log_size" =~ ^[0-9]+$ ]]; then
         echo "\e[101m\e[97m Only number you can enter. Force EXIT\e[0m"
         echo "$log_size"
         sleep 5s

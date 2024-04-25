@@ -101,7 +101,7 @@ if grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 1 -E '^*weekly|hourly|
     exit
 else
     echo "\e[91m"
-    echo " Value log files not found"
+    echo " Value log files not found\e[0m"
 fi
 
 sleep 5s

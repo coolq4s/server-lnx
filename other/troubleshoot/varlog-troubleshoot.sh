@@ -74,9 +74,9 @@ if grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 0 -E '^*weekly|hourly|
     echo "\e[0m Size log you want."
     echo ""
     echo "\e[33m I suggest, use half from your\n total partition /var/log \e[0m"
-    echo "\e[33m Note :\n Logrotate will be compressed. \e[0m"
     echo ""
     echo " Your size partition /var/log is:\e[92m $var_log_size_Human\e[0m"
+    echo "\e[33m Note :\n Logrotate will be compressed. \e[0m"
     read -p " Size (in Mb): " log_size
     if ! expr "$log_size" : '[0-9]*$' >/dev/null; then
         echo "\e[101m\e[97m ONLY NUMBER CAN BE ALLOWED. Exiting script.\e[0m"

@@ -78,10 +78,10 @@ echo ""
 echo " Your size partition /var/log is:\e[92m $var_log_size_Human\e[0m"
 read -p " Size in Mb: " log_size
 if [[ "$log_size" =~ ^[0-9]+$ ]]; then
-        echo "\e[101m\e[97m Only number you can enter. Force EXIT\e[0m"
-        echo "$log_size"
-        sleep 5s
-        exit
+    echo "\e[101m\e[97m Only number you can enter. Force EXIT\e[0m"
+    echo "$log_size"
+    sleep 5s
+    exit
 fi
     if [ -z "$log_size" ]; then
         echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"

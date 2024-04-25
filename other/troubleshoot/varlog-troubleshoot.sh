@@ -76,29 +76,21 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo ""
     echo " Your size partition /var/log is:\e[92m $var_log_size_Human\e[0m"
     read -p " Size (in Mb): " log_size
-    if [["$log_size" =~ ^[0-9]+$ ]] 2> /dev/null;  then
-        if [ -z "$log_size" ]; then
-            echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
-            sleep 5s
-            exit
-        fi
-    else
-        echo "$log_size"
-        echo "\e[101m\e[97m Only number you can enter. Force EXIT\e[0m"
+    if [ -z "$log_size" ]; then
+        echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
         sleep 5s
         exit
-    fi
-            if [ "$log_size" -gt "$var_log_size" ]; then
-                echo "\e[101m\e[97m The number entered is greater than\n the size of /var/log partition.\n Exiting script.\e[0m"
-                sleep 5s
-                exit 1
-            else
-                log_size="${log_size}M"
-                echo "$log_size"
-                sudo sed -i "\$asize $log_size" /etc/logrotate.conf
-                sudo sed -i "\$acompress" /etc/logrotate.conf
-                sleep 5s
-            fi
+    fi    
+    if [ "$log_size" -gt "$var_log_size" ]; then
+        echo "\e[101m\e[97m The number entered is greater than\n the size of /var/log partition.\n Exiting script.\e[0m"
+        sleep 5s
+        exit 1
+    else
+        log_size="${log_size}M"
+        echo "$log_size"
+        sudo sed -i "\$asize $log_size" /etc/logrotate.conf
+        sudo sed -i "\$acompress" /etc/logrotate.conf
+        sleep 5s
     fi
     echo " DONE"
     sleep 5s

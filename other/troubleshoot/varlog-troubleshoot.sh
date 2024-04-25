@@ -70,9 +70,12 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo ""
     echo ""
     var_log_size=$(df -BM /var/log | tail -n 1 | awk '{print $2}' | sed 's/[MG]//')
+    var_log_size_Human=$(df -BM /var/log | tail -n 1 | awk '{print $2}')
     echo "$var_log_size"
-    echo " Sizing log :"
-    read -p " Type number (1-5): " log_size
+    echo " Size log you want."
+    echo " I suggest, use half from your total partition /var/log"
+    echo " /var/log partition size : $var_log_size_Human"
+    read -p " Size : " log_size
     if [ -z "$log_size" ]; then
         echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
         sleep 5s
@@ -86,6 +89,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     log_size="${log_size}M"
     echo "$log_size"
     sudo sed -i "\$asize $log_size" /etc/logrotate.conf
+    sudo sed -i "\$acompress" /etc/logrotate.conf
     sleep 5s
     exit
     

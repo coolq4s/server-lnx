@@ -81,7 +81,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
         sleep 5s
         exit
     else
-        if ($log_size =~ ^[0-9]+$); then
+        if ("$log_size" =~ ^[0-9]+$); then
             if [ "$log_size" -gt "$var_log_size" ]; then
                 echo "\e[101m\e[97m The number entered is greater than\n the size of /var/log partition.\n Exiting script.\e[0m"
                 sleep 5s

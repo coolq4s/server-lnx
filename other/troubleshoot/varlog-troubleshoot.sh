@@ -77,10 +77,11 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo " Your size partition /var/log is:\e[92m $var_log_size_Human\e[0m"
     read -p " Size (in Mb): " log_size
     if [["$log_size" =~ ^[0-9]+$ ]] 2> /dev/null;  then
-    if [ -z "$log_size" ]; then
-        echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
-        sleep 5s
-        exit
+        if [ -z "$log_size" ]; then
+            echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
+            sleep 5s
+            exit
+        fi
     else
         echo "$log_size"
         echo "\e[101m\e[97m Only number you can enter. Force EXIT\e[0m"

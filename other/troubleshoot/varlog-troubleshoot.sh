@@ -73,6 +73,7 @@ if grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 0 -E '^*weekly|hourly|
     var_log_size_Human=$(df -BM /var/log | tail -n 1 | awk '{print $2}')
     echo "\e[0m Size log you want."
     echo "\e[33m I suggest, use half from your\n total partition /var/log \e[0m"
+    echo "\e[33m Note :\n Logrotate will be compressed. \e[0m"
     echo ""
     echo " Your size partition /var/log is:\e[92m $var_log_size_Human\e[0m"
     read -p " Size (in Mb): " log_size
@@ -93,7 +94,7 @@ if grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 0 -E '^*weekly|hourly|
             echo "$log_size"
             sudo sed -i "\$asize $log_size" /etc/logrotate.conf
             if grep -qE '^[[:space:]]*[^#]*compress' /etc/logrotate.conf; then
-                echo "skip compress"
+                echo " Already compressed"
             else
                 sudo sed -i "\$acompress" /etc/logrotate.conf
             fi

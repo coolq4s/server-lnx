@@ -63,9 +63,9 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo " Logrotate interval now is\e[92m $logrotate_interval\e[0m"
     sudo sed -i "s/^$current_value.*/$logrotate_interval/g" /etc/logrotate.conf
     sleep 4s
-    clear
     echo "\e[92m"
 fi
+clear
 cat header.txt
 sleep 1s
 echo ""

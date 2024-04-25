@@ -102,6 +102,7 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' <(grep -v '^[[:space:]]*#' /etc
 else
     echo "\e[91m"
     echo " Value log files not found"
+    sleep 5s
 fi
 
 sleep 5s

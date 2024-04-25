@@ -71,7 +71,6 @@ if grep -qE 'hourly|weekly|daily|monthly|yearly' /etc/logrotate.conf; then
     echo ""
     var_log_size=$(df -BM /var/log | tail -n 1 | awk '{print $2}' | sed 's/[MG]//')
     var_log_size_Human=$(df -BM /var/log | tail -n 1 | awk '{print $2}')
-    echo "$var_log_size"
     echo "\e[0m Size log you want."
     echo "\e[33m I suggest, use half from your\n total partition /var/log \e[0m"
     echo ""

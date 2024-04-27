@@ -65,11 +65,6 @@ else
 fi
 
 
-a=1200
-formatted=$(printf "%.1f" $(echo "scale=2; $a / 1000" | bc))
-echo $formatted
-
-
 
 #Count Installed RAM
 totalmem=$(free -w | awk "NR==2 {print \$2}")

@@ -232,7 +232,7 @@ while true; do
         break
     fi
 done &
-wait; sudo sync && echo 3 > /proc/sys/vm/drop_caches && sleep 2s
+wait; sudo sync && echo 3 > /proc/sys/vm/drop_caches
 echo "Clearing process completed."
 
 clear

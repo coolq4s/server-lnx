@@ -59,10 +59,17 @@ else
     #totalresult2=$(echo $totalresult MiB)
 fi
 if [ $totalresult -gt 1024 ]; then
-    totalresult2=$(echo $totalresult GiB)
+    totalresult2=$(printf "%.1f" GiB $(echo "scale=2; $a / 1000" | bc))
 else
     totalresult2=$(echo $totalresult MiB)
 fi
+
+
+a=1200
+formatted=$(printf "%.1f" $(echo "scale=2; $a / 1000" | bc))
+echo $formatted
+
+
 
 #Count Installed RAM
 totalmem=$(free -w | awk "NR==2 {print \$2}")

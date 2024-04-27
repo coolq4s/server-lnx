@@ -27,7 +27,7 @@ cat << "EOF" > header.txt
 EOF
 watch -n1 -tc '
 echo  "\033[1;94m"
-wait
+sleep 3s
 cat header.txt
 echo  "\e[0m"
 echo ""

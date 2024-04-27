@@ -219,6 +219,7 @@ cat header.txt
 echo -e "\e[0m"
 echo "                          -PLEASE WAIT, CLEARING-"
 while true; do
+    echo "                                "
     echo -ne "                            \r/ "
     sleep 0.5
     echo -ne "                            \r- "

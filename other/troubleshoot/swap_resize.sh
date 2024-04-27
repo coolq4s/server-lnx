@@ -13,6 +13,7 @@ cleanup() {
 trap cleanup EXIT
 trap cleanup SIGINT
 trap cleanup SIGQUIT
+read input_swap </dev/tty
 clear
 echo "\e[96m"
 cat << "EOF" > header.txt

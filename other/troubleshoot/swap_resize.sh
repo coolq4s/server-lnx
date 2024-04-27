@@ -45,7 +45,7 @@ if ! [[ $input_swap =~ ^[0-9]+$ ]]; then
 else
     continue
 fi
-if ((input_swap >= 1 && input_swap <= 99999)); then
+if (($input_swap >= 1 && input_swap <= 99999)); then
     echo " Input yang valid: $input_s"
 else
     echo " Input harus berada dalam rentang antara 1 hingga 99999."

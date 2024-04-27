@@ -40,7 +40,7 @@ cache=$(free -w | awk "NR==2 {print \$7}")
 totalMemUsed=$(($used + $shared + $buff + $cache))
 
 
-if [ $totalMemUsed -gt 1048576 ]; then
+if [ $totalMemUsed -gt 1048576000 ]; then
     totaluse=$(echo "scale=2; $totalMemUsed / 1024 / 1024" | bc)
     totalresult=$(printf "%.0f" $totaluse)
     totalresult2=$(echo $totalresult GiB)

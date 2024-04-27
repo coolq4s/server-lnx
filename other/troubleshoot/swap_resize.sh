@@ -24,8 +24,11 @@ EOF
 
 
 
-# Ukuran swap yang diinginkan dalam MB
-SWAP_SIZE_MB=1024
+swap_size=$(free -h | awk "NR==3 {print \$2}")
+echo "e\[92m"
+echo "Current SWAP size : $swap_size"
+read -p " Input SWAP size you need (MB):" input_swap
+SWAP_SIZE_MB=$input_swap
 
 # Lokasi swapfile
 SWAP_FILE="/swapfile"

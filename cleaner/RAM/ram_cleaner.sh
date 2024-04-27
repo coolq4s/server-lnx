@@ -25,6 +25,7 @@ EOF
 cat << "LGC" > LGC.sh
 
 watch -n1 -tc '
+counter=0
 echo -n "\033[1;94m"
 cat header.txt
 echo -n "\e[0m"

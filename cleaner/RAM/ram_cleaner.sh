@@ -74,7 +74,7 @@ else
     availableRAM2=$(echo $totalfreeRAM MiB)
 fi
 availableRAM_percent=$(echo "scale=2; ($availableRAM / $totalfreeRAM) * 100" | bc)
-
+echo "$availableRAM_percent"
 
 
 #Bar RAM

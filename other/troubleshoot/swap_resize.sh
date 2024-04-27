@@ -39,7 +39,7 @@ echo "\e[0m"
 input_swap=""
 read -p " Swap size you need (MB) : " input_swap
 echo " \e[101m\e[97m Turning off first your custom swap \e[0m"
-if (($input_swap >= 1 && $input_swap <= 99999)); then
+if (($input_swap >= 1 && $input_swap <= 99999)) 3> /dev/null; then
     echo " Input yang valid: $input_swap"
     sleep 5
     exit

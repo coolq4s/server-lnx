@@ -21,6 +21,8 @@ cat << "EOF" > header.txt
                       \____/\____/\____/_/\___\_\__,_/____/
                                                   RAM CLEANER
 EOF
+cat << "LGC" > LGC.sh
+
 watch -n1 -tc '
 echo -n "\033[1;94m"
 cat header.txt
@@ -184,6 +186,12 @@ echo -n "\n"
 echo -n "\n"
 echo " Press CTRL+C to clean the RAM & SWAP"
 '
+LGC
+chmod +x LGC.sh
+source LGC.sh
+
+
+
 clear
 echo -e "\033[1;94m"
 cat header.txt

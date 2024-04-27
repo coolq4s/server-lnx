@@ -192,10 +192,11 @@ echo -n "\n"
 
 counter=0
 
-if [ $counter -ge 1 ]; then
+if [ $counter -ge 0 ]; then
     echo " Press CTRL+C to EXIT"
 else
     echo " Press CTRL+C to clear RAM"
+    counter=$((counter+1))
 fi
 '
 

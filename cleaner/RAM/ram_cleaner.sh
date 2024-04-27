@@ -56,11 +56,9 @@ totalmem=$(free -w | awk "NR==2 {print \$2}")
 if [ $totalmem -gt 1048576000 ]; then
     totalmemInstalled=$(echo "scale=2; $totalmem / 1048 / 1048" | bc)
     installedMem=$(printf "%.0f" $totalmemInstalled)
-    #installedMem2=$(echo $installedMem GiB)
 else
     totalmemInstalled=$(echo "scale=2; $totalmem / 1048" | bc)
     installedMem=$(printf "%.0f" $totalmemInstalled)
-    #installedMem2=$(echo $installedMem MiB)
 fi
 
 if [ $installedMem -gt 1024 ]; then
@@ -68,17 +66,21 @@ if [ $installedMem -gt 1024 ]; then
 else
     installedMem2=$(echo $installedMem MiB)
 fi
-echo "$installedMem"
 
 #Count Free RAM
 freeRAM=$(free -w | awk "NR==2 {print \$4}")
 if [ $freeRAM -gt 1048576000 ]; then
     totalfreeRAM=$(echo "scale=2; $freeRAM / 1048 / 1048" | bc)
     availableRAM=$(printf "%.0f" $totalfreeRAM)
-    availableRAM2=$(echo $availableRAM GiB)
+    #availableRAM2=$(echo $availableRAM GiB)
 else
     totalfreeRAM=$(echo "scale=2; $freeRAM / 1048" | bc)
     availableRAM=$(printf "%.0f" $totalfreeRAM)
+    #availableRAM2=$(echo $availableRAM MiB)
+fi
+if [ $availableRAM -gt 1024 ]; then
+    availableRAM2=$(echo $availableRAM GiB)
+else
     availableRAM2=$(echo $availableRAM MiB)
 fi
 

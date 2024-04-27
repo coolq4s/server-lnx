@@ -88,7 +88,6 @@ percentage=$(printf "%.0f" "$getPercent")
 
 progress=$percentage
 total=100
-sleep 3s;
 draw_progress_bar_RAM() {
     local percent=$((progress * 100 / total))
     local num_bar=$((percent / 4))

@@ -231,9 +231,7 @@ done &
 spinner_pid=$!
 
 sleep 2
-echo ""
 sudo sync && echo 3 > /proc/sys/vm/drop_caches && kill $spinner_pid
-echo "Clearing process completed."
 
 clear
 sed -i 's/echo " Press CTRL+C to clear RAM"/echo " Press CTRL+C to EXIT"/g' LGC.sh

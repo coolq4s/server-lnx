@@ -213,9 +213,8 @@ chmod +x LGC.sh
 clear
 sed -i 's/echo "                               -BEFORE CLEARING-"/echo "                          -PLEASE WAIT, CLEARING-"/g' LGC.sh
 source LGC.sh
-sleep 2s
-
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
+sleep 2s
 clear
 sed -i 's/echo " Press CTRL+C to clear RAM"/echo " Press CTRL+C to EXIT"/g' LGC.sh
 sed -i 's/echo "                          -PLEASE WAIT, CLEARING-"/echo "                              -AFTER CLEARING-"/g' LGC.sh

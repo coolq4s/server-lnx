@@ -87,7 +87,7 @@ draw_progress_bar_RAM() {
     local num_bar=$((percent / 4))
     local num_space=$((25 - num_bar))
     printf " RAM  ["
-    printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
+    printf "\033[91m%0.s+\e[0m" $(seq 1 $num_bar)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
     echo ""
@@ -147,7 +147,7 @@ draw_progress_bar_SWAP() {
     local num_barSWAP=$((percentSWAP / 4))
     local num_spaceSWAP=$((25 - num_barSWAP))
     printf " SWAP ["
-    printf "\033[91m%0.s|\e[0m" $(seq 1 $num_barSWAP)
+    printf "\033[91m%0.s+\e[0m" $(seq 1 $num_barSWAP)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_spaceSWAP)
     printf "] %d%%\r" $percentSWAP
     echo ""
@@ -238,7 +238,7 @@ draw_progress_bar_RAM() {
     local num_bar=$((percent / 4))
     local num_space=$((25 - num_bar))
     printf " RAM  ["
-    printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
+    printf "\033[91m%0.s+\e[0m" $(seq 1 $num_bar)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
     echo ""
@@ -298,8 +298,8 @@ draw_progress_bar_SWAP() {
     local num_barSWAP=$((percentSWAP / 4))
     local num_spaceSWAP=$((25 - num_barSWAP))
     printf " SWAP ["
-    printf "\033[91m%0.s|\e[0m" $(seq 1 $num_barSWAP)
-    printf "\033[92m%0.s-\e[0m" $(seq 1 $num_spaceSWAP)
+    printf "\033[91m%0.s-\e[0m" $(seq 1 $num_barSWAP)
+    printf "\033[92m%0.s+\e[0m" $(seq 1 $num_spaceSWAP)
     printf "] %d%%\r" $percentSWAP
     echo ""
     printf "      \033[102m\033[30m F: $availableSWAP2 \033[101m\033[30m U: $swapresult2 \e[0m T: $totalSWAP2"

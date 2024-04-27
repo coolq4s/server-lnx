@@ -31,8 +31,6 @@ cat header.txt
 echo  "\e[0m"
 echo ""
 echo ""
-echo ""
-echo ""
 echo "                                 -BEFORE CLEARING-"
 echo ""
 echo ""

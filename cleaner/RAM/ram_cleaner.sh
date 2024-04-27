@@ -234,7 +234,7 @@ progress=$percentage
 total=100
 
 draw_progress_bar_RAM() {
-    local percent=$((progress * 50 / total))
+    local percent=$((progress * 100 / total))
     local num_bar=$((percent / 2))
     local num_space=$((50 - num_bar))
     printf " RAM  ["

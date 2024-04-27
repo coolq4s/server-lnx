@@ -39,7 +39,7 @@ cache=$(free -w | awk "NR==2 {print \$7}")
 
 totalMemUsed=$(($used + $shared + $buff + $cache))
 
-
+#Count RAM Used
 if [ $totalMemUsed -gt 1048576000 ]; then
     totaluse=$(echo "scale=2; $totalMemUsed / 1048 / 1048" | bc)
     totalresult=$(printf "%.0f" $totaluse)
@@ -62,8 +62,6 @@ elif [ $totalmem -lt 1048576000 ]; then
     installedMem=$(printf "%.0f" $totalmemInstalled)
     installedMem2=$(echo $installedMem MiB)
 fi
-echo "$totalmem"
-echo "$installedMem"
 
 #Count Free RAM
 freeRAM=$(free -w | awk "NR==2 {print \$4}")

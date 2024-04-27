@@ -1,7 +1,8 @@
 #!/bin/bash
 clear
 
-sleep 3s; echo " PLEASE WAIT"
+wait ; echo " PLEASE WAIT"
+sleep 3s;
 watch -n1 -tc '
 cleanup() {
     rm -rf ram.sh

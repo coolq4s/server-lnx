@@ -1,10 +1,9 @@
 #!/bin/bash
 clear
-echo ""
-echo ""
-echo ""
-echo ""
-wait ; echo " PLEASE WAIT"
+echo "================="
+echo "===PLEASE WAIT==="
+echo "================="
+wait 
 sleep 3s;
 watch -n1 -tc '
 cleanup() {

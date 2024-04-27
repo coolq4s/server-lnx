@@ -85,7 +85,7 @@ max_bar_length=$((terminal_width / 4))
 
 draw_progress_bar_RAM() {
     local percent=$(($progress * 100 / $total))
-    local num_bar=$((percent / 4))
+    local num_bar=$((percent / 4 / 4))
     if [ $num_bar -gt $max_bar_length ]; then
         num_bar=$max_bar_length
     fi

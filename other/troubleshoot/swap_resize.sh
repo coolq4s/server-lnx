@@ -51,7 +51,6 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         sleep 3
         echo " Adding new SWAP Size"
         sleep 2
-        echo ""
         sudo swapoff $SWAP_FILE >> /dev/null
         rm -rf $SWAP_FILE
         sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE >> /dev/null
@@ -73,6 +72,8 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
     echo " SWAP from" $swap_size"B resized to "$swap_after_extend"B"
     sleep 2
     echo " Clearing tool cache..."
+    echo " Cleared"
+    read "Press any key to continue"
     sleep 7
 else
     clear;

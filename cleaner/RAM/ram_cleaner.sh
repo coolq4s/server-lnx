@@ -197,7 +197,7 @@ echo -e "\e[0m"
 echo ""
 echo ""
 wait; echo "                             -PLEASE WAIT, CLEARING-"
-#sudo sync && echo 3 > /proc/sys/vm/drop_caches
+sudo sync && echo 3 > /proc/sys/vm/drop_caches
 clear
 
 source LGC.sh

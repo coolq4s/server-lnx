@@ -1,6 +1,5 @@
 #!/bin/sh
 cleanup() {
-    rm -rf ram.sh
     rm -rf server-lnx
     rm -rf header.txt
     rm -rf ram_cleaner.sh

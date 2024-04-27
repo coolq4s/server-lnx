@@ -38,13 +38,6 @@ echo " Current SWAP size : \e[102m\e[30m $swap_format "
 echo "\e[0m"
 input_swap=""
 read -p " Swap size you need (MB) : " input_swap
-if ! ( $input_swap =~ ^[0-9]+$ ) 2> /dev/null; then
-    echo " \e[101m\e[97m Only number can allow \e[0m"
-    sleep 2
-    exit
-else
-    continue
-fi
 if (($input_swap >= 1 && input_swap <= 99999)); then
     echo " Input yang valid: $input_swap"
     sleep 2

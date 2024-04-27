@@ -21,9 +21,8 @@ cat << "EOF" > header.txt
                       \____/\____/\____/_/\___\_\__,_/____/
                                                   RAM CLEANER
 EOF
-watch -n1 -tc '
-echo -n "\033[1;94m"
 sleep 3s; echo " PLEASE WAIT"
+watch -n1 -tc '
 clear
 echo  "\033[1;94m"
 cat header.txt

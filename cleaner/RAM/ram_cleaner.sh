@@ -10,12 +10,7 @@ cleanup() {
 }
 
 trap cleanup EXIT
-clear
-echo "==================="
-echo "=== PLEASE WAIT ==="
-echo "==================="
-wait ;
-sleep 1s;
+
 
 
 cat << "EOF" > header.txt
@@ -26,6 +21,13 @@ cat << "EOF" > header.txt
                       \____/\____/\____/_/\___\_\__,_/____/
                                                   RAM CLEANER
 EOF
+clear
+echo "==================="
+echo "=== PLEASE WAIT ==="
+echo "==================="
+wait ;
+sleep 1s;
+
 watch -n1 -tc '
 echo "\033[1;94m"
 cat header.txt

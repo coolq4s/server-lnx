@@ -54,7 +54,7 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         sudo chmod 600 $SWAP_FILE
         sudo mkswap $SWAP_FILE
         sudo swapon $SWAP_FILE
-        sleep 2
+        sleep 5
     else
         sudo swapoff $SWAP_FILE
         rm -rf $SWAP_FILE
@@ -72,7 +72,7 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         echo ""
         echo ""
         echo " DONE"
-        sleep 2
+        sleep 5
     fi
 else
     clear;

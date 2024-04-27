@@ -1,4 +1,30 @@
 #!/bin/bash
+clear
+cleanup() {
+    rm -rf ram.sh
+    rm -rf server-lnx
+    rm -rf header.txt
+    rm -rf ram_cleaner.sh
+    rm -rf LGC.sh
+    echo " Cleaning up temporary files"
+    echo -e " To use again this script,\n you can copy the command from github"
+    echo ""
+}
+
+trap cleanup EXIT
+clear
+
+cat << "EOF" > header.txt
+                       ______            ______
+                      / ____/___  ____  / / __ \____ ______
+                     / /   / __ \/ __ \/ / / / / __ `/ ___/
+                    / /___/ /_/ / /_/ / / /_/ / /_/ (__  )
+                    \____/\____/\____/_/\___\_\__,_/____/
+                                              RAM CLEANER
+EOF
+
+
+
 
 # Ukuran swap yang diinginkan dalam MB
 SWAP_SIZE_MB=2048

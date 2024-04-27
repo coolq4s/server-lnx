@@ -56,7 +56,7 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         sudo swapon $SWAP_FILE >> /dev/null
         read -p "continue" none
     else
-        sudo swapoff $SWAP_FILE
+        sudo swapoff $SWAP_FILE >> /dev/null
         rm -rf $SWAP_FILE
         sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE >> /dev/null
         sudo chmod 600 $SWAP_FILE >> /dev/null

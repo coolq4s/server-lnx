@@ -12,7 +12,6 @@ cleanup() {
 
 trap cleanup EXIT
 clear
-
 cat << "EOF" > header.txt
                          ______            ______
                         / ____/___  ____  / / __ \____ ______
@@ -23,8 +22,6 @@ cat << "EOF" > header.txt
 EOF
 watch -n1 -tc '
 echo -n "\033[1;94m"
-cat header.txt
-echo -n "\e[0m"
 echo " PLEASE WAIT"
 sleep 3s
 clear

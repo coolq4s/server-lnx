@@ -228,8 +228,9 @@ while true; do
     sleep 0.5
     echo -ne "\r| "
     sleep 0.5
-    echo -ne "\r| "
-    sleep 0.5
+    if [ -f /proc/sys/vm/drop_caches ]; then
+        break
+    fi
 done &
 wait; sudo sync && echo 3 > /proc/sys/vm/drop_caches && sleep 2s
 echo "Clearing process completed."

@@ -20,7 +20,7 @@ cat << "EOF" > header.txt
                      / /   / __ \/ __ \/ / / / / __ `/ ___/
                     / /___/ /_/ / /_/ / / /_/ / /_/ (__  )
                     \____/\____/\____/_/\___\_\__,_/____/
-                                              RAM CLEANER
+                                              SWAP RESIZE
 EOF
 cat header.txt
 echo ""

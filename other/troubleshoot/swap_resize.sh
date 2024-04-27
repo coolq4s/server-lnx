@@ -35,7 +35,7 @@ input_swap=""
 while [ -z "$input_swap" ]; do
     read -p " Input SWAP size you need (MB):" input_swap
 done
-doneSWAP_SIZE_MB=$input_swap
+SWAP_SIZE_MB=$input_swap
 
 # Lokasi swapfile
 SWAP_FILE="/swapfile"

@@ -1,6 +1,8 @@
 #!/bin/bash
 clear
 
+sleep 3s; echo " PLEASE WAIT"
+watch -n1 -tc '
 cleanup() {
     rm -rf ram.sh
     rm -rf server-lnx
@@ -21,8 +23,6 @@ cat << "EOF" > header.txt
                       \____/\____/\____/_/\___\_\__,_/____/
                                                   RAM CLEANER
 EOF
-sleep 3s; echo " PLEASE WAIT"
-watch -n1 -tc '
 clear
 echo  "\033[1;94m"
 cat header.txt

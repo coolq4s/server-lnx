@@ -91,8 +91,8 @@ draw_progress_bar_RAM() {
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
     echo -n "\n"
-    echo -n "\n"
     printf "      \033[102m\033[30m F: $availableRAM2 \033[101m\033[30m U: $totalresult2 \e[0m T: $installedMem2"
+    echo -n "\n"
 }
 
 draw_progress_bar_RAM

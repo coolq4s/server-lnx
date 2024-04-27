@@ -95,7 +95,7 @@ else
     #availableRAM2=$(echo $availableRAM MiB)
 fi
 if [ $availableRAM -gt 1024 ]; then
-    availableRAM2=$(echo $availableRAM GiB)
+    availableRAM2=$(printf "%.2f GiB" $(echo "scale=2; $availableRAM / 1024" | bc))
 else
     availableRAM2=$(echo $availableRAM MiB)
 fi

@@ -4,7 +4,7 @@ echo "==================="
 echo "=== PLEASE WAIT ==="
 echo "==================="
 wait ;
-sleep 3s;
+sleep 1s;
 cleanup() {
     rm -rf ram.sh
     rm -rf server-lnx

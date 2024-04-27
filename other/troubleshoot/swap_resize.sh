@@ -33,7 +33,6 @@ echo "Current SWAP size : $swap_size"
 echo "\e[0m"
 input_swap=""
 while [ -z "$input_swap" ]; do
-
     read -p " Input SWAP size you need (MB):" input_swap
 done
 SWAP_SIZE_MB=$input_swap

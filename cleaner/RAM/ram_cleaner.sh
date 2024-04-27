@@ -129,7 +129,7 @@ fi
 if [ $free_swap -gt 1048576 ]; then
     free_swap_count=$(echo "scale=2; $free_swap / 1048 / 1048" | bc)
     availableSWAP=$(printf "%.0" $free_swap_count)
-    availableSWAP2=$(echo $free_swap_count GiB)
+    availableSWAP2=$(echo "$free_swap_count GiB")
 elif [ $free_swap -lt 1048576000 ]; then
     free_swap_count=$(echo "scale=2; $free_swap / 1048" | bc)
     availableSWAP=$(printf "%.0f" $free_swap_count)

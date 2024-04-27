@@ -85,6 +85,7 @@ else
     echo ""
     echo ""
     echo " Only number 1-99999, \e[101m\e[97m EXITING \e[0m"
+    sleep 1
     read -p " Press any key to continue" PAKTC
     exit
 fi

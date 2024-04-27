@@ -12,6 +12,7 @@ cleanup() {
 
 trap cleanup EXIT
 clear
+echo ""
 echo "\e[96m"
 cat << "EOF" > header.txt
                        ______            ______
@@ -64,6 +65,7 @@ if (($input_swap >= 1 && $input_swap <= 99999)) 3> /dev/null; then
         sudo swapon $SWAP_FILE
         echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null;
         clear;
+        echo ""
         echo "\e[0m"
         echo "\e[96m"
         cat header.txt

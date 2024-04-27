@@ -57,7 +57,7 @@ if [ $totalmem -gt 1048576 ]; then
     totalmemInstalled=$(echo "scale=2; $totalmem / 1048 / 1048" | bc)
     installedMem=$(printf "%.0f" $totalmemInstalled)
     installedMem2=$(echo $installedMem GiB)
-elif [ $totalmem -gt 1048576000 ]; then
+elif [ $totalmem -lt 1048576000 ]; then
     totalmemInstalled=$(echo "scale=2; $totalmem / 1048" | bc)
     installedMem=$(printf "%.0f" $totalmemInstalled)
     installedMem2=$(echo $installedMem MiB)

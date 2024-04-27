@@ -59,7 +59,7 @@ else
     #totalresult2=$(echo $totalresult MiB)
 fi
 if [ $totalresult -gt 1024 ]; then
-    totalresult2=$(printf "%.1f GiB" $(echo "scale=2; $totalresult / 1024" | bc))
+    totalresult2=$(printf "%.2f GiB" $(echo "scale=2; $totalresult / 1024" | bc))
 else
     totalresult2=$(echo $totalresult MiB)
 fi
@@ -78,6 +78,7 @@ else
 fi
 
 if [ $installedMem -gt 1024 ]; then
+
     installedMem2=$(echo $installedMem GiB)
 else
     installedMem2=$(echo $installedMem MiB)

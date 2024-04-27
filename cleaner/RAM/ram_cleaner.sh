@@ -39,7 +39,7 @@ cache=$(free -w | awk "NR==2 {print \$7}")
 
 totalMemUsed=$(($used + $shared + $buff + $cache))
 totalX=$(printf "%.0f" $(echo "scale=2; $totalMemUsed / 1048" | bc))
-echo "TotalX (bulat): $totalX"
+echo "Total used RAM: $totalX"
 
 #Count RAM Used
 if [ $totalMemUsed -gt 1048576000 ]; then

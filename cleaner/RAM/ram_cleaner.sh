@@ -52,10 +52,15 @@ echo "Total used RAM: $totalX"
 if [ $totalMemUsed -gt 1048576000 ]; then
     totaluse=$(echo "scale=2; $totalMemUsed / 1048 / 1048" | bc)
     totalresult=$(printf "%.0f" $totaluse)
-    totalresult2=$(echo $totalresult GiB)
+    #totalresult2=$(echo $totalresult GiB)
 else
     totaluse=$(echo "scale=2; $totalMemUsed / 1048" | bc)
     totalresult=$(printf "%.0f" $totaluse)
+    #totalresult2=$(echo $totalresult MiB)
+fi
+if [ $totalresult -gt 1024 ]; then
+    totalresult2=$(echo $totalresult GiB)
+else
     totalresult2=$(echo $totalresult MiB)
 fi
 

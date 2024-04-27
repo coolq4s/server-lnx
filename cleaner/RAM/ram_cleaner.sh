@@ -220,7 +220,7 @@ echo -e "\e[0m"
 echo "                          -PLEASE WAIT, CLEARING-"
 echo "Please wait, clearing..."
 while true; do
-    echo -n "/ "
+    echo -n "\r/ "
     sleep 0.5
     echo -ne "\r- "
     sleep 0.5

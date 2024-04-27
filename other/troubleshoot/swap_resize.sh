@@ -35,7 +35,7 @@ SWAP_FILE="/swapfile"
 echo ""
 echo ""
 swap_size=$(free -h | awk "NR==3 {print \$2}")
-swap_format=$(echo $swap_size"b")
+swap_format=$(echo $swap_size"B")
 echo " Current SWAP size : \e[102m\e[90m $swap_format "
 echo "\e[0m"
 

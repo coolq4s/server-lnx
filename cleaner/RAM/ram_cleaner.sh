@@ -128,6 +128,7 @@ used_swap=$(free -w | awk "NR==3 {print \$3}")
 free_swap=$(free -w | awk "NR==3 {print \$4}")
 total_swap=$(free -w | awk "NR==3 {print \$2}")
 
+#Count used swap
 if [ $used_swap -gt 1048576000 ]; then
     swap_used=$(echo "scale=2; $used_swap / 1048 / 1048" | bc)
     swapresult=$(printf "%.0f" $swap_used)
@@ -138,16 +139,13 @@ else
     swapresult2=$(echo $swapresult MiB)
 fi
 
-if [ $used_swap -gt 1048576 ]; then
-    swap_used=$(echo "scale=2; $used_swap / 1048 / 1048" | bc)
-    swapresult=$(printf "%.0f" $swap_used)
-    swapresult2=$(echo $swapresult GiB)
+if [ $availableRAM -gt 1024 ]; then
+    availableRAM2=$(printf "%.2f GiB" $(echo "scale=2; $availableRAM / 1024" | bc))
 else
-    swap_used=$(echo "scale=2; $used_swap / 1048" | bc)
-    swapresult=$(printf "%.0f" $swap_used)
-    swapresult2=$(echo $swapresult MiB)
+    availableRAM2=$(echo $availableRAM MiB)
 fi
 
+#Free Swap
 if [ $free_swap -gt 1048576000 ]; then
     free_swap_count=$(echo "scale=2; $free_swap / 1048 / 1048" | bc)
     availableSWAP=$(printf "%.0f" $free_swap_count)
@@ -158,6 +156,7 @@ else
     availableSWAP2=$(echo $availableSWAP MiB)
 fi
 
+#Total Swap
 if [ $total_swap -gt 1048576000 ]; then
     total_swap_count=$(echo "scale=2; $total_swap / 1048 / 1048" | bc)
     totalSWAP=$(printf "%.0f" $total_swap_count)

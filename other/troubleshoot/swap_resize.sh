@@ -25,8 +25,8 @@ cat << "EOF" > header.txt
 EOF
 cat header.txt
 echo ""
-echo ""
-echo "\e[101m\e[97m     ATTENTION!!!     "
+echo "\e[101m\e[97m "
+echo "            ATTENTION!!!           "
 echo " Turning off first your custom swap"
 echo " before running this script\e[0m   "
 

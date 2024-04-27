@@ -11,6 +11,7 @@ cleanup() {
 }
 
 trap cleanup EXIT
+trap cleanup SIGINT
 trap cleanup SIGQUIT
 clear
 echo "\e[96m"

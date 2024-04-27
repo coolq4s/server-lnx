@@ -190,17 +190,7 @@ wait
 echo -n "\n"
 echo -n "\n"
 
-counter=0
-
-if [ $counter -gt 2 ]; then
-    echo " Press CTRL+C to EXIT"
-else
-    echo " Press CTRL+C to clear RAM"
-    counter=$((counter+1))
-fi
-counter=$((counter+1))
-echo "$counter"
-
+echo " Press CTRL+C to clear RAM"
 
 '
 
@@ -219,7 +209,7 @@ wait; echo "                          -PLEASE WAIT, CLEARING-"
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
 counter=$(($counter+1))
 clear
-
+sed -i 's/echo " Press CTRL+C to clear RAM"/echo " Press CTRL+C to EXIT"/g' LGC.sh
 source LGC.sh
 
 clear

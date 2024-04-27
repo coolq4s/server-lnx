@@ -42,7 +42,7 @@ read -p " Swap size you need (MB) : " input_swap
 if ! [[ $input_swap =~ ^[0-9]+$ ]]; then
     echo " Masukkan harus berupa angka."
 else
-    exit
+    continue
 fi
 if ((input_swap >= 1 && input_swap <= 99999)); then
     echo " Input yang valid: $input_s"

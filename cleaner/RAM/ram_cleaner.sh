@@ -190,7 +190,7 @@ if [ -z "$counter" ]; then
 fi
 
 if [ $counter -gt 1 ] then;
-    echo " Press CTRL+C to EXIT
+    echo " Press CTRL+C to EXIT"
 else
     echo " Press CTRL+C to clear RAM"
 fi

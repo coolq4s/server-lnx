@@ -47,7 +47,8 @@ else
 fi
 if (($input_swap >= 1 && input_swap <= 99999)); then
     echo " Input yang valid: $input_swap"
-    sleep w
+    sleep 2
+    exit
 else
     echo " Input harus berada dalam rentang antara 1 hingga 99999."
     sleep 2
@@ -58,6 +59,7 @@ fi
 if ! [[ $input_swap =~ ^[0-9]+$ ]]; then
     if grep -qF "$SWAP_FILE none swap sw 0 0" /etc/fstab; then
         echo " Baris sudah ada dalam /etc/fstab"
+        sleep 2
     else
         sudo swapoff $SWAP_FILE
         rm -rf $SWAP_FILE
@@ -67,6 +69,7 @@ if ! [[ $input_swap =~ ^[0-9]+$ ]]; then
         sudo swapon $SWAP_FILE
         echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null
         echo " Baris berhasil ditambahkan ke /etc/fstab"
+        sleep 2
     fi
 else
     exit

@@ -238,7 +238,9 @@ draw_progress_bar_RAM() {
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
-    printf ",\033[102m\033[30m F: $availableRAM2 \033[101m\033[30m U: $totalresult2 \e[0m T: $installedMem2"
+    echo ""
+    printf "     \033[102m\033[30m F: $availableRAM2 \033[101m\033[30m U: $totalresult2 \e[0m T: $installedMem2"
+    echo ""
 }
 
 draw_progress_bar_RAM
@@ -296,7 +298,8 @@ draw_progress_bar_SWAP() {
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_barSWAP)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_spaceSWAP)
     printf "] %d%%\r" $percentSWAP
-    printf ",\033[102m\033[30m F: $availableSWAP2 \033[101m\033[30m U: $swapresult2 \e[0m T: $totalSWAP2"
+    echo ""
+    printf "     \033[102m\033[30m F: $availableSWAP2 \033[101m\033[30m U: $swapresult2 \e[0m T: $totalSWAP2"
 }
 
 draw_progress_bar_SWAP

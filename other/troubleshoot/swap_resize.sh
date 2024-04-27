@@ -9,10 +9,27 @@ cleanup() {
     echo -e " To use again this script,\n you can copy the command from github"
     echo ""
 }
-
 trap cleanup EXIT
-trap cleanup SIGINT
-trap cleanup SIGQUIT
+cleanup2() {
+    clear
+    rm -rf swap_resize.sh
+    rm -rf server-lnx
+    rm -rf header.txt
+    echo " Cleaning up temporary files"
+    echo -e " To use again this script,\n you can copy the command from github"
+    echo ""
+}
+trap cleanup2 SIGINT
+cleanup3() {
+    clear
+    rm -rf swap_resize.sh
+    rm -rf server-lnx
+    rm -rf header.txt
+    echo " Cleaning up temporary files"
+    echo -e " To use again this script,\n you can copy the command from github"
+    echo ""
+}
+trap cleanup3 SIGQUIT
 read input_swap </dev/tty
 clear
 echo "\e[96m"

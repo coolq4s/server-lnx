@@ -190,7 +190,7 @@ buff=$(free -w | awk "NR==2 {print \$6}")
 cache=$(free -w | awk "NR==2 {print \$7}")
 
 totalMemUsed=$(($used + $shared + $buff + $cache))
-echo "$totalMemUsed"
+echo "$totalMemUsed   mmmm"
 
 if [ $totalMemUsed -gt 1024000 ]; then
     totaluse=$(echo "scale=2; $totalMemUsed / 1024 / 1024" | bc)

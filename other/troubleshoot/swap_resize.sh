@@ -1,11 +1,9 @@
 #!/bin/bash
 clear
 cleanup() {
-    rm -rf ram.sh
+    rm -rf swap_resize.sh
     rm -rf server-lnx
     rm -rf header.txt
-    rm -rf ram_cleaner.sh
-    rm -rf LGC.sh
     echo " Cleaning up temporary files"
     echo -e " To use again this script,\n you can copy the command from github"
     echo ""

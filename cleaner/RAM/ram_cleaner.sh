@@ -220,7 +220,7 @@ echo -e "\e[0m"
 echo "                          -PLEASE WAIT, CLEARING-"
 echo "Please wait, clearing..."
 while true; do
-    echo -ne "/ "
+    echo -ne "\r/ "
     sleep 0.5
     echo -ne "\r- "
     sleep 0.5
@@ -228,7 +228,7 @@ while true; do
     sleep 0.5
     echo -ne "\r| "
     sleep 0.1
-    echo -ne "\r-"
+    echo -ne "\r"
     sleep 0.1
 done &
 spinner_pid=$!

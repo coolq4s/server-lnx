@@ -194,9 +194,10 @@ else
 fi
 
 # Menambahkan 1 ke nilai counter
-counter=$((counter+1))
+counter=$(($counter+1))
 
 '
+
 LGC
 chmod +x LGC.sh
 source LGC.sh

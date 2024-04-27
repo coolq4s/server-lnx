@@ -1,17 +1,17 @@
-#!/bin/sh
+#!/bin/bash
+
 cleanup() {
-    clear
+    rm -rf ram.sh
     rm -rf server-lnx
     rm -rf header.txt
     rm -rf ram_cleaner.sh
     echo " Cleaning up temporary files"
-    echo " To use again this script,\n you can copy the command from github"
+    echo -e " To use again this script,\n you can copy the command from github"
     echo ""
 }
 
 trap cleanup EXIT
-
-
+clear
 
 cat << "EOF" > header.txt
                          ______            ______
@@ -21,17 +21,10 @@ cat << "EOF" > header.txt
                       \____/\____/\____/_/\___\_\__,_/____/
                                                   RAM CLEANER
 EOF
-clear
-echo "==================="
-echo "=== PLEASE WAIT ==="
-echo "==================="
-wait ;
-sleep 1s;
-
 watch -n1 -tc '
-echo "\033[1;94m"
+echo -n "\033[1;94m"
 cat header.txt
-echo "\e[0m"
+echo -n "\e[0m"
 echo ""
 echo ""
 echo "                                 -BEFORE CLEARING-"
@@ -88,6 +81,7 @@ percentage=$(printf "%.0f" "$getPercent")
 
 progress=$percentage
 total=100
+
 draw_progress_bar_RAM() {
     local percent=$((progress * 100 / total))
     local num_bar=$((percent / 4))
@@ -96,9 +90,7 @@ draw_progress_bar_RAM() {
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
-    echo ""
-    printf "      \033[102m\033[30m F: $availableRAM2 \033[101m\033[30m U: $totalresult2 \e[0m T: $installedMem2"
-    echo ""
+    printf ",\033[102m\033[30m F: $availableRAM2 \033[101m\033[30m U: $totalresult2 \e[0m T: $installedMem2"
 }
 
 draw_progress_bar_RAM
@@ -156,13 +148,11 @@ draw_progress_bar_SWAP() {
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_barSWAP)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_spaceSWAP)
     printf "] %d%%\r" $percentSWAP
-    echo -n "\n"
-    printf "      \033[102m\033[30m F: $availableSWAP2 \033[101m\033[30m U: $swapresult2 \e[0m T: $totalSWAP2"
+    printf ",\033[102m\033[30m F: $availableSWAP2 \033[101m\033[30m U: $swapresult2 \e[0m T: $totalSWAP2"
 }
 
 draw_progress_bar_SWAP
 wait
-echo -n "\n"
 echo -n "\n"
 echo -n "\n"
 echo " Press CTRL+C to clean the RAM & SWAP"
@@ -248,9 +238,7 @@ draw_progress_bar_RAM() {
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
-    echo -n "\n"
-    printf "      \033[102m\033[30m F: $availableRAM2 \033[101m\033[30m U: $totalresult2 \e[0m T: $installedMem2"
-    echo -n "\n"
+    printf ",\033[102m\033[30m F: $availableRAM2 \033[101m\033[30m U: $totalresult2 \e[0m T: $installedMem2"
 }
 
 draw_progress_bar_RAM
@@ -308,12 +296,10 @@ draw_progress_bar_SWAP() {
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_barSWAP)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_spaceSWAP)
     printf "] %d%%\r" $percentSWAP
-    echo -n "\n"
-    printf "      \033[102m\033[30m F: $availableSWAP2 \033[101m\033[30m U: $swapresult2 \e[0m T: $totalSWAP2"
+    printf ",\033[102m\033[30m F: $availableSWAP2 \033[101m\033[30m U: $swapresult2 \e[0m T: $totalSWAP2"
 }
 
 draw_progress_bar_SWAP
-echo -n "\n"
 echo -n "\n"
 echo -n "\n"
 echo " Press CTRL+C to exit this tool"

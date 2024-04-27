@@ -9,28 +9,11 @@ cleanup() {
     echo -e " To use again this script,\n you can copy the command from github"
     echo ""
 }
+
 trap cleanup EXIT
-cleanup2() {
-    clear
-    rm -rf swap_resize.sh
-    rm -rf server-lnx
-    rm -rf header.txt
-    echo " Cleaning up temporary files"
-    echo -e " To use again this script,\n you can copy the command from github"
-    echo ""
-}
-trap cleanup2 SIGINT
-cleanup3() {
-    clear
-    rm -rf swap_resize.sh
-    rm -rf server-lnx
-    rm -rf header.txt
-    echo " Cleaning up temporary files"
-    echo -e " To use again this script,\n you can copy the command from github"
-    echo ""
-}
-trap cleanup3 SIGQUIT
-read input_swap </dev/tty
+trap cleanup SIGINT
+trap cleanup SIGQUIT
+
 clear
 echo "\e[96m"
 cat << "EOF" > header.txt
@@ -48,6 +31,7 @@ swap_size=$(free -h | awk "NR==3 {print \$2}")
 echo "\e[102m\e[97m"
 echo "Current SWAP size : $swap_size"
 echo "\e[0m"
+read input_swap </dev/tty
 read -p " Input SWAP size you need (MB):" input_swap
 SWAP_SIZE_MB=$input_swap
 

@@ -94,6 +94,6 @@ cat header.txt
 echo "\e[0m"
 echo ""
 echo ""
-echo " DONE"
+echo " DONE, Tool will be exit"
 sleep 2
 exit

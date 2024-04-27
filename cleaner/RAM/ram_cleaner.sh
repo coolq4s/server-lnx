@@ -210,8 +210,7 @@ sudo sync && echo 3 > /proc/sys/vm/drop_caches
 counter=$(($counter+1))
 clear
 sed -i 's/echo " Press CTRL+C to clear RAM"/echo " Press CTRL+C to EXIT"/g' LGC.sh
-sed -i 's/echo "                               -BEFORE CLEARING-"/ echo "                          -AFTER CLEARING-"
-"/g' LGC.sh
+sed -i 's/echo "                               -BEFORE CLEARING-"/echo "                          -AFTER CLEARING-"/g' LGC.sh
 source LGC.sh
 
 clear

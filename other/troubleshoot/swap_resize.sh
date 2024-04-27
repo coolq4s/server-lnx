@@ -38,12 +38,10 @@ swap_size=$(free -h | awk "NR==3 {print \$2}")
 swap_format=$(echo $swap_size"B")
 echo " Current SWAP size : \e[102m\e[30m $swap_format "
 echo "\e[0m"
-
 input_swap=""
 read -p " Swap size you need (MB) : " input_swap
 if ! [[ $input_swap =~ ^[0-9]+$ ]]; then
     echo " ERR: Masukkan harus berupa angka."
-    read " Continue to exit"
 else
     continue
 fi

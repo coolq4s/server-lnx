@@ -78,8 +78,7 @@ else
 fi
 
 if [ $installedMem -gt 1024 ]; then
-
-    installedMem2=$(echo $installedMem GiB)
+    installedMem2=$(printf "%.2f GiB" $(echo "scale=2; $installedMem / 1024" | bc))
 else
     installedMem2=$(echo $installedMem MiB)
 fi

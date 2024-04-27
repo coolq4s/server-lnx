@@ -198,13 +198,14 @@ else
 fi
 
 # Menambahkan 1 ke nilai counter
-counter=$(($counter+1))
+
 
 
 
 '
 
 LGC
+counter=$(($counter+1))
 echo "$counter"
 chmod +x LGC.sh
 source LGC.sh
@@ -217,6 +218,7 @@ echo ""
 echo ""
 wait; echo "                          -PLEASE WAIT, CLEARING-"
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
+counter=$(($counter+1))
 clear
 
 source LGC.sh

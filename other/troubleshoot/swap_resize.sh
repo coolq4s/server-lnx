@@ -27,10 +27,25 @@ cat header.txt
 echo ""
 echo ""
 swap_size=$(free -h | awk "NR==3 {print \$2}")
-echo "\e[102m\e[97m"
-echo "Current SWAP size : $swap_size"
+echo "Current SWAP size :\e[102m\e[97m $swap_size"
 echo "\e[0m"
 input_swap=""
+read -p ""
+if ! [[ $input_swap =~ ^[0-9]+$ ]]; then
+    echo "Masukkan harus berupa angka."
+    continue
+else
+    exit
+fi
+if ((input_swap >= 1 && input_swap <= 99999)); then
+    echo "Input yang valid: $input_s"
+    break
+else
+    echo "Input harus berada dalam rentang antara 1 hingga 99999."
+fi
+
+
+
 while [ -z "$input_swap" ]; do
     read -p " Input SWAP size you need (MB):" input_swap
 done

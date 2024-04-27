@@ -98,7 +98,7 @@ availableRAM_percent=$(echo "scale=2; ($availableRAM / $totalmemInstalled) * 100
 
 # Menghitung persentase dari totalresult
 totalresult_percent=$(echo "scale=2; ($totalresult / $totalmemInstalled) * 100" | bc)
-
+echo "$availableRAM_percent"
     printf " RAM  ["
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)

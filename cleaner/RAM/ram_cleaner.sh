@@ -62,6 +62,8 @@ elif [ $totalmem -lt 1048576000 ]; then
     installedMem=$(printf "%.0f" $totalmemInstalled)
     installedMem2=$(echo $installedMem MiB)
 fi
+echo "$totalmem"
+echo "$totalmemInstalled"
 
 #Count Free RAM
 freeRAM=$(free -w | awk "NR==2 {print \$4}")

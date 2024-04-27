@@ -36,7 +36,6 @@ input_swap=""
 echo " Input SWAP size you need (MB):"
 
 # Tangkap sinyal SIGINT (CTRL+C) saat menunggu input
-trap cleanup SIGINT
 
 # Baca input
 read input_swap

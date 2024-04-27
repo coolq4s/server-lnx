@@ -30,7 +30,7 @@ swap_size=$(free -h | awk "NR==3 {print \$2}")
 echo "Current SWAP size :\e[102m\e[91m $swap_size"
 echo "\e[0m"
 input_swap=""
-read -p ""
+read -p "Swap size you need (MB) : " input_swap
 if ! [[ $input_swap =~ ^[0-9]+$ ]]; then
     echo "Masukkan harus berupa angka."
     continue
@@ -39,7 +39,6 @@ else
 fi
 if ((input_swap >= 1 && input_swap <= 99999)); then
     echo "Input yang valid: $input_s"
-    break
 else
     echo "Input harus berada dalam rentang antara 1 hingga 99999."
 fi

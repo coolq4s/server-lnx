@@ -19,7 +19,7 @@ cat << "EOF" > header.txt
                      / /   / __ \/ __ \/ / / / / __ `/ ___/
                     / /___/ /_/ / /_/ / / /_/ / /_/ (__  )
                     \____/\____/\____/_/\___\_\__,_/____/
-                                                  RAM CLEANER
+                                              RAM CLEANER
 EOF
 cat << "LGC" > LGC.sh
 
@@ -29,7 +29,7 @@ cat header.txt
 echo -n "\e[0m"
 echo ""
 echo ""
-echo "                                 -BEFORE CLEARING-"
+echo "                               -BEFORE CLEARING-"
 echo ""
 echo ""
 #RAM

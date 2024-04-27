@@ -198,10 +198,11 @@ else
     echo " Press CTRL+C to clear RAM"
     counter=$((counter+1))
 fi
-'
-
 counter=$((counter+1))
 echo "$counter"
+
+
+'
 
 LGC
 

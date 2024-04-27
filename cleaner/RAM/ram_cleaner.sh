@@ -201,6 +201,7 @@ wait; echo "                             -PLEASE WAIT, CLEARING-"
 clear
 
 source LGC.sh
+
 watch -n1 -tc '
 echo -n "\033[1;94m"
 cat header.txt

@@ -48,20 +48,20 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         echo ""
         echo ""
         echo " swap config already entry in /etc/fstab"
-        sudo swapoff $SWAP_FILE
+        sudo swapoff $SWAP_FILE >> /dev/null
         rm -rf $SWAP_FILE
-        sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE
-        sudo chmod 600 $SWAP_FILE
-        sudo mkswap $SWAP_FILE
-        sudo swapon $SWAP_FILE
+        sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE >> /dev/null
+        sudo chmod 600 $SWAP_FILE >> /dev/null
+        sudo mkswap $SWAP_FILE >> /dev/null
+        sudo swapon $SWAP_FILE >> /dev/null
         read -p "continue" none
     else
         sudo swapoff $SWAP_FILE
         rm -rf $SWAP_FILE
-        sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE
-        sudo chmod 600 $SWAP_FILE
-        sudo mkswap $SWAP_FILE
-        sudo swapon $SWAP_FILE
+        sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE >> /dev/null
+        sudo chmod 600 $SWAP_FILE >> /dev/null
+        sudo mkswap $SWAP_FILE >> /dev/null
+        sudo swapon $SWAP_FILE >> /dev/null
         echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null;
         read -p "continue" none
         clear;

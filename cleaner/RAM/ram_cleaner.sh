@@ -64,9 +64,10 @@ else
 fi
 if [$installedMem -gt 1048]; then
     installedMem2=$(echo $installedMem GiB)
-elif [$installedMem -lt 1048]; then
+else
     installedMem2=$(echo $installedMem MiB)
 fi
+echo "$installedMem"
 
 #Count Free RAM
 freeRAM=$(free -w | awk "NR==2 {print \$4}")

@@ -31,7 +31,6 @@ swap_size=$(free -h | awk "NR==3 {print \$2}")
 echo "\e[102m\e[97m"
 echo "Current SWAP size : $swap_size"
 echo "\e[0m"
-read input_swap </dev/tty
 read -p " Input SWAP size you need (MB):" input_swap
 SWAP_SIZE_MB=$input_swap
 

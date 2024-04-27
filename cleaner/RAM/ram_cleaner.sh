@@ -299,7 +299,12 @@ draw_progress_bar_SWAP() {
     local num_spaceSWAP=$((25 - num_barSWAP))
     printf " SWAP ["
     printf "\033[91m%0.s-\e[0m" $(seq 1 $num_barSWAP)
-    printf "\033[92m%0.s+\e[0m" $(seq 1 $num_spaceSWAP)
+    if [ $percentSWAP -le 0 ]; then
+        printf "\033[91m%0.s-\e[0m" $(seq 1 $num_barSWAP)
+    else
+        printf "\033[92m%0.s+\e[0m" $(seq 1 $num_spaceSWAP)
+    fi
+    #printf "\033[92m%0.s+\e[0m" $(seq 1 $num_spaceSWAP)
     printf "] %d%%\r" $percentSWAP
     echo ""
     printf "      \033[102m\033[30m F: $availableSWAP2 \033[101m\033[30m U: $swapresult2 \e[0m T: $totalSWAP2"

@@ -70,11 +70,11 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
     fi
     swap_after_extend=$(free -h | awk "NR==3 {print \$2}")
     echo " SWAP from" $swap_size"B resized to "$swap_after_extend"B"
-    sleep 2
+    sleep 7
     echo " Clearing tool cache..."
     echo " Cleared"
+    sleep 1
     read -p " Press any key to continue" PAKTC
-    sleep 7
 else
     clear;
     echo "\e[0m"
@@ -84,7 +84,7 @@ else
     echo ""
     echo ""
     echo " Only number 1-99999, \e[101m\e[97m EXITING \e[0m"
-    sleep 5
+    read -p " Press any key to continue" PAKTC
     exit
 fi
 clear

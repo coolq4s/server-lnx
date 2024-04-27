@@ -219,46 +219,8 @@ cat header.txt
 echo -e "\e[0m"
 echo ""
 
-
-
-# Fungsi untuk menampilkan animasi loading spinner di latar belakang
-spinner() {
-    local pid=$1
-    local delay=0.1
-    local spinstr='/-\|'
-    while ps -p $pid >/dev/null; do
-        local temp=${spinstr#?}
-        printf " [%c]  " "$spinstr"
-        local spinstr=$temp${spinstr%"$temp"}
-        sleep $delay
-        printf "\b\b\b\b\b\b"
-    done
-    printf "    \b\b\b\b"
-}
-
-# Menjalankan perintah sudo sync && echo 3 > /proc/sys/vm/drop_caches di latar belakang
-(sudo sync && echo 3 > /proc/sys/vm/drop_caches) &
-
-# Menambahkan jeda sebelum menampilkan animasi loading spinner
-sleep 1
-
-# Menampilkan pesan bahwa perintah sedang dijalankan
-echo "Running..."
-
-# Menjalankan animasi loading spinner di latar belakang
-spinner $!
-
-# Menunggu perintah sudo selesai
-wait
-
-# Menampilkan pesan ketika perintah selesai
-echo "Done"
-
-
-
-
-#wait; echo "                          -PLEASE WAIT, CLEARING-"
-#sudo sync && echo 3 > /proc/sys/vm/drop_caches
+wait; echo "                          -PLEASE WAIT, CLEARING-"
+sudo sync && echo 3 > /proc/sys/vm/drop_caches
 clear
 sed -i 's/echo " Press CTRL+C to clear RAM"/echo " Press CTRL+C to EXIT"/g' LGC.sh
 sed -i 's/echo "                               -BEFORE CLEARING-"/echo "                              -AFTER CLEARING-"/g' LGC.sh

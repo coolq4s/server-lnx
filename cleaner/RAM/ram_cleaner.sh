@@ -187,7 +187,7 @@ wait
 echo -n "\n"
 echo -n "\n"
 
-if [ $counter -gt 1 ]; then
+if [ $counter -ge 1 ]; then
     echo " Press CTRL+C to EXIT"
 else
     echo " Press CTRL+C to clear RAM"

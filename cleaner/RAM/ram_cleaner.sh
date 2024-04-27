@@ -209,15 +209,29 @@ echo " Press CTRL+C to clear RAM"
 '
 
 LGC
+
 chmod +x LGC.sh
-clear
-sed -i 's/echo "                               -BEFORE CLEARING-"/echo "                          -PLEASE WAIT, CLEARING-"/g' LGC.sh
 source LGC.sh
+
+clear
+echo -e "\033[1;94m"
+cat header.txt
+echo -e "\e[0m"
+echo ""
+spinner="/-\|"
+while :
+do
+    for i in $(seq 0 3)
+    do
+        echo -ne "${spinner:$i:1}" "\r"
+        sleep 0.1
+    done
+done
+wait; echo "                          -PLEASE WAIT, CLEARING-"
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
-sleep 2s
 clear
 sed -i 's/echo " Press CTRL+C to clear RAM"/echo " Press CTRL+C to EXIT"/g' LGC.sh
-sed -i 's/echo "                          -PLEASE WAIT, CLEARING-"/echo "                              -AFTER CLEARING-"/g' LGC.sh
+sed -i 's/echo "                               -BEFORE CLEARING-"/echo "                              -AFTER CLEARING-"/g' LGC.sh
 source LGC.sh
 
 clear

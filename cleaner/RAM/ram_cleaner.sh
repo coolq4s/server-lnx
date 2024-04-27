@@ -65,7 +65,7 @@ fi
 
 #Count Free RAM
 freeRAM=$(free -w | awk "NR==2 {print \$4}")
-if [ $freeRAM -gt 1048576 ]; then
+if [ $freeRAM -gt 1048576000 ]; then
     totalfreeRAM=$(echo "scale=2; $freeRAM / 1024 / 1024" | bc)
     availableRAM=$(printf "%.0f" $totalfreeRAM)
     availableRAM2=$(echo $availableRAM GiB)

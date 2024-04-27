@@ -54,7 +54,6 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         sudo chmod 600 $SWAP_FILE >> /dev/null
         sudo mkswap $SWAP_FILE >> /dev/null
         sudo swapon $SWAP_FILE >> /dev/null
-        read -p "continue" none
     else
         sudo swapoff $SWAP_FILE >> /dev/null
         rm -rf $SWAP_FILE
@@ -63,7 +62,6 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         sudo mkswap $SWAP_FILE >> /dev/null
         sudo swapon $SWAP_FILE >> /dev/null
         echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null;
-        read -p "continue" none
         clear;
         echo ""
         echo "\e[0m"
@@ -75,6 +73,8 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         echo " DONE"
         sleep 5
     fi
+    swap_after_extend=$(free -h | awk "NR==3 {print \$2}")
+    echo " $swap_size extend to $swap_after_extend"
 else
     clear;
     echo "\e[0m"
@@ -87,7 +87,6 @@ else
     sleep 5
     exit
 fi
-
 echo " DONE"
 #swap process
 

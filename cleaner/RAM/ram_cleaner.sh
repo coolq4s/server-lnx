@@ -301,6 +301,7 @@ draw_progress_bar_SWAP() {
     if [ $percentSWAP -le 0 ]; then
         printf "\033[92m%0.s-\e[0m" $(seq 1 $num_spaceSWAP)
     else
+        printf "\033[92m%0.s-\e[0m" $(seq 1 $num_spaceSWAP)
         printf "\033[91m%0.s+\e[0m" $(seq 1 $num_barSWAP)
     fi
     printf "] %d%%\r" $percentSWAP

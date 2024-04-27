@@ -190,8 +190,6 @@ LGC
 chmod +x LGC.sh
 source LGC.sh
 
-
-
 clear
 echo -e "\033[1;94m"
 cat header.txt
@@ -199,11 +197,10 @@ echo -e "\e[0m"
 echo ""
 echo ""
 wait; echo "                             -PLEASE WAIT, CLEARING-"
-
 #sudo sync && echo 3 > /proc/sys/vm/drop_caches
-
 clear
 
+source LGC.sh
 watch -n1 -tc '
 echo -n "\033[1;94m"
 cat header.txt

@@ -220,7 +220,6 @@ echo -e "\e[0m"
 echo ""
 
 
-#!/bin/bash
 
 # Fungsi untuk menampilkan animasi loading spinner di latar belakang
 spinner() {

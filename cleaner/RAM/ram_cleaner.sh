@@ -22,7 +22,6 @@ cat << "EOF" > header.txt
                     \____/\____/\____/_/\___\_\__,_/____/
                                               RAM CLEANER
 EOF
-counter=0
 cat << "LGC" > LGC.sh
 
 watch -n1 -tc '
@@ -191,22 +190,19 @@ wait
 echo -n "\n"
 echo -n "\n"
 
+counter=0
+
 if [ $counter -ge 1 ]; then
     echo " Press CTRL+C to EXIT"
 else
     echo " Press CTRL+C to clear RAM"
 fi
-
-# Menambahkan 1 ke nilai counter
-
-
-
-
 '
 
+counter=$((counter+1))
+
 LGC
-counter=$(($counter+1))
-echo "$counter"
+
 chmod +x LGC.sh
 source LGC.sh
 

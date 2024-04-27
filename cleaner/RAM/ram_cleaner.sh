@@ -53,7 +53,7 @@ fi
 totalmem=$(free -w | awk "NR==2 {print \$2}")
 
 if [ $totalmem -gt 1024000 ]; then
-    totalmemInstalled=$(printf "%.0f" $(echo "$totalmem / 1024 / 1024" | bc))
+    totalmemInstalled=$(echo "scale=2; $totalmem / 1024 / 1024" | bc)
     installedMem=$(echo $totalmemInstalled)
     installedMem2=$(echo $totalmemInstalled GiB)
 else
@@ -73,6 +73,7 @@ else
     availableRAM=$(echo $totalfreeRAM)
     availableRAM2=$(echo $totalfreeRAM MiB)
 fi
+
 availableRAM_percent=$(echo "scale=2; ($availableRAM / $totalfreeRAM) * 100" | bc)
 echo "$availableRAM_percent"
 echo "$totalfreeRAM"

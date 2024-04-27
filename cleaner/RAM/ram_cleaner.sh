@@ -3,7 +3,7 @@ clear
 echo "==================="
 echo "=== PLEASE WAIT ==="
 echo "==================="
-wait 
+wait ;
 sleep 3s;
 watch -n1 -tc '
 cleanup() {

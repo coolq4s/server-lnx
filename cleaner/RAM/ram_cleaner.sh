@@ -102,7 +102,7 @@ draw_progress_bar_RAM() {
 }
 
 draw_progress_bar_RAM
-#echo -n "\n"
+echo -n "\n"
 
 #SWAP
 used_swap=$(free -w | awk "NR==3 {print \$3}")

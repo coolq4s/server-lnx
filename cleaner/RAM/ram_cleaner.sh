@@ -84,15 +84,24 @@ terminal_width=$(tput cols)
 max_bar_length=$((terminal_width / 4))
 
 draw_progress_bar_RAM() {
-    local percent=$(($progress * 100 / $total))
+    local percent=$(echo "$progress * 100 / $total" | bc)
+    #local num_bar=$((percent / 4))
+    
+    if [ $(echo "$percent > 100" | bc) -eq 1 ]; then
+        percent=100
+    elif [ $(echo "$percent < 0" | bc) -eq 1 ]; then
+        percent=0
+    fi
+    
     local num_bar=$((percent / 4))
+
+
 
     if [ $num_bar -gt $max_bar_length ]; then
         num_bar=$max_bar_length
     fi
     local num_space$((terminal_width - num_bar))
     local num_space=$((50 - num_bar))
-    
     echo "$num_bar"
     echo "$num_space"
     printf " RAM  ["

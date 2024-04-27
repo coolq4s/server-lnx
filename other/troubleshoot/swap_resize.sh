@@ -37,7 +37,6 @@ swap_size=$(free -h | awk "NR==3 {print \$2}")
 swap_format=$(echo $swap_size"B")
 echo " Current SWAP size : \e[102m\e[30m $swap_format "
 echo "\e[0m"
-input_swap=""
 read -p " Swap size you need (1-99999 MB) : " input_swap
 if [ $input_swap -gt 1 && $input_swap -lt 99999 ] 3> /dev/null; then
     if grep -qF "$SWAP_FILE none swap sw 0 0" /etc/fstab; then

@@ -214,6 +214,5 @@ clear
 
 source LGC.sh
 
-'
 clear
 exit

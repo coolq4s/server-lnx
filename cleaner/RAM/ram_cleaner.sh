@@ -1,6 +1,9 @@
 #!/bin/bash
 clear
-
+echo ""
+echo ""
+echo ""
+echo ""
 wait ; echo " PLEASE WAIT"
 sleep 3s;
 watch -n1 -tc '

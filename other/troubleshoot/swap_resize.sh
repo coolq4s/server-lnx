@@ -32,6 +32,7 @@ SWAP_FILE="/swapfile"
 
 # Hapus swapfile lama jika ada
 sudo swapoff $SWAP_FILE
+rm -rf $SWAP_FILE
 
 # Buat swapfile baru dengan ukuran yang diinginkan
 sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE

@@ -38,7 +38,7 @@ while [ -z "$input_swap" ]; do
 done
 SWAP_SIZE_MB=$input_swap
 
-stty icanom
+stty icanon
 
 # Lokasi swapfile
 SWAP_FILE="/swapfile"

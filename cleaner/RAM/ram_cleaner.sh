@@ -149,11 +149,11 @@ fi
 if [ $free_swap -gt 1048576000 ]; then
     free_swap_count=$(echo "scale=2; $free_swap / 1048 / 1048" | bc)
     availableSWAP=$(printf "%.0f" $free_swap_count)
-    availableSWAP2=$(echo $free_swap_count GiB)
+    #availableSWAP2=$(echo $free_swap_count GiB)
 else
     free_swap_count=$(echo "scale=2; $free_swap / 1048" | bc)
     availableSWAP=$(printf "%.0f" $free_swap_count)
-    availableSWAP2=$(echo $availableSWAP MiB)
+    #availableSWAP2=$(echo $availableSWAP MiB)
 fi
 if [ $availableSWAP -gt 1024 ]; then
     availableSWAP2=$(printf "%.2f GiB" $(echo "scale=2; $availableSWAP / 1024" | bc))
@@ -165,11 +165,11 @@ fi
 if [ $total_swap -gt 1048576000 ]; then
     total_swap_count=$(echo "scale=2; $total_swap / 1048 / 1048" | bc)
     totalSWAP=$(printf "%.0f" $total_swap_count)
-    totalSWAP2=$(echo $totalSWAP GiB)
+    #totalSWAP2=$(echo $totalSWAP GiB)
 else
     total_swap_count=$(echo "scale=2; $total_swap / 1048" | bc)
     totalSWAP=$(printf "%.0f" $total_swap_count)
-    totalSWAP2=$(echo $totalSWAP MiB)
+    #totalSWAP2=$(echo $totalSWAP MiB)
 fi
 if [ $totalSWAP -gt 1024 ]; then
     totalSWAP2=$(printf "%.2f GiB" $(echo "scale=2; $totalSWAP / 1024" | bc))

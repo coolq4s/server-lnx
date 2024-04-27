@@ -81,7 +81,7 @@ fi
 if [ $availableRAM -gt 1024 ]; then
     availableRAM2=$(echo $availableRAM GiB)
 else
-    availableRAM2=$(echo $availableRAM MiB)
+    availableRAM2=$(echo $availableRAM GiB)
 fi
 
 #Bar RAM

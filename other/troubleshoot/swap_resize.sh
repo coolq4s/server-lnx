@@ -40,7 +40,8 @@ echo "\e[0m"
 input_swap=""
 read -p " Swap size you need (MB) : " input_swap
 if ! [[ $input_swap =~ ^[0-9]+$ ]]; then
-    echo " Masukkan harus berupa angka."
+    echo " ERR: Masukkan harus berupa angka."
+    read " Continue to exit"
 else
     continue
 fi

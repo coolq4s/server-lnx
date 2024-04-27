@@ -1,6 +1,7 @@
 #!/bin/bash
 clear
 cleanup() {
+    clear
     rm -rf swap_resize.sh
     rm -rf server-lnx
     rm -rf header.txt

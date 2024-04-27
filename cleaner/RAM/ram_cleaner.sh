@@ -1,8 +1,8 @@
 #!/bin/bash
 clear
-echo "================="
-echo "===PLEASE WAIT==="
-echo "================="
+echo "==================="
+echo "=== PLEASE WAIT ==="
+echo "==================="
 wait 
 sleep 3s;
 watch -n1 -tc '

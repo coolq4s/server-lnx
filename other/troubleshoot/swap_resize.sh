@@ -53,6 +53,8 @@ if (($input_swap >= 1 && $input_swap <= 99999)) 3> /dev/null; then
             echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null
             clear
             cat header.txt
+            echo ""
+            echo ""
             echo " DONE"
             sleep 2
         fi
@@ -60,6 +62,10 @@ if (($input_swap >= 1 && $input_swap <= 99999)) 3> /dev/null; then
         exit
     fi
 else
+    clear
+    cat header.txt
+    echo ""
+    echo ""
     echo " Only number 1-99999, Exiting"
     sleep 5
     exit

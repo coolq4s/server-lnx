@@ -218,27 +218,20 @@ echo -e "\033[1;94m"
 cat header.txt
 echo -e "\e[0m"
 echo "                          -PLEASE WAIT, CLEARING-"
-echo "Please wait, clearing..."
 while true; do
-    echo -ne "\r/ "
+    echo -ne "                            \r/ "
     sleep 0.5
-    echo -ne "\r- "
+    echo -ne "                            \r- "
     sleep 0.5
-    echo -ne "\r\ "
+    echo -ne "                            \r\ "
     sleep 0.5
-    echo -ne "\r| "
+    echo -ne "                            \r| "
     sleep 0.5
 done &
 spinner_pid=$!
 
-# Menunggu spinner mulai sebelum menjalankan perintah sync
-sleep 10
-
-# Menjalankan perintah sync dan menghentikan spinner setelah selesai
-sudo sync && kill $spinner_pid
-echo "Spinner stopped."
-
-# Melanjutkan dengan perintah lain setelah spinner berhenti
+sleep 2
+sudo sync && echo 3 > /proc/sys/vm/drop_caches && kill $spinner_pid
 echo "Clearing process completed."
 
 clear

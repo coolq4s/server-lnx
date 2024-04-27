@@ -185,7 +185,19 @@ draw_progress_bar_SWAP
 wait
 echo -n "\n"
 echo -n "\n"
-echo " Press CTRL+C to clear RAM"
+if [ -z "$counter" ]; then
+  counter=0
+fi
+
+if [ $counter -gt 1 ] then;
+    echo " Press CTRL+C to EXIT
+else
+    echo " Press CTRL+C to clear RAM"
+fi
+
+# Menambahkan 1 ke nilai counter
+counter=$((counter+1))
+
 '
 LGC
 chmod +x LGC.sh

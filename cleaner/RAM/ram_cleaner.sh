@@ -232,7 +232,7 @@ done &
 spinner_pid=$!
 
 # Menunggu spinner mulai sebelum menjalankan perintah sync
-sleep 1
+sleep 10
 
 # Menjalankan perintah sync dan menghentikan spinner setelah selesai
 sudo sync && kill $spinner_pid

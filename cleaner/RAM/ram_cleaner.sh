@@ -181,6 +181,7 @@ echo ""
 echo "                                  -AFTER CLEARING-"
 echo ""
 echo ""
+
 #RAM
 #Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
@@ -188,7 +189,7 @@ shared=$(free -w | awk "NR==2 {print \$5}")
 buff=$(free -w | awk "NR==2 {print \$6}")
 cache=$(free -w | awk "NR==2 {print \$7}")
 
-totalMemUsed=$(($used + $shared + $buff + $cache))
+totalMemUsed=$(("$used + $shared + $buff + $cache"))
 
 
 if [ $totalMemUsed -gt 1024000 ]; then

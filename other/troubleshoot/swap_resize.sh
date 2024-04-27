@@ -11,7 +11,7 @@ cleanup() {
 
 trap cleanup EXIT
 clear
-
+echo "\e[96m"
 cat << "EOF" > header.txt
                        ______            ______
                       / ____/___  ____  / / __ \____ ______

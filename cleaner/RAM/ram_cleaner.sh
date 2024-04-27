@@ -226,7 +226,9 @@ while true; do
     sleep 0.5
     echo -ne "\r\ "
     sleep 0.5
-    echo -ne "\r\r| "
+    echo -ne "\r| "
+    sleep 0.5
+    echo -ne "\r "
     sleep 0.5
 done &
 spinner_pid=$!

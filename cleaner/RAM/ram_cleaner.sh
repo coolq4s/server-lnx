@@ -123,9 +123,6 @@ else
     swapresult2=$(echo $swapresult MiB)
 fi
 
-
-
-
 if [ $free_swap -gt 1048576 ]; then
     free_swap_count=$(echo "scale=2; $free_swap / 1048 / 1048" | bc)
     availableSWAP=$(printf "%.0f" $free_swap_count)
@@ -135,7 +132,6 @@ elif [ $free_swap -lt 1048576000 ]; then
     availableSWAP=$(printf "%.0f" $free_swap_count)
     availableSWAP2=$(echo $availableSWAP MiB)
 fi
-
 
 if [ $total_swap -gt 1048576000 ]; then
     total_swap_count=$(echo "scale=2; $total_swap / 1048 / 1048" | bc)

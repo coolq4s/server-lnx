@@ -69,7 +69,7 @@ else
     echo "\e[0m"
     echo "\e[96m"
     cat header.txt
-    echo "\e[0m""
+    echo "\e[0m"
     echo ""
     echo ""
     echo " Only number 1-99999, \e[101m\e[97m EXITING \e[0m"

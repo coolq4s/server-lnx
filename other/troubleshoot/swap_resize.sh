@@ -66,7 +66,7 @@ else
     cat header.txt
     echo ""
     echo ""
-    echo " Only number 1-99999, Exiting"
+    echo " Only number 1-99999, \e[101m\e[97m EXITING \e[0m"
     sleep 5
     exit
 fi

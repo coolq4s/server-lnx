@@ -59,7 +59,7 @@ else
     #totalresult2=$(echo $totalresult MiB)
 fi
 if [ $totalresult -gt 1024 ]; then
-    totalresult2=$(echo $totalresult GiB)
+    totalresult2=$(echo $totaluse GiB)
 else
     totalresult2=$(echo $totalresult MiB)
 fi

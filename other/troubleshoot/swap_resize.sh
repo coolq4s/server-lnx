@@ -70,7 +70,7 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         sleep 5
     fi
     swap_after_extend=$(free -h | awk "NR==3 {print \$2}")
-    echo " SWAP from $swap_size extend to $swap_after_extend"
+    echo " SWAP from $swap_size resized to $swap_after_extend"
     echo " Clearing tool cache..."
     sleep 7
 else
@@ -85,6 +85,7 @@ else
     sleep 5
     exit
 fi
+clear
 echo "\e[0m"
 echo "\e[96m"
 cat header.txt

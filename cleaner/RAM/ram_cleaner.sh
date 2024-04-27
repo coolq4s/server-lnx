@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 
 cleanup() {
     rm -rf ram.sh
@@ -11,7 +12,6 @@ cleanup() {
 }
 
 trap cleanup EXIT
-clear
 
 cat << "EOF" > header.txt
                          ______            ______
@@ -23,7 +23,7 @@ cat << "EOF" > header.txt
 EOF
 watch -n1 -tc '
 echo -n "\033[1;94m"
-sleep 3s
+sleep 3s; echo " PLEASE WAIT"
 clear
 echo  "\033[1;94m"
 cat header.txt

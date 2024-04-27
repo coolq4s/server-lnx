@@ -11,7 +11,7 @@ cleanup() {
 }
 
 trap cleanup EXIT
-trap cleanup SIGKILL
+trap cleanup SIGQUIT
 clear
 echo "\e[96m"
 cat << "EOF" > header.txt

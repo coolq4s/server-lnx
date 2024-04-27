@@ -58,7 +58,7 @@ if (($input_swap >= 1 && $input_swap <= 99999)) 3> /dev/null; then
         exit
     fi
 else
-    echo " Only number 1-99999"
+    echo " Only number 1-99999, Exiting"
     sleep 5
     exit
 fi

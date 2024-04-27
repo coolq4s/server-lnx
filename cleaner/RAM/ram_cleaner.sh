@@ -220,6 +220,7 @@ echo -e "\e[0m"
 echo ""
 
 
+# Fungsi untuk menampilkan animasi loading spinner di latar belakang
 spinner() {
     local pid=$1
     local delay=0.1
@@ -234,11 +235,18 @@ spinner() {
     printf "    \b\b\b\b"
 }
 
+# Menjalankan perintah sudo sync && echo 3 > /proc/sys/vm/drop_caches dan menampilkan animasi loading spinner di latar belakang
 (sudo sync && echo 3 > /proc/sys/vm/drop_caches) &
 
+# Menambahkan jeda sebelum menampilkan animasi loading spinner
+sleep 1
+
+# Menjalankan animasi loading spinner di latar belakang
 spinner $!
 
+# Menunggu perintah sudo selesai
 wait
+
 
 
 #wait; echo "                          -PLEASE WAIT, CLEARING-"

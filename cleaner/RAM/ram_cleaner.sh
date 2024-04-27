@@ -1,10 +1,4 @@
 #!/bin/sh
-clear
-echo "==================="
-echo "=== PLEASE WAIT ==="
-echo "==================="
-wait ;
-sleep 1s;
 cleanup() {
     rm -rf ram.sh
     rm -rf server-lnx
@@ -16,6 +10,13 @@ cleanup() {
 }
 
 trap cleanup EXIT
+clear
+echo "==================="
+echo "=== PLEASE WAIT ==="
+echo "==================="
+wait ;
+sleep 1s;
+
 
 cat << "EOF" > header.txt
                          ______            ______

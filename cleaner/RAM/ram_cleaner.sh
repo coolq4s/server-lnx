@@ -53,7 +53,7 @@ fi
 #Count Installed RAM
 totalmem=$(free -w | awk "NR==2 {print \$2}")
 
-if [ $totalmem -gt 104857600 ]; then
+if [ $totalmem -gt 1048576000 ]; then
     totalmemInstalled=$(echo "scale=2; $totalmem / 1024 / 1024" | bc)
     installedMem=$(printf "%.0f" $totalmemInstalled)
     installedMem2=$(echo $installedMem GiB)

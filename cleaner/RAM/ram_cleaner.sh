@@ -5,7 +5,6 @@ echo "=== PLEASE WAIT ==="
 echo "==================="
 wait ;
 sleep 3s;
-watch -n1 -tc '
 cleanup() {
     rm -rf ram.sh
     rm -rf server-lnx
@@ -26,7 +25,7 @@ cat << "EOF" > header.txt
                       \____/\____/\____/_/\___\_\__,_/____/
                                                   RAM CLEANER
 EOF
-clear
+watch -n1 -tc '
 echo  "\033[1;94m"
 cat header.txt
 echo  "\e[0m"

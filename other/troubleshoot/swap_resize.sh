@@ -54,7 +54,7 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         sudo chmod 600 $SWAP_FILE
         sudo mkswap $SWAP_FILE
         sudo swapon $SWAP_FILE
-        read -p "continue"
+        read -p "continue" none
     else
         sudo swapoff $SWAP_FILE
         rm -rf $SWAP_FILE
@@ -63,7 +63,7 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         sudo mkswap $SWAP_FILE
         sudo swapon $SWAP_FILE
         echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null;
-        read -p "continue"
+        read -p "continue" none
         clear;
         echo ""
         echo "\e[0m"

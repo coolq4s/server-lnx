@@ -83,6 +83,7 @@ total=100
 
 draw_progress_bar_RAM() {
     local percent=$(($progress * 100 / $total))
+    echo "$getPercent"
     echo "$progress"
     echo "$total"
     echo "$percentage"

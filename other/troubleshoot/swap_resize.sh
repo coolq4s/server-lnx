@@ -25,10 +25,10 @@ cat << "EOF" > header.txt
 EOF
 cat header.txt
 echo ""
-echo " \e[0m"
-echo " ATTENTION!!!"
+echo ""
+echo " \e[101m\e[97mATTENTION!!!"
 echo " Turning off first your custom swap"
-echo " before running this script"
+echo " before running this script\e[0m"
 
 SWAP_SIZE_MB=$input_swap
 SWAP_FILE="/swapfile"

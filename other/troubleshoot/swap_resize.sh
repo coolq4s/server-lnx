@@ -73,7 +73,7 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
     sleep 2
     echo " Clearing tool cache..."
     echo " Cleared"
-    read " Press any key to continue"
+    read -p " Press any key to continue" PAKTC
     sleep 7
 else
     clear;

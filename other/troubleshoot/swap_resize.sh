@@ -74,7 +74,7 @@ if (($input_swap >= 1 && $input_swap <= 99999)) 3> /dev/null; then
         sleep 2
     fi
 else
-    clear
+    clear;
     echo "\e[0m"
     echo "\e[96m"
     cat header.txt

@@ -11,7 +11,7 @@ cleanup() {
 }
 
 trap cleanup EXIT
-trap 'cleanup; exit 1' SIGINT
+trap 'cleanup;' SIGINT
 trap cleanup SIGQUIT
 while false; do
 clear

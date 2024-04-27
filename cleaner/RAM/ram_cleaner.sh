@@ -86,6 +86,7 @@ draw_progress_bar_RAM() {
     echo "$progress"
     echo "$total"
     echo "$percentage"
+    echo "$percent"
     local num_bar=$((percent / 2))
     local num_space=$((50 - num_bar))
     printf " RAM  ["

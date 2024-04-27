@@ -201,6 +201,7 @@ fi
 '
 
 counter=$((counter+1))
+echo "$counter"
 
 LGC
 

@@ -50,7 +50,7 @@ if (($input_swap >= 1 && $input_swap <= 99999)) 3> /dev/null; then
             sudo chmod 600 $SWAP_FILE
             sudo mkswap $SWAP_FILE
             sudo swapon $SWAP_FILE
-            echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null
+            echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null;
             clear
             echo "\e[0m"
             echo "\e[96m"

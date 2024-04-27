@@ -218,6 +218,17 @@ echo -e "\033[1;94m"
 cat header.txt
 echo -e "\e[0m"
 echo "                          -PLEASE WAIT, CLEARING-"
+echo "Please wait, clearing..."
+while true; do
+    echo -n "/ "
+    sleep 0.5
+    echo -ne "\r- "
+    sleep 0.5
+    echo -ne "\r\ "
+    sleep 0.5
+    echo -ne "\r| "
+    sleep 0.5
+done &
 wait; sudo sync && echo 3 > /proc/sys/vm/drop_caches && sleep 2s
 clear
 sed -i 's/echo " Press CTRL+C to clear RAM"/echo " Press CTRL+C to EXIT"/g' LGC.sh

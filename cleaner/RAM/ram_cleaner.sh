@@ -93,6 +93,12 @@ draw_progress_bar_RAM() {
     local num_space=$((50 - num_bar))
     echo "$num_bar"
     echo "$num_space"
+    # Menghitung persentase dari availableRAM
+availableRAM_percent=$(echo "scale=2; ($availableRAM / $totalmemInstalled) * 100" | bc)
+
+# Menghitung persentase dari totalresult
+totalresult_percent=$(echo "scale=2; ($totalresult / $totalmemInstalled) * 100" | bc)
+
     printf " RAM  ["
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)

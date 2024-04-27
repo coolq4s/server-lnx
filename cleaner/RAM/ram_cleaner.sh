@@ -228,8 +228,12 @@ while true; do
     sleep 0.5
     echo -ne "\r| "
     sleep 0.5
+    echo -ne "\r| "
+    sleep 0.5
 done &
 wait; sudo sync && echo 3 > /proc/sys/vm/drop_caches && sleep 2s
+echo "Clearing process completed."
+
 clear
 sed -i 's/echo " Press CTRL+C to clear RAM"/echo " Press CTRL+C to EXIT"/g' LGC.sh
 sed -i 's/echo "                               -BEFORE CLEARING-"/echo "                              -AFTER CLEARING-"/g' LGC.sh

@@ -11,9 +11,9 @@ cleanup() {
 }
 
 trap cleanup EXIT
-trap 'cleanup' SIGINT
+trap cleanup SIGINT
 trap cleanup SIGQUIT
-
+while true; do
 clear
 echo "\e[96m"
 cat << "EOF" > header.txt
@@ -62,3 +62,4 @@ echo "$SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab
 
 sleep 2
 exit
+done

@@ -106,11 +106,11 @@ total_swap=$(free -w | awk "NR==3 {print \$2}")
 if [ $used_swap -gt 1048576000 ]; then
     swap_used=$(echo "scale=2; $used_swap / 1048 / 1048" | bc)
     swapresult=$(printf "%.0f" $swap_used)
-    #swapresult2=$(echo $swapresult GiB)
+    swapresult2=$(echo $swapresult GiB)
 else
     swap_used=$(echo "scale=2; $used_swap / 1048" | bc)
     swapresult=$(printf "%.0f" $swap_used)
-    #swapresult2=$(echo $swapresult MiB)
+    swapresult2=$(echo $swapresult MiB)
 fi
 
 if [ $used_swap -gt 1048576 ]; then

@@ -22,13 +22,12 @@ cat << "EOF" > header.txt
                     \____/\____/\____/_/\___\_\__,_/____/
                                               RAM CLEANER
 EOF
+counter=0
 cat << "LGC" > LGC.sh
 
 watch -n1 -tc '
 
-if [ -z "$counter" ]; then
-  counter=0
-fi
+
 
 
 echo -n "\033[1;94m"
@@ -201,11 +200,12 @@ fi
 # Menambahkan 1 ke nilai counter
 counter=$(($counter+1))
 
-echo "$counter"
+
 
 '
 
 LGC
+echo "$counter"
 chmod +x LGC.sh
 source LGC.sh
 

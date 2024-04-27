@@ -71,6 +71,7 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
     fi
     swap_after_extend=$(free -h | awk "NR==3 {print \$2}")
     echo " SWAP from $swap_size resized to $swap_after_extend"
+    sleep 2
     echo " Clearing tool cache..."
     sleep 7
 else

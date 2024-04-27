@@ -47,7 +47,11 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         echo "\e[0m"
         echo ""
         echo ""
-        echo " swap config already entry in /etc/fstab"
+        echo " SWAP config already entry, SKIPPING"
+        sleep 3
+        echo " Adding new SWAP Size"
+        sleep 2
+        echo ""
         sudo swapoff $SWAP_FILE >> /dev/null
         rm -rf $SWAP_FILE
         sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE >> /dev/null
@@ -55,6 +59,7 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         sudo mkswap $SWAP_FILE >> /dev/null
         sudo swapon $SWAP_FILE >> /dev/null
     else
+        echo " Adding new SWAP Size"
         sudo swapoff $SWAP_FILE >> /dev/null
         rm -rf $SWAP_FILE
         sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE >> /dev/null
@@ -62,21 +67,12 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         sudo mkswap $SWAP_FILE >> /dev/null
         sudo swapon $SWAP_FILE >> /dev/null
         echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null;
-        clear;
-        echo ""
-        echo "\e[0m"
-        echo "\e[96m"
-        cat header.txt
-        echo "\e[0m"
-        echo ""
-        echo ""
-        echo " DONE"
         sleep 5
     fi
     swap_after_extend=$(free -h | awk "NR==3 {print \$2}")
     echo " SWAP from $swap_size extend to $swap_after_extend"
     echo " Clearing tool cache..."
-    sleep 10
+    sleep 7
 else
     clear;
     echo "\e[0m"
@@ -89,10 +85,12 @@ else
     sleep 5
     exit
 fi
+echo "\e[0m"
+echo "\e[96m"
+cat header.txt
+echo "\e[0m"
+echo ""
+echo ""
 echo " DONE"
-#swap process
-
-#echo "$SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab
-
 sleep 2
 exit

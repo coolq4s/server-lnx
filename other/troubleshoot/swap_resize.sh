@@ -69,7 +69,6 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
         echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null;
         sleep 5
     fi
-    $B=
     swap_after_extend=$(free -h | awk "NR==3 {print \$2}")
     echo " SWAP from" $swap_size"B resized to "$swap_after_extendB"B"
     sleep 2

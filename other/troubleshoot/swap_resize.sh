@@ -41,11 +41,11 @@ read -p " Swap size you need (MB) : " input_swap
 echo " \e[101m\e[97m Turning off first your custom swap \e[0m"
 if (($input_swap >= 1 && $input_swap <= 99999)); then
     echo " Input yang valid: $input_swap"
-    sleep 2
+    sleep 5
     exit
 else
     echo " Input harus berada dalam rentang antara 1 hingga 99999."
-    sleep 2
+    sleep 5
     exit
 fi
 

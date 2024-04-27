@@ -54,4 +54,5 @@ sudo swapon $SWAP_FILE
 # Tambahkan swapfile ke /etc/fstab untuk mempertahankan pengaturan setiap kali sistem boot
 echo "$SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab
 
+sleep 2
 exit

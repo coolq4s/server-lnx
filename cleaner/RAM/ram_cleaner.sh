@@ -44,7 +44,7 @@ if [ $totalMemUsed -gt 1048576000 ]; then
     totaluse=$(echo "scale=2; $totalMemUsed / 1048 / 1048" | bc)
     totalresult=$(printf "%.0f" $totaluse)
     totalresult2=$(echo $totalresult GiB)
-elif [ $totalMemUsed -lt 1048576000 ]; then
+elif [ $totalMemUsed -lt 1048576 ]; then
     totaluse=$(echo "scale=2; $totalMemUsed / 1048" | bc)
     totalresult=$(printf "%.0f" $totaluse)
     totalresult2=$(echo $totalresult MiB)

@@ -201,6 +201,8 @@ fi
 # Menambahkan 1 ke nilai counter
 counter=$(($counter+1))
 
+echo "$counter"
+
 '
 
 LGC

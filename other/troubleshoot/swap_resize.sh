@@ -27,7 +27,7 @@ EOF
 
 
 # Ukuran swap yang diinginkan dalam MB
-SWAP_SIZE_MB=2048
+SWAP_SIZE_MB=1024
 
 # Lokasi swapfile
 SWAP_FILE="/swapfile"

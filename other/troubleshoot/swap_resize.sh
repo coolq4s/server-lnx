@@ -23,7 +23,7 @@ cat << "EOF" > header.txt
 EOF
 cat header.txt
 echo ""
-echon""
+echo ""
 swap_size=$(free -h | awk "NR==3 {print \$2}")
 echo "\e[92m"
 echo "Current SWAP size : $swap_size"

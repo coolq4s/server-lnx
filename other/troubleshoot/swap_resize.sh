@@ -49,7 +49,18 @@ sudo chmod 600 $SWAP_FILE
 sudo mkswap $SWAP_FILE
 sudo swapon $SWAP_FILE
 
-echo "$SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab
+
+# Periksa apakah baris sudah ada dalam /etc/fstab
+if grep -qF "$SWAP_FILE none swap sw 0 0" /etc/fstab; then
+    echo "Baris sudah ada dalam /etc/fstab"
+else
+    echo "$SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null
+    echo "Baris berhasil ditambahkan ke /etc/fstab"
+fi
+
+
+
+#echo "$SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab
 
 sleep 2
 exit

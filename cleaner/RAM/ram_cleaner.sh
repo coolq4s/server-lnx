@@ -25,6 +25,14 @@ watch -n1 -tc '
 echo -n "\033[1;94m"
 cat header.txt
 echo -n "\e[0m"
+echo " PLEASE WAIT"
+sleep 3s
+clear
+echo -e "\033[1;94m"
+cat header.txt
+echo -e "\e[0m"
+echo ""
+echo ""
 echo ""
 echo ""
 echo "                                 -BEFORE CLEARING-"

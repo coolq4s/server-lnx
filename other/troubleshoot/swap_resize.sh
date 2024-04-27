@@ -72,6 +72,7 @@ if [ $input_swap -gt 1 ] >> /dev/null; then
     echo " SWAP from" $swap_size"B resized to "$swap_after_extend"B"
     sleep 7
     echo " Clearing tool cache..."
+    sleep 2
     echo " Cleared"
     sleep 1
     read -p " Press any key to continue" PAKTC

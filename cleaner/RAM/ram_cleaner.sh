@@ -63,7 +63,7 @@ else
     #installedMem2=$(echo $installedMem MiB)
 fi
 
-if [ $installedMem -gt 1048 ]; then
+if [ $installedMem -gt 1024 ]; then
     installedMem2=$(echo $installedMem GiB)
 else
     installedMem2=$(echo $installedMem MiB)

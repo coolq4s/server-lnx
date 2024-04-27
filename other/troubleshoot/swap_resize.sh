@@ -39,30 +39,26 @@ echo "\e[0m"
 input_swap=""
 read -p " Swap size you need (1-99999 MB) : " input_swap
 if (($input_swap >= 1 && $input_swap <= 99999)) 3> /dev/null; then
-    if ! [[ $input_swap =~ ^[0-9]+$ ]]; then
-        if grep -qF "$SWAP_FILE none swap sw 0 0" /etc/fstab; then
-            echo " Baris sudah ada dalam /etc/fstab"
-            sleep 2
-        else
-            sudo swapoff $SWAP_FILE
-            rm -rf $SWAP_FILE
-            sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE
-            sudo chmod 600 $SWAP_FILE
-            sudo mkswap $SWAP_FILE
-            sudo swapon $SWAP_FILE
-            echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null;
-            clear;
-            echo "\e[0m"
-            echo "\e[96m"
-            cat header.txt
-            echo "\e[0m"
-            echo ""
-            echo ""
-            echo " DONE"
-            sleep 2
-        fi
+    if grep -qF "$SWAP_FILE none swap sw 0 0" /etc/fstab; then
+        echo " Baris sudah ada dalam /etc/fstab"
+        sleep 2
     else
-        exit
+        sudo swapoff $SWAP_FILE
+        rm -rf $SWAP_FILE
+        sudo fallocate -l ${SWAP_SIZE_MB}M $SWAP_FILE
+        sudo chmod 600 $SWAP_FILE
+        sudo mkswap $SWAP_FILE
+        sudo swapon $SWAP_FILE
+        echo " $SWAP_FILE none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null;
+        clear;
+        echo "\e[0m"
+        echo "\e[96m"
+        cat header.txt
+        echo "\e[0m"
+        echo ""
+        echo ""
+        echo " DONE"
+        sleep 2
     fi
 else
     clear

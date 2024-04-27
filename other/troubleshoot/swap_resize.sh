@@ -40,7 +40,7 @@ echo " Current SWAP size : \e[102m\e[30m $swap_format "
 echo "\e[0m"
 input_swap=""
 read -p " Swap size you need (MB) : " input_swap
-if ! [[ $input_swap =~ ^[0-9]+$ ]]; then
+if [[ $input_swap =~ ^[0-9]+$ ]]; then
     echo " ERR: Masukkan harus berupa angka."
 else
     continue

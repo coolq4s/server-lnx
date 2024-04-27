@@ -13,7 +13,7 @@ cleanup() {
 trap cleanup EXIT
 trap 'cleanup; exit 1' SIGINT
 trap cleanup SIGQUIT
-while true; do
+while false; do
 clear
 echo "\e[96m"
 cat << "EOF" > header.txt

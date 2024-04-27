@@ -187,6 +187,14 @@ wait
 echo -n "\n"
 echo -n "\n"
 
+if [ $counter -gt 1 ] then;
+    echo " Press CTRL+C to EXIT"
+else
+    echo " Press CTRL+C to clear RAM"
+fi
+
+# Menambahkan 1 ke nilai counter
+counter=$((counter+1))
 
 '
 LGC

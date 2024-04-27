@@ -25,6 +25,7 @@ EOF
 cat header.txt
 echo ""
 echo ""
+sleep 5
 swap_size=$(free -h | awk "NR==3 {print \$2}")
 echo "\e[102m\e[97m"
 echo "Current SWAP size : $swap_size"

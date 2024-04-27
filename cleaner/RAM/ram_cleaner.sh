@@ -228,11 +228,17 @@ while true; do
     sleep 0.5
     echo -ne "\r| "
     sleep 0.5
-    if [ -f /proc/sys/vm/drop_caches ]; then
-        break
-    fi
 done &
-wait; sudo sync && echo 3 > /proc/sys/vm/drop_caches
+spinner_pid=$!
+
+# Menunggu spinner mulai sebelum menjalankan perintah sync
+sleep 1
+
+# Menjalankan perintah sync dan menghentikan spinner setelah selesai
+sudo sync && kill $spinner_pid
+echo "Spinner stopped."
+
+# Melanjutkan dengan perintah lain setelah spinner berhenti
 echo "Clearing process completed."
 
 clear

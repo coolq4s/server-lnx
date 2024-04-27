@@ -29,8 +29,6 @@ echo " \e[101m\e[97m            ATTENTION!!!            \e[0m"
 echo " \e[101m\e[97m Turning off first your custom swap \e[0m"
 echo " \e[101m\e[97m before running this script         \e[0m"
 
-SWAP_SIZE_MB=$input_swap
-SWAP_FILE="/swapfile"
 echo ""
 echo ""
 swap_size=$(free -h | awk "NR==3 {print \$2}")
@@ -38,6 +36,8 @@ swap_format=$(echo $swap_size"B")
 echo " Current SWAP size : \e[102m\e[30m $swap_format "
 echo "\e[0m"
 read -p " Swap size you need (1-99999 MB) : " input_swap
+SWAP_SIZE_MB=$input_swap
+SWAP_FILE="/swapfile"
 if [ $input_swap -gt 1 ] >> /dev/null; then
     if grep -qF "$SWAP_FILE none swap sw 0 0" /etc/fstab; then
         clear;

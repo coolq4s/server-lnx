@@ -89,7 +89,6 @@ else
     read -p " Press any key to continue" PAKTC
     exit
 fi
-sleep 2
 echo " DONE, Tool will be exit"
-sleep 1
+sleep 3
 exit

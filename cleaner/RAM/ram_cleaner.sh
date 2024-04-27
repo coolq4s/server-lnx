@@ -218,15 +218,18 @@ echo -e "\033[1;94m"
 cat header.txt
 echo -e "\e[0m"
 echo ""
+
 spinner="/-\|"
 while :
 do
     for i in $(seq 0 3)
     do
-        echo -ne "${spinner:$i:1}" "\r"
+        tput cuu1
+        printf "%s\r" "${spinner:$i:1}"
         sleep 0.1
     done
 done
+
 #wait; echo "                          -PLEASE WAIT, CLEARING-"
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
 clear

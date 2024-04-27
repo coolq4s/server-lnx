@@ -51,7 +51,7 @@ echo "Total used RAM: $totalX"
 #Count RAM Used
 if [ $totalMemUsed -gt 1048576000 ]; then
     totaluse=$(echo "scale=2; $totalMemUsed / 1048 / 1048" | bc)
-    totalresult=$(printf "%.0f" $totaluse)
+    totalresult=$(printf "%.1f" $totaluse)
     #totalresult2=$(echo $totalresult GiB)
 else
     totaluse=$(echo "scale=2; $totalMemUsed / 1048" | bc)
@@ -59,7 +59,7 @@ else
     #totalresult2=$(echo $totalresult MiB)
 fi
 if [ $totalresult -gt 1024 ]; then
-    totalresult2=$(echo $totaluse GiB)
+    totalresult2=$(echo $totalresult GiB)
 else
     totalresult2=$(echo $totalresult MiB)
 fi
@@ -69,7 +69,7 @@ totalmem=$(free -w | awk "NR==2 {print \$2}")
 
 if [ $totalmem -gt 1048576000 ]; then
     totalmemInstalled=$(echo "scale=2; $totalmem / 1048 / 1048" | bc)
-    installedMem=$(printf "%.0f" $totalmemInstalled)
+    installedMem=$(printf "%.f" $totalmemInstalled)
 else
     totalmemInstalled=$(echo "scale=2; $totalmem / 1048" | bc)
     installedMem=$(printf "%.0f" $totalmemInstalled)

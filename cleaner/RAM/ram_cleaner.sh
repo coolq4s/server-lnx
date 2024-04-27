@@ -104,7 +104,7 @@ used_swap=$(free -w | awk "NR==3 {print \$3}")
 free_swap=$(free -w | awk "NR==3 {print \$4}")
 total_swap=$(free -w | awk "NR==3 {print \$2}")
 
-if [ $used_swap -gt 1048576 ]; then
+if [ $used_swap -gt 1048576000 ]; then
     swap_used=$(echo "scale=2; $used_swap / 1024 / 1024" | bc)
     swapresult=$(printf "%.0f" $swap_used)
     swapresult2=$(echo $swapresult GiB)
@@ -114,7 +114,7 @@ else
     swapresult2=$(echo $swapresult MiB)
 fi
 
-if [ $free_swap -gt 1048576 ]; then
+if [ $free_swap -gt 1048576000 ]; then
     free_swap_count=$(echo "scale=2; $free_swap / 1024 / 1024" | bc)
     availableSWAP=$(printf "%.0f" $free_swap_count)
     availableSWAP2=$(echo $availableSWAP GiB)
@@ -125,7 +125,7 @@ else
 fi
 
 
-if [ $total_swap -gt 1048576 ]; then
+if [ $total_swap -gt 1048576000 ]; then
     total_swap_count=$(echo "scale=2; $total_swap / 1024 / 1024" | bc)
     totalSWAP=$(printf "%.0f" $total_swap_count)
     totalSWAP2=$(echo $totalSWAP GiB)

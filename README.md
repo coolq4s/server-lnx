@@ -11,4 +11,4 @@
 - **[RAM Cleaner](https://github.com/coolq4s/server-lnx/tree/c81f0cf568682ef7a9bda0ed815f375b36f8204a/cleaner/RAM)**
 - **[Other](https://github.com/coolq4s/server-lnx/tree/ec54df4ded8286c882b83960f871ff68f5378b0f/other/troubleshoot)**
   - **[Compress /var/log](https://github.com/coolq4s/server-lnx/tree/ec54df4ded8286c882b83960f871ff68f5378b0f/other/troubleshoot)**
-  - **[Swap Expand/Reduce size](https://github.com/coolq4s/server-lnx/tree/ec54df4ded8286c882b83960f871ff68f5378b0f/other/troubleshoot)**
+  - **[Expand or reduce swap size](https://github.com/coolq4s/server-lnx/tree/ec54df4ded8286c882b83960f871ff68f5378b0f/other/troubleshoot)**

@@ -9,6 +9,6 @@
 - **[ZeroTier Setup (BETA for Script)](https://github.com/coolq4s/server-lnx/tree/20bb89d7721bcc6518fef3d2ccffb820cb21dda3/zerotier)**
 - **[Apache2 Setup](https://github.com/coolq4s/server-lnx/blob/25cbaca85fdcb2983960329e531d5780068e9867/apache2/README.md)**
 - **[RAM Cleaner](https://github.com/coolq4s/server-lnx/tree/c81f0cf568682ef7a9bda0ed815f375b36f8204a/cleaner/RAM)**
-- **[Other](https://github.com/coolq4s/server-lnx/tree/ec54df4ded8286c882b83960f871ff68f5378b0f/other/troubleshoot)**
-  - **[Compress /var/log](https://github.com/coolq4s/server-lnx/tree/ec54df4ded8286c882b83960f871ff68f5378b0f/other/troubleshoot)**
-  - **[Expand or reduce swap size](https://github.com/coolq4s/server-lnx/tree/ec54df4ded8286c882b83960f871ff68f5378b0f/other/troubleshoot)**
+- **[Other](https://github.com/coolq4s/server-lnx/tree/main/other/troubleshoot)**
+  - **[Compress /var/log](https://github.com/coolq4s/server-lnx/tree/main/other/troubleshoot)**
+  - **[Expand or reduce swap size](https://github.com/coolq4s/server-lnx/tree/main/other/troubleshoot)**

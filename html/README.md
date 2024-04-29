@@ -1,5 +1,5 @@
 ### Required
-- **[Apache2](https://github.com/coolq4s/server-lnx/blob/25cbaca85fdcb2983960329e531d5780068e9867/apache2/README.md)**
+- **[Apache2](https://github.com/coolq4s/server-lnx/tree/main/apache2)**
 
 ### Import page
 

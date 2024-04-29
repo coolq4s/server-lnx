@@ -13,7 +13,7 @@ apt install net-tools
 ```
 - Have a ZeroTier account
 - Create a network node in [ZeroTier dashboard](https://my.zerotier.com/) in `Networks` menu.
-> - I'm using Armbian system (DEBIAN Based System) in OrangePi Zero2 and STB B860H, different os or machine maybe not working
+> - I'm using Armbian system (Debian and Ubuntu Linux based system) in OrangePi Zero2 and STB B860H, different os or machine maybe not working
 > - You can use any OS to remote the machine if ZeroTier supported
 ### Simple installation
 - Run this command to your terminal
@@ -111,4 +111,4 @@ git clone https://github.com/coolq4s/server-lnx.git && mv server-lnx/zerotier/ze
 
 > [!TIP]
 > Report bug to me, if `Pre-Require` has been fulfilled.
-> Tested in OrPiZero2, B860H (SSD), Android, Windows, Linux
+> Tested in OrPiZero2, B860H (SSD), Android, Windows, Debian, Ubuntu, Linux

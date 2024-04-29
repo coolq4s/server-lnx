@@ -1,5 +1,5 @@
 ### Usefull Command
-- Clear temporary Fmfiles
+- Clear temporary files
 ```
 rm -rf /tmp
 ```

@@ -12,4 +12,3 @@
 - **[Other](https://github.com/coolq4s/server-lnx/tree/main/other/troubleshoot)**
   - **[Compress /var/log](https://github.com/coolq4s/server-lnx/tree/main/other/troubleshoot)**
   - **[Expand or reduce swap size](https://github.com/coolq4s/server-lnx/tree/main/other/troubleshoot)**
-x

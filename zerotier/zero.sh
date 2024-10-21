@@ -31,7 +31,7 @@ sleep 1s
 echo ""
 echo ""
 
-apt install zerotier-one
+curl -s https://install.zerotier.com | sudo bash
 wait
 clear
 echo -e "\033[1;94m"

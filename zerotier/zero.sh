@@ -155,6 +155,7 @@ if ! [ ! "$ZT_check" ]; then
 else
     echo -e "\033[91m $ZT_IFACE and $PHY_IFACE not found,\n adding ACCEPT interface"
     iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
+    iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
 fi
 
 apt install iptables-persistent

@@ -9,7 +9,7 @@ apt-get clean
 ```
 - Can't resolve domain, edit file with `nano /etc/sysctl.conf`
 
-  delete hashtag (#) in line `ipv4.forward`
+  delete hashtag (#) in line `net.ipv4.ip_forward=1`
   
   and add this line in bottom of config
 ```

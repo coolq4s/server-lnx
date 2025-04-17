@@ -29,9 +29,9 @@ sleep 1s
 echo ""
 echo ""
 
-if grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 0 -E '^*weekly|hourly|daily|monthly|yearly' > /dev/null; then
+if grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 0 -E '^*weekly|hourly|daily|monthly|yearly' > /dev/null 2>&1; then
     #Menampilkan nilai variabel dan menanyakan untuk mengubahnya
-    current_value=$(grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 0 -E '^*weekly|hourly|daily|monthly|yearly') > /dev/null
+    current_value=$(grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 0 -E '^*weekly|hourly|daily|monthly|yearly') > /dev/null 2>&1
     echo "\e[0m Rotate log files found \e[33m$current_value\e[0m"
     echo ""
     echo " Choose rotate log duration:"

@@ -10,6 +10,8 @@ cleanup() {
     echo " Cleaning up temporary files"
     echo " To try again this script,\n you can copy the command from github"
     echo ""
+    echo ""
+    echo " AGH INSTALLED"
     echo "\033[0m"
 }
 
@@ -52,16 +54,14 @@ echo ""
 echo ""
 
 echo "\nExtracting AGH Package..."
+echo ""
 sleep 1s
 tar xvf AdGuardHome_linux_arm64.tar.gz || { echo "Extraction failed!"; exit 1; }
-echo "Extracted successfully"
 sleep 1s
 cd AdGuardHome/ || { echo "Cannot enter AdGuardHome directory"; exit 1; }
-sleep 1s
 echo "\nInstalling AGH Component..."
 sleep 2s
 ./AdGuardHome -s install || { echo "Installation failed!"; exit 1; }
-echo "AGH Installed"
 sleep 5s
 clear
 echo "Wait.. Exiting Program"

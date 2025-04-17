@@ -9,14 +9,11 @@ apt-get clean
 ```
 - Can't resolve domain, edit file with `nano /etc/sysctl.conf`
 
-  delete hashtag (#) in line `net.ipv4.ip_forward=1`
+  - Delete hashtag (#) in line `net.ipv4.ip_forward=1`
   
-  and add this line in bottom of config
+  - Add this command at the bottom of `sysctl.conf`
 ```
 net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
 ```
-
-  next, run this command `sudo sysctl -p`
-
-- Wait for other command
+  - Run `sudo sysctl -p` to configure the change

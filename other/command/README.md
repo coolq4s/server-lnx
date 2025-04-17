@@ -10,6 +10,7 @@ apt-get clean
 - Can't resolve domain, edit file with `nano /etc/sysctl.conf`
 
   delete hashtag (#) in line `ipv4.forward`
+  
   and add this line in bottom of config
 ```
 net.ipv6.conf.all.disable_ipv6 = 1

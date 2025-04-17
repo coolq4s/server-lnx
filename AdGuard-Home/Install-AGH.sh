@@ -1,9 +1,10 @@
 #!/bin/sh
 cleanup() {
     clear
+    echo " Clean up directory before exiting script"
     rm -rf header.txt
     rm -rf server-lnx
-    rm -rf varlog-troubleshoot.sh
+    rm -rf Install-AGH.sh
     echo ""
     echo " Cleaning up temporary files"
     echo " To try again this script,\n you can copy the command from github"

@@ -37,7 +37,7 @@ sleep 1s
 echo ""
 echo ""
 
-echo -e "\nDownloading AGH package..."
+echo "\nDownloading AGH package..."
 if ! wget -q --show-progress https://static.adguard.com/adguardhome/release/AdGuardHome_linux_arm64.tar.gz; then
     echo "Download failed!"
     exit 1
@@ -49,16 +49,20 @@ sleep 1s
 echo ""
 echo ""
 
-echo -e "\nExtracting AGH Package..."
+echo "\nExtracting AGH Package..."
 sleep 1s
 tar xvf AdGuardHome_linux_arm64.tar.gz || { echo "Extraction failed!"; exit 1; }
 echo "Extracted successfully"
 sleep 1s
+echo ""
+echo ""
 echo "Mount AGH directory"
 sleep 1s
 cd AdGuardHome/ || { echo "Cannot enter AdGuardHome directory"; exit 1; }
 sleep 1s
-echo -e "\nInstalling AGH Component..."
+echo ""
+echo ""
+echo "\nInstalling AGH Component..."
 sleep 2s
 ./AdGuardHome -s install || { echo "Installation failed!"; exit 1; }
 echo "AGH Installed"

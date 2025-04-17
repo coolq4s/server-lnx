@@ -22,7 +22,7 @@ cat << "EOF" > header.txt
   / /   / __ \/ __ \/ / / / / __ `/ ___/
  / /___/ /_/ / /_/ / / /_/ / /_/ (__  )
  \____/\____/\____/_/\___\_\__,_/____/
-                           VAR/LOG FIXER
+                           AGH INSTALLER
 EOF
 cat header.txt
 sleep 1s

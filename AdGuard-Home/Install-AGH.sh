@@ -2,7 +2,8 @@
 cleanup() {
     clear
     # Kembali ke direktori awal script dijalankan
-    cd "$(dirname "$0")" || exit 1
+    script_work_DIR="$(cd "$(dirname "$0")" && pwd)"
+    cd "$script_work_DIR" || exit 1
     rm -rf "header.txt"
     rm -rf server-lnx
     rm -rf Install-AGH.sh

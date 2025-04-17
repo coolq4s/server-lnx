@@ -54,20 +54,14 @@ sleep 1s
 tar xvf AdGuardHome_linux_arm64.tar.gz || { echo "Extraction failed!"; exit 1; }
 echo "Extracted successfully"
 sleep 1s
-echo ""
-echo ""
-echo "Mount AGH directory"
-sleep 1s
 cd AdGuardHome/ || { echo "Cannot enter AdGuardHome directory"; exit 1; }
 sleep 1s
-echo ""
-echo ""
 echo "\nInstalling AGH Component..."
 sleep 2s
 ./AdGuardHome -s install || { echo "Installation failed!"; exit 1; }
 echo "AGH Installed"
 echo "Wait.. Exiting Program"
 sleep 2s
-cd ../
+cd ..
 clear
 exit

@@ -4,10 +4,10 @@
 
 cleanup() {
     clear
-    [ -f "header.txt" ] && rm -f header.txt
-    [ -f "Install-AGH.sh" ] && rm -f Install-AGH.sh
-    [ -d "AdGuardHome" ] && rm -rf AdGuardHome
-    [ -f "AdGuardHome_linux_arm64.tar.gz" ] && rm -f AdGuardHome_linux_arm64.tar.gz
+    rm -f header.txt
+    rm -f Install-AGH.sh
+    rm -rf AdGuardHome
+    rm -f AdGuardHome_linux_arm64.tar.gz
     
     echo -e "\nCleaning up temporary files"
     echo "To try again this script, you can copy the command from github"
@@ -77,4 +77,4 @@ echo -e "\e[0m"
 
 echo -e "\nInstallation Done!"
 sleep 2
-exit 0
+exit

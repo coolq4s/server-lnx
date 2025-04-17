@@ -23,39 +23,46 @@ cat << "EOF" > header.txt
  \____/\____/\____/_/\___\_\__,_/____/
                            AGH INSTALLER
 EOF
+# Verifikasi file berhasil dibuat
+if [ ! -f "header.txt" ]; then
+    echo "Error: Failed to create header file!"
+    exit 1
+fi
+
+#Load Header
 cat "header.txt"
 sleep 1s
 
 echo ""
 echo ""
 
-wget https://static.adguard.com/adguardhome/release/AdGuardHome_linux_arm64.tar.gz
+echo -e "\nDownloading AGH package..."
+if ! wget -q --show-progress https://static.adguard.com/adguardhome/release/AdGuardHome_linux_arm64.tar.gz; then
+    echo "Download failed!"
+    exit 1
+fi
 clear
 echo "\e[92m"
 cat "header.txt"
 sleep 1s
 echo ""
 echo ""
-echo "Extracting AGH Package ..."
+
+echo -e "\nExtracting AGH Package..."
 sleep 1s
-tar xvf AdGuardHome_linux_arm64.tar.gz
-echo "Extracted"
-cd AdGuardHome/
+tar xvf AdGuardHome_linux_arm64.tar.gz || { echo "Extraction failed!"; exit 1; }
+echo "Extracted successfully"
+sleep 1s
+echo "Mount AGH directory"
+sleep 1s
+cd AdGuardHome/ || { echo "Cannot enter AdGuardHome directory"; exit 1; }
+sleep 1s
+echo -e "\nInstalling AGH Component..."
+sleep 2s
+./AdGuardHome -s install || { echo "Installation failed!"; exit 1; }
+echo "AGH Installed"
+echo "Wait.. Exiting Program"
+sleep 2s
+cd ../
 clear
-echo "\e[92m"
-cat "header.txt"
-sleep 1s
-echo ""
-echo ""
-echo "Installing AGH Component"
-sleep 1s
-./AdGuardHome -s install
-clear
-echo "\e[92m"
-cat "header.txt"
-sleep 1s
-echo ""
-echo ""
-echo "Installing Done"
-sleep 1s
 exit

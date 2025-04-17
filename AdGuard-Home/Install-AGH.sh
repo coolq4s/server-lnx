@@ -1,7 +1,6 @@
 #!/bin/sh
 cleanup() {
     clear
-    echo " Clean up directory before exiting script"
     rm -rf header.txt
     rm -rf server-lnx
     rm -rf Install-AGH.sh
@@ -38,6 +37,7 @@ sleep 1s
 echo ""
 echo ""
 echo "Extracting AGH Package ..."
+sleep 1s
 tar xvf AdGuardHome_linux_arm64.tar.gz
 echo "Extracted"
 cd AdGuardHome/
@@ -48,6 +48,7 @@ sleep 1s
 echo ""
 echo ""
 echo "Installing AGH Component"
+sleep 1s
 ./AdGuardHome -s install
 clear
 echo "\e[92m"
@@ -56,3 +57,5 @@ sleep 1s
 echo ""
 echo ""
 echo "Installing Done"
+sleep 1s
+exit

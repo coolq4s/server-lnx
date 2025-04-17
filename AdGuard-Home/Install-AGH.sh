@@ -1,6 +1,7 @@
 #!/bin/sh
 cleanup() {
     clear
+    cd ..
     rm -rf "header.txt"
     rm -rf server-lnx
     rm -rf Install-AGH.sh
@@ -64,6 +65,5 @@ sleep 5s
 clear
 echo "Wait.. Exiting Program"
 sleep 2s
-cd ..
 clear
 exit

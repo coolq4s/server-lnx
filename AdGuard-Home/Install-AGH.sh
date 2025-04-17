@@ -60,6 +60,8 @@ echo "\nInstalling AGH Component..."
 sleep 2s
 ./AdGuardHome -s install || { echo "Installation failed!"; exit 1; }
 echo "AGH Installed"
+sleep 5s
+clear
 echo "Wait.. Exiting Program"
 sleep 2s
 cd ..

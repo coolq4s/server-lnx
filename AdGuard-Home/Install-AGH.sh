@@ -1,7 +1,8 @@
 #!/bin/sh
 cleanup() {
     clear
-    cd ..
+    # Kembali ke direktori awal script dijalankan
+    cd "$(dirname "$0")" || exit 1
     rm -rf "header.txt"
     rm -rf server-lnx
     rm -rf Install-AGH.sh

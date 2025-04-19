@@ -5,6 +5,7 @@
 > - Report bug to me via **[email](mailto:g.psrb1000@gmail.com)**.
 
 ### Jump Page
+- **[AdGuard Home](https://github.com/coolq4s/server-lnx/tree/main/AdGuard-Home)**
 - **[404 Page Demo](https://coolq4s.github.io/server-lnx/html/404/)** - **[How to](https://github.com/coolq4s/server-lnx/tree/main/html)**
 - **[ZeroTier Setup (BETA for Script)](https://github.com/coolq4s/server-lnx/tree/main/zerotier)**
 - **[Apache2 Setup](https://github.com/coolq4s/server-lnx/tree/main/apache2)**

@@ -9,7 +9,7 @@
 - **[404 Page Demo](https://coolq4s.github.io/server-lnx/html/404/)** - **[How to](https://github.com/coolq4s/server-lnx/tree/main/html)**
 - **[ZeroTier Setup (BETA for Script)](https://github.com/coolq4s/server-lnx/tree/main/zerotier)**
 - **[Apache2 Setup](https://github.com/coolq4s/server-lnx/tree/main/apache2)**
-- **[Speedtest Setup](https://github.com/coolq4s/server-lnx/main/speedtest)**
+- **[Speedtest Setup](https://github.com/coolq4s/server-lnx/tree/main/speedtest)**
 - **[RAM Cleaner](https://github.com/coolq4s/server-lnx/tree/main/cleaner/RAM)**
 - **[Other](https://github.com/coolq4s/server-lnx/tree/main/other/troubleshoot)**
   - **[Compress /var/log](https://github.com/coolq4s/server-lnx/tree/main/other/troubleshoot)**

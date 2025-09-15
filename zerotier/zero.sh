@@ -117,6 +117,8 @@ if grep -q '^#*net.ipv4.ip_forward' /etc/sysctl.conf; then
     else
         # Ubah nilai variabel sesuai dengan input pengguna
         sudo sed -i "s/^net.ipv4.ip_forward=.*/net.ipv4.ip_forward=$new_value/g" /etc/sysctl.conf
+        echo "net.ipv4.ip_forward=$new_value" | sudo tee /etc/sysctl.d/99-ip-forward.conf > /dev/null
+        sudo sysctl -p /etc/sysctl.d/99-ip-forward.conf
     fi
     sleep 2s
 else

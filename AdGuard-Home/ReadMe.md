@@ -41,10 +41,10 @@ https://freedns.controld.com/p1
 
 ### Whitelist
 AnuDEEP
-`https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt`
-Ultimate
-`https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/whitelist/master/domains.list`
-Advance
-`https://raw.githubusercontent.com/Levi2288/AdvancedBlockList/main/Lists/whitelist.txt`
-Adguard
-`https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/allowlist.txt`
+`https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt` <br>
+Ultimate <br>
+`https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/whitelist/master/domains.list` <br>
+Advance <br>
+`https://raw.githubusercontent.com/Levi2288/AdvancedBlockList/main/Lists/whitelist.txt` <br>
+Adguard <br>
+`https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/allowlist.txt` <br>

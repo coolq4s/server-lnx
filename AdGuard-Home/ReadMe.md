@@ -38,3 +38,13 @@ https://77.88.8.8/dns-query
 https://freedns.controld.com/p1
 
 ```
+
+### Whitelist
+AnuDEEP
+`https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt`
+Ultimate
+`https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/whitelist/master/domains.list`
+Advance
+`https://raw.githubusercontent.com/Levi2288/AdvancedBlockList/main/Lists/whitelist.txt`
+Adguard
+`https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/allowlist.txt`

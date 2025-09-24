@@ -63,3 +63,11 @@ https://raw.githubusercontent.com/Levi2288/AdvancedBlockList/main/Lists/whitelis
 ```
 https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/allowlist.txt
 ```
+- AGH
+```
+https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/refs/heads/master/BaseFilter/sections/allowlist.txt
+```
+-AGH-Stealth
+```
+https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/refs/heads/master/BaseFilter/sections/allowlist_stealth.txt
+```

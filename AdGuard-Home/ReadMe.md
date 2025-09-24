@@ -39,6 +39,10 @@ https://freedns.controld.com/p1
 
 ```
 
+### Blocklist
+AIO <br>
+```https://github.com/ppfeufer/adguard-filter-list/blob/master/blocklist?raw=true```
+
 ### Whitelist
 AnuDEEP <br>
 ```https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt``` <br>

@@ -40,26 +40,26 @@ https://freedns.controld.com/p1
 ```
 
 ### Blocklist
-AIO <br>
+- AIO <br>
 ```
 https://github.com/ppfeufer/adguard-filter-list/blob/master/blocklist?raw=true
 ```
 
 ### Whitelist
-AnuDEEP <br>
+- AnuDEEP <br>
 ```
 https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
 ```
 
-Ultimate
+- Ultimate
 ```
 https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/whitelist/master/domains.list
 ```
-Advance
+- Advance
 ```
 https://raw.githubusercontent.com/Levi2288/AdvancedBlockList/main/Lists/whitelist.txt
 ```
-Adguard
+- Adguard
 ```
 https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/allowlist.txt
 ```

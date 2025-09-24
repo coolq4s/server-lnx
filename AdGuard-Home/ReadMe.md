@@ -41,7 +41,9 @@ https://freedns.controld.com/p1
 
 ### Blocklist
 AIO <br>
-```https://github.com/ppfeufer/adguard-filter-list/blob/master/blocklist?raw=true```
+```
+https://github.com/ppfeufer/adguard-filter-list/blob/master/blocklist?raw=true
+```
 
 ### Whitelist
 AnuDEEP <br>

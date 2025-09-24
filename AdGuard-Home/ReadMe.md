@@ -47,10 +47,19 @@ https://github.com/ppfeufer/adguard-filter-list/blob/master/blocklist?raw=true
 
 ### Whitelist
 AnuDEEP <br>
-```https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt``` <br>
+```
+https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
+``` <br>
+
 Ultimate <br>
-```https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/whitelist/master/domains.list``` <br>
+```
+https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/whitelist/master/domains.list
+``` <br>
 Advance <br>
-```https://raw.githubusercontent.com/Levi2288/AdvancedBlockList/main/Lists/whitelist.txt``` <br>
+```
+https://raw.githubusercontent.com/Levi2288/AdvancedBlockList/main/Lists/whitelist.txt
+``` <br>
 Adguard <br>
-```https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/allowlist.txt``` <br>
+```
+https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/allowlist.txt
+``` <br>

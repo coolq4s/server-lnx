@@ -67,7 +67,7 @@ https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/s
 ```
 https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/refs/heads/master/BaseFilter/sections/allowlist.txt
 ```
--AGH-Stealth
+- AGH-Stealth
 ```
 https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/refs/heads/master/BaseFilter/sections/allowlist_stealth.txt
 ```

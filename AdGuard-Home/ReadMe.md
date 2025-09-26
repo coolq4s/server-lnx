@@ -31,12 +31,6 @@ https://dns10.quad9.net/dns-query
 
 ```
 
-### Blocklist
-- AIO <br>
-```
-https://github.com/ppfeufer/adguard-filter-list/blob/master/blocklist?raw=true
-```
-
 ### Whitelist
 - AnuDEEP <br>
 ```

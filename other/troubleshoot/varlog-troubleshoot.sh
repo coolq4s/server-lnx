@@ -1,6 +1,7 @@
 #!/bin/sh
 cleanup() {
     clear
+    cd /coolq4s-scripts
     rm -rf header.txt
     rm -rf server-lnx
     rm -rf varlog-troubleshoot.sh
@@ -29,85 +30,50 @@ sleep 1s
 echo ""
 echo ""
 
-if grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 0 -E '^*weekly|hourly|daily|monthly|yearly' > /dev/null 2>&1; then
-    #Menampilkan nilai variabel dan menanyakan untuk mengubahnya
-    current_value=$(grep -v '^[[:space:]]*#' /etc/logrotate.conf | grep -A 0 -E '^*weekly|hourly|daily|monthly|yearly') > /dev/null 2>&1
-    echo "\e[0m Rotate log files found \e[33m$current_value\e[0m"
-    echo ""
-    echo " Choose rotate log duration:"
-    echo "\e[92m 1. Hourly"
-    echo "\e[0m 2. Daily"
-    echo "\e[93m 3. Weekly"
-    echo "\e[93m 4. Monthly"
-    echo "\e[91m 5. Yearly"
-    echo "\e[0m"
-    read -p " Type number (1-5): " option_logrotate_duration
-    if [ -z "$option_logrotate_duration" ]; then
-        echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
-        sleep 5s
-        exit
-    fi
-    if ! [ "$option_logrotate_duration" -ge 1 -a "$option_logrotate_duration" -le 5 ] 2>/dev/null; then
-        echo "\e[101m\e[97m Only number (1-5) can be allowed. Kill script.\e[0m"
-        sleep 5s
-        exit
-    fi
-    case $option_logrotate_duration in
-        1) logrotate_interval="hourly";;
-        2) logrotate_interval="daily";;
-        3) logrotate_interval="weekly";;
-        4) logrotate_interval="monthly";;
-        5) logrotate_interval="yearly";;
-    esac
+#!/bin/bash
+# advanced-log-cleaner.sh
 
-    echo " Logrotate interval now is\e[92m $logrotate_interval\e[0m"
-    sudo sed -i "s/^$current_value.*/$logrotate_interval/g" /etc/logrotate.conf
-    sleep 4s
-    clear
-    echo "\e[92m"
-    cat header.txt
-    sleep 1s
-    echo ""
-    echo ""
-    var_log_size=$(df -BM /var/log | tail -n 1 | awk '{print $2}' | sed 's/[MG]//')
-    var_log_size_Human=$(df -BM /var/log | tail -n 1 | awk '{print $2}')
-    echo "\e[0m Size log you want."
-    echo ""
-    echo "\e[33m I suggest, use half from your\n total partition /var/log \e[0m"
-    echo ""
-    echo " Your size partition /var/log is:\e[92m $var_log_size_Human\e[0m"
-    echo "\e[33m Note :\n Logrotate will be compressed. \e[0m"
-    read -p " Size (in Mb): " log_size
-    if ! expr "$log_size" : '[0-9]*$' >/dev/null; then
-        echo "\e[101m\e[97m ONLY NUMBER CAN BE ALLOWED. Exiting script.\e[0m"
-    else
-        if [ -z "$log_size" ]; then
-            echo "\e[101m\e[97m Input is blank. Kill script.\e[0m"
-            sleep 5s
-            exit
-        fi    
-        if [ "$log_size" -gt "$var_log_size" ]; then
-            echo "\e[101m\e[97m The number entered is greater than\n the size of /var/log partition.\n Exiting script.\e[0m"
-            sleep 5s
-            exit 1
-        else
-            sudo sed -i '/^size [0-9]\+M$/d' /etc/logrotate.conf
-            log_size="${log_size}M"
-            sudo sed -i -e "\$a\size $log_size" /etc/logrotate.conf
-            if grep -qE '^[[:space:]]*[^#]*compress' /etc/logrotate.conf; then
-                echo " Already compressed"
-            else
-                sudo sed -i "\$acompress" /etc/logrotate.conf
-            fi
-            sleep 5s
-        fi
-    fi
-    echo " DONE"
-    sleep 5s
-    exit
+THRESHOLD=75
+LOG_DIR="/var/log"
+CURRENT_USAGE=$(df "$LOG_DIR" | awk 'NR==2 {print $5}' | sed 's/%//')
+
+cleanup_logs() {
+    local urgency=$1  # 1, 2, atau 3
+    
+    echo "Performing level $urgency cleanup..."
+    
+    case $urgency in
+        1)  # Mild cleanup - safe operations
+            find /var/log -name "*.gz" -mtime +30 -delete
+            sudo journalctl --vacuum-time=7d
+            ;;
+        2)  # Moderate cleanup - more aggressive
+            find /var/log -name "*.gz" -mtime +7 -delete
+            find /var/log -name "*.1" -mtime +3 -delete
+            sudo journalctl --vacuum-size=500M
+            ;;
+        3)  # Aggressive cleanup - emergency
+            find /var/log -name "*.gz" -delete
+            find /var/log -name "*.1" -delete
+            sudo journalctl --vacuum-size=100M
+            # Truncate large active logs
+            for log in /var/log/syslog /var/log/messages; do
+                [ -f "$log" ] && sudo truncate -s 0 "$log"
+            done
+            ;;
+    esac
+}
+
+# Logic, sort by usage usage
+if [ "$CURRENT_USAGE" -ge 90 ]; then
+    cleanup_logs 3
+elif [ "$CURRENT_USAGE" -ge 80 ]; then
+    cleanup_logs 2
+elif [ "$CURRENT_USAGE" -ge 75 ]; then
+    cleanup_logs 1
 else
-    echo "\e[91m"
-    echo " Value log files not found\e[0m"
+    echo "Disk usage: $CURRENT_USAGE% - No cleanup needed"
+    exit 0
 fi
 
 sleep 5s

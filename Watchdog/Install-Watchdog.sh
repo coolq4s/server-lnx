@@ -2,6 +2,7 @@
 cleanup() {
     clear
     # Kembali ke direktori awal script dijalankan
+    cd ..
     rm -rf "header.txt"
     rm -rf server-lnx
     echo ""

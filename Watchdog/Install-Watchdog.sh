@@ -12,7 +12,6 @@ cleanup() {
     echo ""
     echo ""
     echo " Watchdog INSTALLED"
-    echo "\033[0m"
 }
 
 trap cleanup EXIT

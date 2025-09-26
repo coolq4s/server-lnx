@@ -57,3 +57,75 @@ https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/refs/heads/master/B
 ```
 https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/refs/heads/master/BaseFilter/sections/allowlist_stealth.txt
 ```
+### CUSTOM FILTER
+```
+! ===============================================
+! WHITELIST DOMAIN DETECTION INTERNET
+! Windows + Android + Apple + Linux Connectivity
+! ===============================================
+! Microsoft Connectivity Detection
+@@||msftncsi.com^
+@@||msftconnecttest.com^
+@@||ctldl.windowsupdate.com^
+127.0.0.1 settings-win.data.microsoft.com
+127.0.0.1 v10.events.data.microsoft.com
+! Google/Android Connectivity Detection
+@@||clients3.google.com^
+@@||connectivitycheck.android.com^
+@@||connectivitycheck.gstatic.com^
+@@||android.clients.google.com^
+@@||tools.google.com^
+! Apple Connectivity Detection
+@@||apple.com^
+@@||captive.apple.com^
+@@||gsp1.apple.com^
+@@||mesu.apple.com^
+@@||icloud.com^
+! Linux Connectivity Detection
+@@||connectivity-check.ubuntu.com^
+@@||archive.ubuntu.com^
+@@||fedoraproject.org^
+@@||archlinux.org^
+@@||ifconfig.me^
+@@||icanhazip.com^
+@@||checkip.amazonaws.com^
+! Google Services
+@@||google.com^
+@@||gstatic.com^
+@@||googleapis.com^
+@@||play.googleapis.com^
+! Microsoft Services
+@@||microsoft.com^
+@@||windows.com^
+@@||live.com^
+@@||onenote.com^
+@@||office.com^
+! Apple Services
+@@||me.com^
+@@||mac.com^
+@@||appstore.com^
+@@||itunes.com^
+! Linux Services
+@@||ubuntu.com^
+@@||debian.org^
+@@||redhat.com^
+! NTP Time Servers (All Platforms)
+@@||time.windows.com^
+@@||time.google.com^
+@@||time.apple.com^
+@@||pool.ntp.org^
+@@||ntp.ubuntu.com^
+@@||0.ubuntu.pool.ntp.org^
+@@||1.ubuntu.pool.ntp.org^
+! Package Managers
+@@||ppa.launchpad.net^
+@@||deb.debian.org^
+@@||ftp.debian.org^
+@@||security.ubuntu.com^
+@@||security.debian.org^
+@@||mirrors.fedoraproject.org^
+@@||mirrors.archlinux.org^
+! Push Notifications
+@@||push.apple.com^
+@@||api.push.apple.com^
+```

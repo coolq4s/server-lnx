@@ -2,7 +2,7 @@
 cleanup() {
     clear
     # Kembali ke direktori awal script dijalankan
-    cd ..
+    cd /coolq4s-scripts
     rm -rf "header.txt"
     rm -rf server-lnx
     echo ""

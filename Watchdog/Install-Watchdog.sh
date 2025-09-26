@@ -2,16 +2,15 @@
 cleanup() {
     clear
     # Kembali ke direktori awal script dijalankan
-    cd ..
     rm -rf "header.txt"
     rm -rf server-lnx
-    rm -rf Install-AGH.sh
     echo ""
     echo " Cleaning up temporary files"
-    echo " To try again this script,\n you can copy the command from github"
+    echo " To try again this script,"
+    echo " you can copy the command from github"
     echo ""
     echo ""
-    echo " AGH INSTALLED"
+    echo " Watchdog INSTALLED"
     echo "\033[0m"
 }
 
@@ -39,6 +38,10 @@ sleep 1s
 
 echo ""
 echo ""
+
+pause() {
+  read -r -p "Press [Enter] to exit"
+}
 
 echo "Creating service ping-watchdog..."
 
@@ -77,5 +80,8 @@ echo "  sudo systemctl status ping-watchdog.service"
 echo "  sudo systemctl stop ping-watchdog.service"
 echo "  sudo systemctl restart ping-watchdog.service"
 echo "  sudo journalctl -u ping-watchdog.service -f"
-rm -rf header.txt
+
+echo -e "\e[92m DONE"
+echo -e "\e[0m"
+pause
 exit

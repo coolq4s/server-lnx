@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 cleanup() {
     rm -rf header.txt
@@ -46,7 +46,7 @@ while [ -z "$netID" ]; do
         echo -e "\e[0m\033[91m Error : Cannot blank \e[0m"
     fi
 done
-networkID=$(zerotier-cli join $netID)
+networkID=$(sudo zerotier-cli join $netID)
 if echo "$networkID" | grep -q "invalid"; then
     echo -e "\033[91m Invalid Network ID, force exit"
     exit
@@ -54,7 +54,7 @@ else
     echo ""
     echo -e "\e[92m $netID is valid"
 fi 
-zerotierstatus=$(zerotier-cli listnetworks)
+zerotierstatus=$(sudo zerotier-cli listnetworks)
 if echo "$zerotierstatus" | grep -o "200 listnetworks $netID" > /dev/null; then
     echo -e "\e[92m $netID has Connected"
 else
@@ -64,7 +64,7 @@ fi
 echo ""
 echo ""
 # Get ZeroTier interface and internet interface
-echo -e "\e[0m Input your interface using internet, \n you can find with command\e[35m ifconfig \e[0m"
+echo -e "\e[0m Input your interface using internet, \n you can find with command\e[35m ip addr \e[0m"
 
 physical_iface=""
 while [ -z "$physical_iface" ]; do
@@ -74,11 +74,15 @@ while [ -z "$physical_iface" ]; do
     fi
 done
 
-zerotieriface=$(ifconfig | grep -o 'zt[0-9a-zA-Z]*')
+# Method yang lebih reliable untuk mendapatkan interface ZeroTier
+zerotieriface=$(ip link show | grep -o 'zt[0-9a-zA-Z]*' | head -1)
+if [ -z "$zerotieriface" ]; then
+    # Jika tidak ditemukan zt*, cari interface dengan nama panjang ZeroTier
+    zerotieriface=$(ip link show | grep -o 'zt[^[:space:]]*' | head -1)
+fi
 
 PHY_IFACE=$physical_iface
 ZT_IFACE=$zerotieriface
-
 
 clear
 echo -e "\033[1;94m"
@@ -86,7 +90,7 @@ cat header.txt
 echo ""
 echo ""
 # Eksekusi perintah dan gunakan AWK untuk mengekstrak nilai machineid
-machineid=$(zerotier-cli status | awk '{print $3}')
+machineid=$(sudo zerotier-cli status | awk '{print $3}')
 
 # Tampilkan nilai machineid
 echo -e "\e[92m Your machine ID: \e[92m$machineid"
@@ -138,36 +142,104 @@ else
     echo "net.ipv4.ip_forward=$new_value" | sudo tee -a /etc/sysctl.conf > /dev/null
 fi
 
+# Apply IP forwarding immediately
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+
 clear
 echo -e "\033[1;94m"
 cat header.txt
 echo ""
 echo ""
 echo -e "\e[0m"
-PHY_check=$(grep "$PHY_IFACE -j MASQUERADE" /etc/iptables/rules.v4)
-if ! [ ! "$PHY_check" ]; then
-    echo -e "\e[92m $PHY_IFACE has MASQUERADE"
-else
-    echo -e "\033[91m $PHY_IFACE not MASQUERADE, adding MASQUERADE interface"
-    iptables-legacy -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
-fi
-ZT_check=$(grep "$PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT" /etc/iptables/rules.v4)
-if ! [ ! "$ZT_check" ]; then
-    echo -e "\e[92m $ZT_IFACE and $PHY_IFACE has ACCEPT"
-else
-    echo -e "\033[91m $ZT_IFACE and $PHY_IFACE not found,\n adding ACCEPT interface"
-    iptables-legacy -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
-    iptables-legacy -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
+
+# Gunakan nftables sebagai pengganti iptables-legacy
+echo -e "\e[92m Setting up nftables for ZeroTier routing..."
+
+# Install nftables jika belum ada
+if ! command -v nft &> /dev/null; then
+    echo -e "\e[93m Installing nftables..."
+    sudo apt update
+    sudo apt install -y nftables
 fi
 
-apt install iptables-persistent
-bash -c iptables-save > /etc/iptables/rules.v4
+# Stop iptables services jika ada
+sudo systemctl stop iptables 2>/dev/null || true
+sudo systemctl disable iptables 2>/dev/null || true
 
+# Enable nftables
+sudo systemctl enable nftables 2>/dev/null || true
+sudo systemctl start nftables 2>/dev/null || true
+
+# Setup nftables rules
+sudo nft flush ruleset 2>/dev/null || true
+
+# Create NAT table and rules
+sudo nft add table ip nat 2>/dev/null || true
+sudo nft add chain ip nat postrouting { type nat hook postrouting priority 100 \; } 2>/dev/null
+sudo nft add rule ip nat postrouting oifname "$PHY_IFACE" masquerade 2>/dev/null
+
+# Create filter table and rules
+sudo nft add table ip filter 2>/dev/null || true
+sudo nft add chain ip filter forward { type filter hook forward priority 0 \; } 2>/dev/null
+sudo nft add rule ip filter forward iifname "$ZT_IFACE" oifname "$PHY_IFACE" accept 2>/dev/null
+sudo nft add rule ip filter forward iifname "$PHY_IFACE" oifname "$ZT_IFACE" ct state related,established accept 2>/dev/null
+
+# Save nftables rules
+if [ -d /etc/nftables.conf ]; then
+    sudo nft list ruleset > /tmp/nftables_rules.conf
+    sudo mv /tmp/nftables_rules.conf /etc/nftables.conf
+else
+    sudo nft list ruleset | sudo tee /etc/nftables.conf > /dev/null
+fi
+
+# Jika interface ZeroTier panjang, gunakan pendekatan alternatif
+if [ ${#ZT_IFACE} -gt 15 ]; then
+    echo -e "\e[93m ZeroTier interface name is too long, using alternative method..."
+    
+    # Dapatkan IP range ZeroTier dari listnetworks
+    zt_network_info=$(sudo zerotier-cli listnetworks | grep "$netID")
+    zt_ip_range=$(echo "$zt_network_info" | awk '{print $7}' | cut -d'.' -f1-3)
+    
+    if [ -n "$zt_ip_range" ]; then
+        echo -e "\e[92m Using IP range: $zt_ip_range.0/24"
+        
+        # Flush dan setup ulang dengan IP-based rules
+        sudo nft flush ruleset
+        
+        # NAT rules berdasarkan IP range
+        sudo nft add table ip nat
+        sudo nft add chain ip nat postrouting { type nat hook postrouting priority 100 \; }
+        sudo nft add rule ip nat postrouting ip saddr $zt_ip_range.0/24 oifname "$PHY_IFACE" masquerade
+        
+        # Filter rules berdasarkan IP range
+        sudo nft add table ip filter
+        sudo nft add chain ip filter forward { type filter hook forward priority 0 \; }
+        sudo nft add rule ip filter forward ip daddr $zt_ip_range.0/24 ct state established,related accept
+        sudo nft add rule ip filter forward ip saddr $zt_ip_range.0/24 accept
+        
+        # Save rules
+        sudo nft list ruleset | sudo tee /etc/nftables.conf > /dev/null
+    fi
+fi
+
+# Apply rules
+sudo nft -f /etc/nftables.conf 2>/dev/null || true
+
+echo -e "\e[92m NFTables rules applied successfully!"
+echo -e "\e[0m Current nftables rules:"
+sudo nft list ruleset
+
+# Install iptables-persistent hanya untuk backup (optional)
+echo -e "\e[93m Installing iptables-persistent for backup..."
+sudo apt update
+sudo apt install -y iptables-persistent
 
 rm -rf header.txt
 echo ""
 echo ""
-echo -e "\e[92m DONE, Reboot please"
+echo -e "\e[92m DONE!"
+echo -e "\e[92m ZeroTier routing has been configured using nftables"
+echo -e "\e[0m You may need to reboot for all changes to take effect"
 echo -e "\e[0m"
 sleep 5s
 exit

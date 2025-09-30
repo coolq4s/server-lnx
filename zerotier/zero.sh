@@ -149,15 +149,15 @@ if ! [ ! "$PHY_check" ]; then
     echo -e "\e[92m $PHY_IFACE has MASQUERADE"
 else
     echo -e "\033[91m $PHY_IFACE not MASQUERADE, adding MASQUERADE interface"
-    iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
+    iptables-legacy -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 fi
 ZT_check=$(grep "$PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT" /etc/iptables/rules.v4)
 if ! [ ! "$ZT_check" ]; then
     echo -e "\e[92m $ZT_IFACE and $PHY_IFACE has ACCEPT"
 else
     echo -e "\033[91m $ZT_IFACE and $PHY_IFACE not found,\n adding ACCEPT interface"
-    iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
-    iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
+    iptables-legacy -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
+    iptables-legacy -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
 fi
 
 apt install iptables-persistent

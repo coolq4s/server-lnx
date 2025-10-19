@@ -20,6 +20,9 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     sudo nano /etc/systemd/system/stb-network-fix.service
     ```
 3. Add  this code in opened file
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
     > [!WARNING]
     > If your ethernet speed is 100Mbps use this command. <br>
     > If speed is 1Gbps use `1000` instead of `100` in this line

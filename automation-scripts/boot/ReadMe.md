@@ -12,7 +12,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
    <pre>
     Speed: 100Mb/s
     Duplex: Half
-    Auto-negotiation: yes    </pre>
+    Auto-negotiation: on    </pre>
     If output like that you must change the speed of Interface.
 
 3. Create new file with this command

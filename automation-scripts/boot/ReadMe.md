@@ -9,19 +9,20 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     ethtool eth0 | grep -E "Speed|Duplex|Auto-negotiation"
     ```
     Example output :
+   <pre>
     ```console
     Speed: 100Mb/s
     Duplex: Half
     Auto-negotiation: yes
     ```
-
+    </pre>
     If output like that you must change the speed of Interface.
 
-2. Create new file with this command
+3. Create new file with this command
     ```shell
     sudo nano /etc/systemd/system/stb-network-fix.service
     ```
-3. Add  this code in opened file <br>
+4. Add  this code in opened file <br>
     ## ⚠️  Attention : <br>
     If your ethernet speed is 100Mbps use existing command. If speed is 1Gbps use `1000` instead of `100` in this line `ExecStart=/sbin/ethtool -s eth0 speed [100 or 1000]duplex full`
     <br>
@@ -44,12 +45,12 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     [Install]
     WantedBy=multi-user.target
     ```
-4. Restart and reload service
+5. Restart and reload service
     ``` bash
     sudo systemctl daemon-reload
     sudo systemctl restart stb-network-fix.service
     ```
-5. Check configuration applied
+6. Check configuration applied
     ```bash
     ethtool eth0 | grep -E "Speed|Duplex|Auto-negotiation"
     ```
@@ -59,14 +60,14 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     Duplex: Full
     Auto-negotiation: Off </pre>
     If `off` the command is applied, `reboot`to see the effect.
-6. Check service status
+7. Check service status
     ```bash
     sudo systemctl status stb-network-fix.service
     ```
     - inactive (dead) = It's NORMAL for oneshot service if task completed
     - active (exited) = Normal, script completed execute
     - active (running) = Abnormal, that script is oneshot parameter
-7. Check log of service
+8. Check log of service
     ```bash
     journalctl -u stb-network-fix.service | tail -10
     ```

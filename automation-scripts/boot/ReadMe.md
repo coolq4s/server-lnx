@@ -40,3 +40,6 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     Duplex: Full
     Auto-negotiation: Off
     ```
+<div class="boxed">
+this is the text.
+</div>

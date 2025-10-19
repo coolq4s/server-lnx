@@ -68,6 +68,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     ```console
     journalctl -u stb-network-fix.service | tail -10
     ```
+9. Reboot, type `reboot`
 <br>
 <br>
 

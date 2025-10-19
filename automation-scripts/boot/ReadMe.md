@@ -86,7 +86,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     ```console
     sudo nano /boot/extlinux/extlinux.conf
     ```
-3. Add this code `panic=10 panic_on_oops=1` in end of `APPEND` line <br>
+3. Add this code `panic=10 panic_on_oops=1 systemd.crash_reboot=1` in end of `APPEND` line <br>
     Ex : <br>
     Before edit:<br>
     `APPEND root=UUID=xxxxxx rootfstype=ext4 rootflags=data=writeback rw console=tty1 console=ttyAML0,115200n8 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0` <br>

@@ -35,11 +35,8 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     ethtool eth0 | grep -E "Speed|Duplex|Auto-negotiation"
     ```
     Output :
-    ```bash
+    <pre>
     Speed: 100Mb/s
     Duplex: Full
     Auto-negotiation: Off
-    ```
-<div class="boxed">
-this is the text.
-</div>
+    </pre>

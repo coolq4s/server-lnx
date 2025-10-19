@@ -42,6 +42,11 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     [Install]
     WantedBy=multi-user.target
     ```
+5. Edit rc.local, add this command before `exit 0`
+    ```
+    ethtool -s eth0 speed 100 duplex full autoneg off
+    sleep 5
+    ```
 5. Restart and reload service
     ``` console
     sudo systemctl daemon-reload

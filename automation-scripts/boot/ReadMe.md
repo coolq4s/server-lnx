@@ -110,7 +110,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     sudo sysctl -p /etc/sysctl.d/kernel-panic.conf
     ```
 7. Check code is inputted
-    ```
+    ```bash
     echo "Panic: $(cat /proc/sys/kernel/panic)"
     echo "Panic on Oops: $(cat /proc/sys/kernel/panic_on_oops)"
     echo "Panic on RCU Stall: $(cat /proc/sys/kernel/panic_on_rcu_stall)"

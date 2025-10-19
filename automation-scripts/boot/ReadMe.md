@@ -5,7 +5,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
 **- Restart service**
 
 1. Check first the parameters
-    ```bash
+    ```console
     ethtool eth0 | grep -E "Speed|Duplex|Auto-negotiation"
     ```
     Example output :
@@ -43,12 +43,12 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     WantedBy=multi-user.target
     ```
 5. Restart and reload service
-    ``` bash
+    ``` console
     sudo systemctl daemon-reload
     sudo systemctl restart stb-network-fix.service
     ```
 6. Check configuration applied
-    ```bash
+    ```console
     ethtool eth0 | grep -E "Speed|Duplex|Auto-negotiation"
     ```
     Output :
@@ -58,14 +58,14 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     Auto-negotiation: Off </pre>
     If `off` the command is applied, `reboot`to see the effect.
 7. Check service status
-    ```bash
+    ```console
     sudo systemctl status stb-network-fix.service
     ```
     - inactive (dead) = It's NORMAL for oneshot service if task completed
     - active (exited) = Normal, script completed execute
     - active (running) = Abnormal, that script is oneshot parameter
 8. Check log of service
-    ```bash
+    ```console
     journalctl -u stb-network-fix.service | tail -10
     ```
 <br>
@@ -73,16 +73,16 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
 
 **- Reboot if service is critical fail**
 1. Backup system file need to edit
-    ```bash
+    ```console
     sudo cp /boot/extlinux/extlinux.conf /boot/extlinux/extlinux.conf.backup
     ```
     or
-    ```bash
+    ```console
     sudo cp /etc/sysctl.conf /etc/sysctl.conf.backup
     ```
    
 2. Edit system file
-    ```bash
+    ```console
     sudo nano /boot/extlinux/extlinux.conf
     ```
 3. Add this code `panic=10 panic_on_oops=1` in end of `APPEND` line <br>
@@ -93,11 +93,11 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     `APPEND root=UUID=xxxxxx rootfstype=ext4 rootflags=data=writeback rw console=tty1 console=ttyAML0,115200n8 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 panic=10 panic_on_oops=1`
 
 4. Edit system file
-    ```bash
+    ```console
     sudo nano /etc/sysctl.d/kernel-panic.conf
     ```
 5. Paste this code
-    ```bash
+    ```console
     kernel.panic = 10
     kernel.panic_on_oops = 1
     kernel.panic_on_rcu_stall = 1
@@ -105,7 +105,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     vm.dirty_ratio = 10
     ```
 6. Apply service
-    ```bash
+    ```console
     sudo sysctl -p /etc/sysctl.d/kernel-panic.conf
     ```
 7. Check code is inputted
@@ -117,7 +117,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     echo "Dirty Ratio: $(cat /proc/sys/vm/dirty_ratio)"
     ```
 8. Verify the script is work
-    ```bash
+    ```console
     cat /proc/cmdline | grep panic
     cat /proc/sys/kernel/panic
     ```
@@ -125,7 +125,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     <pre>root=UUID=###-###-###-### rootflags=data=writeback console=***,*** console=tty0 rw no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 splash plymouth.ignore-serial-consoles panic=10 panic_on_oops=1
    10</pre>
 9. To testing kernel panic
-    ```bash
+    ```console
     echo c | sudo tee /proc/sysrq-trigger
     ```
     Note : Machine will be reboot

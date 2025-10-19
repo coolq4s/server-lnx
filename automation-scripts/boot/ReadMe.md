@@ -19,8 +19,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     ```
     sudo nano /etc/systemd/system/stb-network-fix.service
     ```
-3. > [!WARNING]
-   > If your ethernet speed is 100Mbps use this command. If speed is 1Gbps use `1000` instead of `100` in this line `ExecStart=/sbin/ethtool -s eth0 speed [100 or 1000]duplex full`
+3. Add  this code in opened file (Warning)
 
     ```
     [Unit]
@@ -39,6 +38,8 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     [Install]
     WantedBy=multi-user.target
     ```
+> [!WARNING]
+> If your ethernet speed is 100Mbps use this command. If speed is 1Gbps use `1000` instead of `100` in this line `ExecStart=/sbin/ethtool -s eth0 speed [100 or 1000]duplex full`
 4. Restart and reload service
     ```
     sudo systemctl daemon-reload

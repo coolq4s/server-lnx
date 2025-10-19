@@ -25,7 +25,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     <br>
     <br>
 
-    ```
+    ```ini
     [Unit]
     Description=Fix STB B860H Network Stability
     After=network.target

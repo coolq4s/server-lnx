@@ -17,7 +17,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     If output like that you must change the speed of Interface.
 
 2. Create new file with this command
-    ```bash
+    ```shell
     sudo nano /etc/systemd/system/stb-network-fix.service
     ```
 3. Add  this code in opened file <br>

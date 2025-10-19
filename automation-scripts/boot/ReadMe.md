@@ -1,18 +1,3 @@
-<style>
-.custom-warning {
-  background: linear-gradient(135deg, #fff3e0 0%, #ffecb3 100%);
-  border: 2px solid #ff9800;
-  border-left: 6px solid #ff5722;
-  padding: 18px;
-  margin: 20px 0;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(255, 87, 34, 0.1);
-  color: #bf360c;
-  font-weight: 500;
-}
-</style>
-
-
 ## Fix STB not boot up properly
 If your machine is failure to boot in STB machine or other linux distro, use this command maybe help your case.
 
@@ -36,11 +21,23 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     ```
 3. Add  this code in opened file (Warning)
     <div class="custom-warning">
-    🚨 __PERHATIAN KHUSUS__ 🚨
-    
+    **PERHATIAN KHUSUS**
     Pastikan Anda telah membackup data sebelum menjalankan perintah ini!  
     Operasi ini **tidak dapat dibatalkan** dan akan mempengaruhi sistem.
     </div>
+    <style>
+    .custom-warning {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffecb3 100%);
+    border: 2px solid #ff9800;
+    border-left: 6px solid #ff5722;
+    padding: 18px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(255, 87, 34, 0.1);
+    color: #bf360c;
+    font-weight: 500;
+    }
+    </style>
 
 
     ```

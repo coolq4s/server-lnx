@@ -1,3 +1,18 @@
+<style>
+.custom-warning {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffecb3 100%);
+  border: 2px solid #ff9800;
+  border-left: 6px solid #ff5722;
+  padding: 18px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(255, 87, 34, 0.1);
+  color: #bf360c;
+  font-weight: 500;
+}
+</style>
+
+
 ## Fix STB not boot up properly
 If your machine is failure to boot in STB machine or other linux distro, use this command maybe help your case.
 
@@ -20,6 +35,13 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     sudo nano /etc/systemd/system/stb-network-fix.service
     ```
 3. Add  this code in opened file (Warning)
+    <div class="custom-warning">
+    🚨 __PERHATIAN KHUSUS__ 🚨
+    
+    Pastikan Anda telah membackup data sebelum menjalankan perintah ini!  
+    Operasi ini **tidak dapat dibatalkan** dan akan mempengaruhi sistem.
+    </div>
+
 
     ```
     [Unit]
@@ -38,8 +60,6 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     [Install]
     WantedBy=multi-user.target
     ```
-> [!WARNING]
-> If your ethernet speed is 100Mbps use this command. If speed is 1Gbps use `1000` instead of `100` in this line `ExecStart=/sbin/ethtool -s eth0 speed [100 or 1000]duplex full`
 4. Restart and reload service
     ```
     sudo systemctl daemon-reload

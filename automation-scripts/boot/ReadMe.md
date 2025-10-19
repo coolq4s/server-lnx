@@ -10,9 +10,10 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     ```
     Example output :
     ```console
+    <pre>
     Speed: 100Mb/s
     Duplex: Half
-    Auto-negotiation: yes
+    Auto-negotiation: yes</pre>
     ```
 
     If output like that you must change the speed of Interface.

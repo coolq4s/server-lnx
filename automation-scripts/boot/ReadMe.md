@@ -19,10 +19,11 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     ```
     sudo nano /etc/systemd/system/stb-network-fix.service
     ```
-    
-> [!WARNING]
-> If your ethernet speed is 100Mbps use this command.<br> If speed is 1Gbps use `1000` instead of `100` in this line<br> `ExecStart=/sbin/ethtool -s eth0 speed [100 or 1000]duplex full`
 3. Add  this code in opened file
+
+   > [!WARNING]
+   > If your ethernet speed is 100Mbps use this command. If speed is 1Gbps use `1000` instead of `100` in this line `ExecStart=/sbin/ethtool -s eth0 speed [100 or 1000]duplex full`
+
     ```
     [Unit]
     Description=Fix STB B860H Network Stability

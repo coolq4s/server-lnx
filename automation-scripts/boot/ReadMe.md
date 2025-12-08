@@ -98,7 +98,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     After edit:<br>
     `APPEND root=UUID=xxxxxx rootfstype=ext4 rootflags=data=writeback rw console=tty1 console=ttyAML0,115200n8 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 panic=10 panic_on_oops=1 systemd.crash_reboot=1`
 
-4. Edit system file
+4. Create and add code to system file
     ```console
     sudo nano /etc/sysctl.d/kernel-panic.conf
     ```

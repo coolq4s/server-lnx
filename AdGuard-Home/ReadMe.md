@@ -25,7 +25,8 @@ https://77.88.8.8/dns-query
 
 ```
 
-Option : <br>
+### UOption :
+
 √ Load Balancing
 √ Fall Back DNS
    ```

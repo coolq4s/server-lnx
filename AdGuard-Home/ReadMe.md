@@ -26,14 +26,23 @@ https://77.88.8.8/dns-query
 ```
 
 Option : <br>
-1. √ Load Balancing
-2. Fall Back DNS
+√ Load Balancing
+√ Fall Back DNS
    ```
    8.8.8.8
    8.8.4.4
    1.1.1.1
    1.0.0.1
    ```
+√ Bootstrap
+   ```
+   8.8.8.8
+   1.1.1.1
+   9.9.9.10
+   149.112.112.10
+   ```
+√ Use private reverse DNS resolvers
+5. 
 ### Whitelist
 - AnuDEEP <br>
 ```

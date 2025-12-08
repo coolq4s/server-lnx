@@ -61,19 +61,33 @@ https://77.88.8.8/dns-query
 
 -  Blocklist
    OISD : <br>
-   ```https://big.oisd.nl/```
+   ```
+   https://big.oisd.nl/
+   ```
    OISD 18+ : <br>
-   ```https://nsfw.oisd.nl/```
+   ```
+   https://nsfw.oisd.nl/
+   ```
    AdGuard DNS filter : <br>
-   ```https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt```
+   ```
+   https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt
+   ```
    HaGeZi's Windows/Office Tracker Blocklist : <br>
-   ```https://adguardteam.github.io/HostlistsRegistry/assets/filter_63.txt```
+   ```
+   https://adguardteam.github.io/HostlistsRegistry/assets/filter_63.txt
+   ```
    NoCoin Filter List : <br>
-   ```https://adguardteam.github.io/HostlistsRegistry/assets/filter_8.txt```
+   ```
+   https://adguardteam.github.io/HostlistsRegistry/assets/filter_8.txt
+   ```
    AdGuard DNS Popup Hosts filter : <br>
-   ```https://adguardteam.github.io/HostlistsRegistry/assets/filter_59.txt```
+   ```
+   https://adguardteam.github.io/HostlistsRegistry/assets/filter_59.txt
+   ```
    The Big List of Hacked Malware Web Sites : <br>
-   ```https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt```
+   ```
+   https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt
+   ```
 
 
 ### Whitelist

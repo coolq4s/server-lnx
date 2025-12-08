@@ -25,25 +25,57 @@ https://77.88.8.8/dns-query
 
 ```
 
-### UOption :
+### Option :
+-  DNS Setting
+   √ Load Balancing
+   √ Fall Back DNS
+      ```
+      8.8.8.8
+      8.8.4.4
+      1.1.1.1
+      1.0.0.1
+      ```
+   √ Bootstrap
+      ```
+      8.8.8.8
+      1.1.1.1
+      9.9.9.10
+      149.112.112.10
+      ```
+   √ Use private reverse DNS resolvers
+   √ Enable reverse resolving of clients IP addresses
+   √ Upstream timeout : 1
+   √ Rate limit : 0
+   √ Subnet prefix length for IPv4 addresses : default (24)
+   √ Subnet prefix length for IPv6 addresses : default (56)
+   √ Enable EDNS
+   √ Enable DNSSEC
+   √ Disable resolving of IPv6
+   √ Blocking mode : Default
+   √ Block response TTL : 10
+   √ Enable cache
+   √ Cache Size : 4194304
+   √ Override minimum TTL : 60
+   √ Override maximum TTL : 900
+   √ Optimistic caching
+   √
+   √
+   √
+   √
+   √
+   √
+   √
+   √
+   √
+   √
+   √
+   √
+   √
+   √
+   √
+   √
+   √
 
-√ Load Balancing
-√ Fall Back DNS
-   ```
-   8.8.8.8
-   8.8.4.4
-   1.1.1.1
-   1.0.0.1
-   ```
-√ Bootstrap
-   ```
-   8.8.8.8
-   1.1.1.1
-   9.9.9.10
-   149.112.112.10
-   ```
-√ Use private reverse DNS resolvers
-5. 
 ### Whitelist
 - AnuDEEP <br>
 ```

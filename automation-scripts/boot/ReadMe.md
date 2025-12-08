@@ -129,8 +129,7 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     ```
     Output before reboot :
     <pre>
-        10
-    </pre>
+        10</pre>
     Output after reboot:
     <pre>root=UUID=###-###-###-### rootflags=data=writeback console=***,*** console=tty0 rw no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 splash plymouth.ignore-serial-consoles panic=10 panic_on_oops=1
    10</pre>

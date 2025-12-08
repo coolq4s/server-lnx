@@ -127,12 +127,16 @@ If your machine is failure to boot in STB machine or other linux distro, use thi
     cat /proc/cmdline | grep panic
     cat /proc/sys/kernel/panic
     ```
-    Output :
+    Output before reboot :
+    <pre>
+        10
+    </pre>
+    Output after reboot:
     <pre>root=UUID=###-###-###-### rootflags=data=writeback console=***,*** console=tty0 rw no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 splash plymouth.ignore-serial-consoles panic=10 panic_on_oops=1
    10</pre>
-9. To testing kernel panic
+10. To testing kernel panic
     ```console
     echo c | sudo tee /proc/sysrq-trigger
     ```
     Note : Machine will be reboot
-10. If reboot the script is work properly
+11. If reboot the script is work properly

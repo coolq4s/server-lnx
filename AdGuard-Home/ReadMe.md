@@ -89,33 +89,32 @@ https://77.88.8.8/dns-query
    https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt
    ```
 
+-  Whitelist <br>
+   AnuDEEP : <br>
+   ```
+   https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
+   ```
+   Ultimate : <br>
+   ```
+   https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/whitelist/master/domains.list
+   ```
+   Advance : <br>
+   ```
+   https://raw.githubusercontent.com/Levi2288/AdvancedBlockList/main/Lists/whitelist.txt
+   ```
+   Adguard : <br>
+   ```
+   https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/allowlist.txt
+   ```
+   AGH : <br>
+   ```
+   https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/refs/heads/master/BaseFilter/sections/allowlist.txt
+   ```
+   AGH-Stealth : <br>
+   ```
+   https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/refs/heads/master/BaseFilter/sections/allowlist_stealth.txt
+   ```
 
-### Whitelist
-- AnuDEEP <br>
-```
-https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
-```
-
-- Ultimate
-```
-https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/whitelist/master/domains.list
-```
-- Advance
-```
-https://raw.githubusercontent.com/Levi2288/AdvancedBlockList/main/Lists/whitelist.txt
-```
-- Adguard
-```
-https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/allowlist.txt
-```
-- AGH
-```
-https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/refs/heads/master/BaseFilter/sections/allowlist.txt
-```
-- AGH-Stealth
-```
-https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/refs/heads/master/BaseFilter/sections/allowlist_stealth.txt
-```
 ### CUSTOM FILTER
 ```
 ! ===============================================

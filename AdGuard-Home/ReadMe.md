@@ -25,6 +25,9 @@ https://77.88.8.8/dns-query
 
 ```
 
+Option :
+√ Load Balancing
+
 ### Whitelist
 - AnuDEEP <br>
 ```

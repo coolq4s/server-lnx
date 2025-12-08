@@ -6,20 +6,12 @@ git clone https://github.com/coolq4s/server-lnx.git && mv server-lnx/AdGuard-Hom
 ### Upstream
 
 ```
-#PureDNS
-108.136.97.40:53
-tcp://108.136.97.40
-https://puredns.org/dns-query
 #CloudFlare
 https://1.1.1.1/dns-query
-https://1.0.0.1/dns-query
 tcp://1.1.1.1:53
 tcp://1.0.0.1:53
 tcp://1.1.1.1
 tcp://1.0.0.1
-#Adguard
-tcp://94.140.14.140
-94.140.14.140:53
 #Google
 https://8.8.8.8/dns-query
 https://8.8.4.4/dns-query
@@ -28,6 +20,8 @@ tcp://8.8.8.8
 #Quad9
 https://149.112.112.9/dns-query
 https://dns10.quad9.net/dns-query
+#Yandex
+https://77.88.8.8/dns-query
 
 ```
 

@@ -58,23 +58,16 @@ https://77.88.8.8/dns-query
    √ Override minimum TTL : 60 <br>
    √ Override maximum TTL : 900 <br>
    √ Optimistic caching <br>
-   √
-   √
-   √
-   √
-   √
-   √
-   √
-   √
-   √
-   √
-   √
-   √
-   √
-   √
-   √
-   √
-   √
+
+-  Blocklist
+   OISD : https://big.oisd.nl/ <br>
+   OISD 18+ : https://nsfw.oisd.nl/ <br>
+   AdGuard DNS filter : https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt <br>
+   HaGeZi's Windows/Office Tracker Blocklist : https://adguardteam.github.io/HostlistsRegistry/assets/filter_63.txt <br>
+   NoCoin Filter List : https://adguardteam.github.io/HostlistsRegistry/assets/filter_8.txt <br>
+   AdGuard DNS Popup Hosts filter : https://adguardteam.github.io/HostlistsRegistry/assets/filter_59.txt <br>
+   The Big List of Hacked Malware Web Sites : https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt <br>
+
 
 ### Whitelist
 - AnuDEEP <br>

@@ -60,13 +60,20 @@ https://77.88.8.8/dns-query
    √ Optimistic caching <br>
 
 -  Blocklist
-   OISD : https://big.oisd.nl/ <br>
-   OISD 18+ : https://nsfw.oisd.nl/ <br>
-   AdGuard DNS filter : https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt <br>
-   HaGeZi's Windows/Office Tracker Blocklist : https://adguardteam.github.io/HostlistsRegistry/assets/filter_63.txt <br>
-   NoCoin Filter List : https://adguardteam.github.io/HostlistsRegistry/assets/filter_8.txt <br>
-   AdGuard DNS Popup Hosts filter : https://adguardteam.github.io/HostlistsRegistry/assets/filter_59.txt <br>
-   The Big List of Hacked Malware Web Sites : https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt <br>
+   OISD : <br>
+   ```https://big.oisd.nl/```
+   OISD 18+ : <br>
+   ```https://nsfw.oisd.nl/```
+   AdGuard DNS filter : <br>
+   ```https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt```
+   HaGeZi's Windows/Office Tracker Blocklist : <br>
+   ```https://adguardteam.github.io/HostlistsRegistry/assets/filter_63.txt```
+   NoCoin Filter List : <br>
+   ```https://adguardteam.github.io/HostlistsRegistry/assets/filter_8.txt```
+   AdGuard DNS Popup Hosts filter : <br>
+   ```https://adguardteam.github.io/HostlistsRegistry/assets/filter_59.txt```
+   The Big List of Hacked Malware Web Sites : <br>
+   ```https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt```
 
 
 ### Whitelist

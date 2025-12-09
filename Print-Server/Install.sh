@@ -1,18 +1,23 @@
 #!/bin/bash
 
+# --- Color Variables ---
+YELLOW='\033[1;33m'
+GREEN='\033[1;32m'
+NC='\033[0m' # No Color
+
 if [ "$(id -u)" -ne 0 ]; then
-  echo "Script must run in root. Try with 'sudo'." >&2
+  echo -e "${YELLOW}Script must run in root. Try with 'sudo'.${NC}" >&2
   exit 1
 fi
 
-echo "Starting installation print server CUPS..."
-echo ".Updating system and package"
+echo -e "${YELLOW}Starting installation print server CUPS${NC}"
+echo -e "${YELLOW}Updating system and package${NC}"
 apt update -y && apt upgrade -y
 
-echo "..Instal CUPS"
+echo -e "${YELLOW}Instal CUPS${NC}"
 apt install cups -y
 
-echo "...Configure CUPS"
+echo -e "${YELLOW}Configure CUPS${NC}"
 CUPS_CONF="/etc/cups/cupsd.conf"
 cp "$CUPS_CONF" "$CUPS_CONF.bak"
 
@@ -22,20 +27,20 @@ sed -i 's/Browsing No/Browsing On/' "$CUPS_CONF"
 sed -i '/<Location \/>/,/<\/Location>/ s/Order allow,deny/Order allow,deny\n  Allow @LOCAL/' "$CUPS_CONF"
 sed -i '/<Location \/admin>/,/<\/Location>/ s/Order allow,deny/Order allow,deny\n  Allow @LOCAL/' "$CUPS_CONF"
 
-echo "....Restart CUPS service"
+echo -e "${YELLOW}Restart CUPS service${NC}"
 systemctl restart cups
 
-echo ".....Installing driver printer (Gutenprint for Canon/Epson, HPLIP for HP)"
+echo -e "${YELLOW}Installing driver printer (Gutenprint for Canon/Epson, HPLIP for HP)${NC}"
 apt install printer-driver-gutenprint -y
 apt install hplip -y
 
-echo "......Installing and actived Avahi daemon..."
+echo -e "${YELLOW}Installing and actived Avahi daemon...${NC}"
 apt install avahi-daemon -y
 systemctl enable avahi-daemon
 systemctl start avahi-daemon
 
-echo ".......Install and configuration Print Server CUPS done"
+echo -e "${GREEN}Install and configuration Print Server CUPS done${NC}"
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
-echo "........Access with http://$IP_ADDRESS:631"
+echo -e "${GREEN}Access with http://$IP_ADDRESS:631${NC}"
 
 rm -rf Install.sh

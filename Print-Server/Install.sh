@@ -37,3 +37,5 @@ systemctl start avahi-daemon
 echo ".......Install and configuration Print Server CUPS done"
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
 echo "........Access with http://$IP_ADDRESS:631"
+
+rm -rf Install.sh

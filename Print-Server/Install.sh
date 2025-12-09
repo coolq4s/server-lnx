@@ -35,4 +35,5 @@ systemctl enable avahi-daemon
 systemctl start avahi-daemon
 
 echo ".......Install and configuration Print Server CUPS done"
-echo "........Access with http://<IP_ADDRESS_SERVER>:631"
+IP_ADDRESS=$(hostname -I | awk '{print $1}')
+echo "........Access with http://$IP_ADDRESS:631"

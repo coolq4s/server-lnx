@@ -83,10 +83,10 @@ check_requirements() {
         exit 1
     fi
     
-    # Check architecture
+    # Check architecture (allow aarch64 and x86_64)
     ARCH=$(uname -m)
-    if [ "$ARCH" != "x86_64" ]; then
-        print_warning "This installer is designed for x86_64, but detected: $ARCH"
+    if [ "$ARCH" != "x86_64" ] && [ "$ARCH" != "aarch64" ]; then
+        print_warning "This installer is designed for x86_64/aarch64, but detected: $ARCH"
         read -p "Continue anyway? (y/N): " -n 1 -r
         echo
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -97,7 +97,169 @@ check_requirements() {
     print_success "System requirements check passed"
 }
 
-# Download executable from GitHub (if not present)
+# Initialize database
+initialize_database() {
+    print_step "Initializing database..."
+    
+    # Create a simple database initialization script
+    cat > /tmp/init_db.py << 'EOF'
+import sqlite3
+import os
+
+# Change to application directory
+os.chdir('/opt/network_map')
+
+# Database path
+DB_PATH = 'mapping.db'
+
+def init_db():
+    with sqlite3.connect(DB_PATH) as conn:
+        # Create nodes table
+        conn.execute('''CREATE TABLE IF NOT EXISTS nodes 
+            (id TEXT PRIMARY KEY, alias TEXT, x REAL, y REAL, parent_id TEXT, profile TEXT)''')
+        
+        # Create hotspot users table
+        conn.execute('''CREATE TABLE IF NOT EXISTS hotspot_users 
+            (username TEXT PRIMARY KEY, password TEXT, profile TEXT, comment TEXT, 
+             is_active INTEGER DEFAULT 0, last_seen TIMESTAMP, ip_address TEXT)''')
+        
+        # Create mikrotik settings table
+        conn.execute('''CREATE TABLE IF NOT EXISTS mikrotik_settings 
+            (id INTEGER PRIMARY KEY, host TEXT NOT NULL, username TEXT NOT NULL, 
+             password TEXT NOT NULL, port INTEGER DEFAULT 22, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)''')
+        
+        # Insert SERVER node
+        conn.execute("""INSERT OR IGNORE INTO nodes (id, alias, x, y, parent_id, profile) 
+                       VALUES ('SERVER', 'PUSAT DATA', 50.0, 50.0, NULL, NULL)""")
+        
+        conn.commit()
+        print("Database initialized successfully")
+
+if __name__ == "__main__":
+    init_db()
+EOF
+    
+    # Run database initialization
+    if command -v python3 >/dev/null 2>&1; then
+        python3 /tmp/init_db.py
+        rm -f /tmp/init_db.py
+        print_success "Database initialized"
+    else
+        print_warning "Python3 not found, database will be initialized on first run"
+    fi
+}
+
+# Check for port conflicts
+check_port_conflict() {
+    print_step "Checking port 5000 availability..."
+    
+    # Check if port 5000 is in use
+    if command -v netstat >/dev/null 2>&1; then
+        if netstat -tlnp | grep -q ":5000 "; then
+            print_warning "Port 5000 is already in use"
+            
+            # Show what's using the port
+            PROCESS=$(netstat -tlnp | grep ":5000 " | awk '{print $7}')
+            print_warning "Process using port 5000: $PROCESS"
+            
+            read -p "Kill the process using port 5000? (y/N): " -n 1 -r
+            echo
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                # Extract PID and kill it
+                PID=$(echo $PROCESS | cut -d'/' -f1)
+                if [ ! -z "$PID" ] && [ "$PID" != "-" ]; then
+                    kill -9 $PID 2>/dev/null || true
+                    sleep 2
+                    print_success "Process killed"
+                else
+                    print_error "Could not extract PID to kill process"
+                    exit 1
+                fi
+            else
+                print_error "Cannot continue with port 5000 in use"
+                exit 1
+            fi
+        fi
+    elif command -v ss >/dev/null 2>&1; then
+        if ss -tlnp | grep -q ":5000 "; then
+            print_warning "Port 5000 is already in use"
+            PROCESS=$(ss -tlnp | grep ":5000 " | awk '{print $6}')
+            print_warning "Process using port 5000: $PROCESS"
+            
+            read -p "Kill the process using port 5000? (y/N): " -n 1 -r
+            echo
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                # Try to extract PID from ss output
+                PID=$(echo $PROCESS | grep -o 'pid=[0-9]*' | cut -d'=' -f2)
+                if [ ! -z "$PID" ]; then
+                    kill -9 $PID 2>/dev/null || true
+                    sleep 2
+                    print_success "Process killed"
+                else
+                    print_error "Could not extract PID to kill process"
+                    exit 1
+                fi
+            else
+                print_error "Cannot continue with port 5000 in use"
+                exit 1
+            fi
+        fi
+    fi
+    
+    print_success "Port 5000 is available"
+}
+
+# Initialize database
+initialize_database() {
+    print_step "Initializing database..."
+    
+    # Create a simple database initialization script
+    cat > /tmp/init_db.py << 'EOF'
+import sqlite3
+import os
+
+# Change to application directory
+os.chdir('/opt/network_map')
+
+# Database path
+DB_PATH = 'mapping.db'
+
+def init_db():
+    with sqlite3.connect(DB_PATH) as conn:
+        # Create nodes table
+        conn.execute('''CREATE TABLE IF NOT EXISTS nodes 
+            (id TEXT PRIMARY KEY, alias TEXT, x REAL, y REAL, parent_id TEXT, profile TEXT)''')
+        
+        # Create hotspot users table
+        conn.execute('''CREATE TABLE IF NOT EXISTS hotspot_users 
+            (username TEXT PRIMARY KEY, password TEXT, profile TEXT, comment TEXT, 
+             is_active INTEGER DEFAULT 0, last_seen TIMESTAMP, ip_address TEXT)''')
+        
+        # Create mikrotik settings table
+        conn.execute('''CREATE TABLE IF NOT EXISTS mikrotik_settings 
+            (id INTEGER PRIMARY KEY, host TEXT NOT NULL, username TEXT NOT NULL, 
+             password TEXT NOT NULL, port INTEGER DEFAULT 22, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)''')
+        
+        # Insert SERVER node
+        conn.execute("""INSERT OR IGNORE INTO nodes (id, alias, x, y, parent_id, profile) 
+                       VALUES ('SERVER', 'PUSAT DATA', 50.0, 50.0, NULL, NULL)""")
+        
+        conn.commit()
+        print("Database initialized successfully")
+
+if __name__ == "__main__":
+    init_db()
+EOF
+    
+    # Run database initialization
+    if command -v python3 >/dev/null 2>&1; then
+        python3 /tmp/init_db.py
+        rm -f /tmp/init_db.py
+        print_success "Database initialized"
+    else
+        print_warning "Python3 not found, database will be initialized on first run"
+    fi
+}
 download_executable() {
     if [ -f "network_map" ]; then
         print_success "Executable found locally"
@@ -285,8 +447,10 @@ main() {
     
     check_root
     check_requirements
+    check_port_conflict
     download_executable
     install_application
+    initialize_database
     create_service
     configure_firewall
     start_service
